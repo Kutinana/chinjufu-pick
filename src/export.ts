@@ -36,7 +36,7 @@ const ROW_GAP = 28;
 const CARD_WIDTH = (WIDTH - PADDING * 2 - COLUMN_GAP * (COLUMNS - 1)) / COLUMNS;
 const IMAGE_TOP = 68;
 const IMAGE_SIZE = CARD_WIDTH;
-const CARD_HEIGHT = IMAGE_TOP + IMAGE_SIZE + 6 + 36 + 6 + 32;
+const CARD_HEIGHT = IMAGE_TOP + IMAGE_SIZE + 12 + 28 + 4 + 36;
 const FONT_FAMILY = '"Outfit Variable", "Noto Sans SC", "Noto Sans JP", "Hiragino Sans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif';
 const COLORS = {
   background: '#f7fbfd',
@@ -244,9 +244,10 @@ export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
     ctx.stroke();
 
     const name = fitText(ctx, card.name || options.emptyLabel, CARD_WIDTH - 4, 14, 11, 2, 700, 1.25);
-    const group = fitText(ctx, card.groupName, CARD_WIDTH - 4, 12, 10, 2, 800, 1.25);
-    drawText(ctx, name, centerX, imageY + IMAGE_SIZE + 8, COLORS.navy);
-    drawText(ctx, group, centerX, imageY + IMAGE_SIZE + 48, COLORS.group);
+    const group = fitText(ctx, card.groupName, CARD_WIDTH - 4, 11, 10, 2, 500, 1.25);
+    const groupY = imageY + IMAGE_SIZE + 12;
+    drawText(ctx, group, centerX, groupY, COLORS.group);
+    drawText(ctx, name, centerX, groupY + group.lines.length * group.lineHeight + 4, COLORS.navy);
   });
 
   ctx.beginPath();

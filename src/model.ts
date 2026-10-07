@@ -1,5 +1,6 @@
 import { CLASS_ORDER, JAPANESE_DD_CLASSES, SHIMAKAZE_CLASS } from './class-order';
 import { cleanAvatarAdjustment } from './avatar';
+import { DESTROYER_CLASS_ICONS } from './destroyer-icons';
 export type Language = 'zh' | 'ja' | 'en';
 export type LocalizedName = Record<Language, string>;
 export const SHIP_TYPES = [
@@ -41,6 +42,19 @@ export type BoardMode = 'types' | 'dd-classes';
 export type DDClassId = typeof JAPANESE_DD_CLASSES[number];
 export type SlotId = GroupId | `DD:${DDClassId}`;
 export interface BoardSlot { id: SlotId; names: LocalizedName; icon: string; code: string }
+/** Ordinal within the game's ship class, independent of the selected remodel. */
+export function shipClassOrdinal(number: number | undefined, language: Language): string {
+  if (!number || !Number.isInteger(number) || number < 1) return '—';
+  if (language === 'ja') return `${number}番艦`;
+  if (language === 'zh') {
+    const digits = '零一二三四五六七八九';
+    const label = number < 10 ? digits[number] : number < 100
+      ? `${number < 20 ? '' : digits[Math.floor(number / 10)]}十${number % 10 ? digits[number % 10] : ''}` : String(number);
+    return `${label}番舰`;
+  }
+  const suffix = number % 100 >= 11 && number % 100 <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[number % 10] ?? 'th';
+  return `${number}${suffix} ship`;
+}
 export function groupFor(typeId: TypeId): GroupId {
   return GROUPS.find((group) => (group.members as readonly string[]).includes(typeId))!.id;
 }
@@ -94,7 +108,7 @@ export interface ArtworkData {
   artworks: Artwork[];
 }
 export interface AvatarAdjustment { image: string; size: [number, number]; rect: [number, number, number, number] }
-export interface Pick { shipId: string; variantId: string; artworkId?: string; avatar?: AvatarAdjustment }
+export interface Pick { shipId: string; variantId: string; artworkId?: string; avatar?: AvatarAdjustment; useOriginalName?: boolean }
 export type Picks = Partial<Record<SlotId, Pick>>;
 export interface SavedBoard { version: 1; nickname: string; picks: Picks; mode?: BoardMode; showShimakaze?: boolean }
 
@@ -122,7 +136,7 @@ export function boardSlots(ships: Ship[], mode: BoardMode, showShimakaze = true)
   return JAPANESE_DD_CLASSES.flatMap((classId) => {
     if (!showShimakaze && classId === SHIMAKAZE_CLASS) return [];
     const ship = ships.find((item) => item.classId === classId && item.typeId === 'DD');
-    return ship?.className ? [{ id: `DD:${classId}` as SlotId, names: ship.className, icon: GROUPS[0].icon, code: 'DD' }] : [];
+    return ship?.className ? [{ id: `DD:${classId}` as SlotId, names: ship.className, icon: DESTROYER_CLASS_ICONS[classId] ?? GROUPS[0].icon, code: 'DD' }] : [];
   });
 }
 
@@ -171,6 +185,15 @@ export function findVariant(ships: Ship[], pick?: Pick): ShipVariant | undefined
   return ship && [ship, ...(ship.variants ?? [])].find((item) => item.id === pick?.variantId);
 }
 
+export function shipDisplayName(ship: Ship, variant: ShipVariant, language: Language, useOriginalName = false): string {
+  if (useOriginalName) return ship.names[language];
+  // Compare names without remodel markers, then use the first form with that
+  // identity for all three translations. Renamed forms keep their own identity.
+  const identity = (name: string) => name.replace(/(?:\s+(?:Kai(?:\s.*)?|Zwei|Drei|Due|Deux|Dva|Andra|Nuovo|Amélioration|A|Kou|Mk\.II(?:\s+Mod\.2)?|Flight II|\((?:ASU|AGL|AGB|BC|CV)\)))+$/i, '').trim();
+  const form = [ship, ...(ship.variants ?? [])].find((item) => identity(item.names.en) === identity(variant.names.en));
+  return (form ?? variant).names[language];
+}
+
 export function cleanBoard(value: unknown, ships: Ship[]): SavedBoard {
   const board: SavedBoard = { version: 1, nickname: '', picks: {} };
   if (!value || typeof value !== 'object') return board;
@@ -192,6 +215,7 @@ export function cleanBoard(value: unknown, ships: Ship[]): SavedBoard {
           shipId: record.shipId,
           variantId: record.variantId,
           ...(typeof record.artworkId === 'string' ? { artworkId: record.artworkId } : {}),
+          ...(record.useOriginalName === true ? { useOriginalName: true } : {}),
         };
         const avatar = cleanAvatarAdjustment(record.avatar);
         if (avatar && (typeof record.artworkId === 'string' || avatar.image === variant.image)) board.picks[group.id]!.avatar = avatar;
@@ -208,7 +232,8 @@ export function cleanBoard(value: unknown, ships: Ship[]): SavedBoard {
       const variant = findVariant(ships, record as unknown as Pick);
       if (ship?.classId !== classId || !variant || variant.typeId !== 'DD') continue;
       board.picks[key] = { shipId: record.shipId, variantId: record.variantId,
-        ...(typeof record.artworkId === 'string' ? { artworkId: record.artworkId } : {}) };
+        ...(typeof record.artworkId === 'string' ? { artworkId: record.artworkId } : {}),
+        ...(record.useOriginalName === true ? { useOriginalName: true } : {}) };
       const avatar = cleanAvatarAdjustment(record.avatar);
       if (avatar && (typeof record.artworkId === 'string' || avatar.image === variant.image)) board.picks[key]!.avatar = avatar;
     }
@@ -238,7 +263,7 @@ export function cleanArtworkBoard(board: SavedBoard, artworks: Artwork[]): Saved
     const art = pick.artworkId ? map.get(pick.artworkId) : undefined;
     const variants = art?.variantIds ?? (art?.variantId ? [art.variantId] : []);
     const valid = art?.shipId === pick.shipId && (!variants.length || variants.includes(pick.variantId));
-    if (!valid) picks[key] = { shipId: pick.shipId, variantId: pick.variantId };
+    if (!valid) picks[key] = { shipId: pick.shipId, variantId: pick.variantId, ...(pick.useOriginalName ? { useOriginalName: true } : {}) };
     else if (pick.avatar && pick.avatar.image !== art!.image) {
       const { avatar: _avatar, ...withoutAvatar } = pick; picks[key] = withoutAvatar;
     } else picks[key] = pick;

@@ -106,3 +106,5 @@
 .language-select .remodel-trigger svg{flex-shrink:0}
 .language-select .remodel-options{left:auto;right:0}
 @media(max-width:760px){.language-select .remodel-control{min-width:123px}.language-select .remodel-trigger{min-height:39px;font-size:12px;padding:8px 9px;gap:7px}}
+
+.original-name-switch{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:7px;font-size:10px;color:#688697;cursor:pointer;line-height:1.5}.original-name-switch input{width:24px;height:14px;appearance:none;flex-shrink:0;border-radius:10px;background:#dce6ed;border:1px solid #cadbe5;position:relative;cursor:pointer}.original-name-switch input:before{content:"";position:absolute;width:10px;height:10px;left:1px;top:1px;background:#fff;border-radius:50%;transition:transform .15s}.original-name-switch input:checked{background:#65b7d5;border-color:#65b7d5}.original-name-switch input:checked:before{transform:translateX(10px)}.original-name-switch input:focus-visible{outline:2px solid #2b94c5;outline-offset:3px}

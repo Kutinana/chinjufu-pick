@@ -2,19 +2,23 @@ import type { Language } from './model';
 
 const zh = {
   brand: '镇守府 Pick', title: '',
-  introTitle: '按舰种选择最喜欢的舰娘',
+  introTitle: '各舰种最喜爱的舰娘',
   home: '首页', homeTitle: '提督，你最喜欢的舰娘是？',
   homeIntro: '按舰种或舰级，选出你最喜欢的舰娘。挑好立绘，留下属于你的镇守府印象。',
   pickupTemplates: '选择一个 pickup', startPicking: '开始选择', notFound: '没有找到这个页面',
   typeTemplateDescription: '每个舰种里，你最喜欢谁？选出十位你的标志性舰娘吧。',
   classTemplateDescription: '神风型到松型，每个舰级选一位最喜欢的驱逐舰吧。',
-  ddClassTitle: '按舰级选择最喜欢的日籍驱逐舰',
+  ddClassTitle: '各舰级最喜爱的日籍驱逐舰',
   ddClassInstruction: '日籍驱逐舰里，每个舰级选出一位最喜欢的驱逐舰吧。',
-  ddClassExport: '我的日籍驱逐舰舰级选择表',
+  ddClassExport: '日籍驱逐舰各级姐妹大比拼',
   classLabel: '舰级', showShimakaze: '显示岛风级', shimakazeHint: '毕竟只有岛风一位',
   wrongClass: '请放入对应舰级的空位。',
   instruction: '把舰娘拖入对应的空位，或点击空位开始选择。选好舰娘后，还可以挑选你喜欢的立绘并微调头像位置。',
   nickname: '提督昵称', nicknamePlaceholder: '输入提督昵称',
+  useOriginalName: '使用原名',
+  exportOwner: '{name}提督的', exportAnonymousOwner: '提督的',
+  missingNicknameTitle: '还没有填写提督昵称', missingNicknameBody: '可以返回填写昵称，或继续生成，图片第一行将使用「提督的」。',
+  enterNickname: '填写昵称', continueExport: '继续生成',
   board: '舰娘选择表', library: '舰娘列表', selected: '已选择',
   choose: '选择舰娘', tapSearch: '点击查找', reset: '重置',
   search: '搜索舰娘名称…', all: '全部', ships: '位舰娘', entries: '个候选',
@@ -42,7 +46,7 @@ const zh = {
   sourceNote: '舰娘名称、舰种与改装关系来自 kcwiki；立绘目录来自舰娘百科。所有图像版权归原权利方所有。',
   artNote: '立绘以来源站可取得的记录为准，包含常规、改装及已收录的限定立绘。',
   reference: '界面与操作参考', autosaved: '选择自动保存在此浏览器',
-  empty: '未选择', exportSubtitle: '我的舰种最喜欢舰娘选择表',
+  empty: '未选择', exportSubtitle: '镇守府我推舰娘大比拼',
   countLabel: '舰种', imagePreview: '图片预览', download: '下载 PNG',
   previewHint: '手机上也可以长按图片保存。', shareTitle: '分享你的镇守府',
   shareHint: '打开链接即可查看并继续编辑这张选择表。', copy: '复制链接',
@@ -65,6 +69,10 @@ const ja: Messages = {
   wrongClass: '同じ艦級の枠に入れてください。',
   instruction: '艦娘を同じ艦種の枠へドラッグするか、枠をタップして選択。艦娘を選んだら、お気に入りのイラストも選べます。',
   nickname: '提督名', nicknamePlaceholder: '提督名を入力',
+  useOriginalName: '元の艦名を表示',
+  exportOwner: '{name}提督の', exportAnonymousOwner: '提督の',
+  missingNicknameTitle: '提督名が未入力です', missingNicknameBody: '提督名を入力するか、そのまま生成できます。未入力の場合、画像の最初の行は「提督の」になります。',
+  enterNickname: '提督名を入力', continueExport: 'そのまま生成',
   board: '艦娘選択表', library: '艦娘一覧', selected: '選択済み',
   choose: '艦娘を選ぶ', tapSearch: 'タップして検索', reset: 'リセット',
   search: '艦娘の名前を検索…', all: 'すべて', ships: '人の艦娘', entries: '件の候補',
@@ -114,6 +122,10 @@ const en: Messages = {
   wrongClass: 'Please use a matching ship class slot.',
   instruction: 'Drag a shipgirl into a matching slot, or tap a slot to choose. Then pick your favorite illustration.',
   nickname: 'Admiral name', nicknamePlaceholder: 'Enter admiral name',
+  useOriginalName: 'Use original name',
+  exportOwner: "Admiral {name}'s", exportAnonymousOwner: "Admiral's",
+  missingNicknameTitle: 'No admiral name entered', missingNicknameBody: "Enter your name, or continue with \"Admiral's\" as the first line of the image.",
+  enterNickname: 'Enter name', continueExport: 'Continue creating',
   board: 'Selection board', library: 'Shipgirl list', selected: 'selected',
   choose: 'Choose shipgirl', tapSearch: 'Tap to search', reset: 'Reset',
   search: 'Search shipgirl name…', all: 'All', ships: 'shipgirls', entries: 'candidates',
@@ -156,5 +168,5 @@ export function initialLanguage(): Language {
     const saved = localStorage.getItem('chinjufu-language');
     if (saved === 'zh' || saved === 'ja' || saved === 'en') return saved;
   } catch { /* Browser storage may be unavailable. */ }
-  return navigator.language.startsWith('ja') ? 'ja' : navigator.language.startsWith('en') ? 'en' : 'zh';
+  return navigator.language.startsWith('zh') ? 'zh' : navigator.language.startsWith('ja') ? 'ja' : 'en';
 }

@@ -17,6 +17,8 @@ import {
   encodeBoard,
   matchesSearch,
   sortArtworks,
+  shipDisplayName,
+  shipClassOrdinal,
 } from './model';
 import type { Artwork, SavedBoard, Ship, ShipData } from './model';
 
@@ -43,6 +45,47 @@ const mogami: Ship = {
 const ships = [kitakami, mogami];
 const data = JSON.parse(readFileSync(new URL('../public/data/ships.json', import.meta.url), 'utf8')) as ShipData;
 
+describe('selected ship names', () => {
+  it('lets renamed ships use their original identity independently of the remodel', () => {
+    for (const [shipId, variantId] of [['35', '147'], ['431', '436']]) {
+      const ship = data.ships.find((item) => item.id === shipId)!;
+      const variant = ship.variants!.find((item) => item.id === variantId)!;
+      for (const language of ['zh', 'ja', 'en'] as const) expect(shipDisplayName(ship, variant, language, true)).toBe(ship.names[language]);
+      const key = shipId === '35' ? 'DD:5' : 'SS';
+      const board: SavedBoard = { version: 1, nickname: '', picks: { [key]: { shipId, variantId, useOriginalName: true } } };
+      expect(decodeBoard(encodeBoard(board), data.ships)).toEqual(board);
+    }
+  });
+
+  it('ignores invalid original-name preferences from shared data', () => {
+    expect(cleanBoard({ picks: { 'DD:5': { shipId: '35', variantId: '147', useOriginalName: 'true' } } }, data.ships).picks['DD:5']?.useOriginalName).toBeUndefined();
+  });
+  it.each([
+    ['431', '436', ['吕500', '呂500', 'Ro-500']],
+    ['35', '147', ['信赖', 'Верный', 'Verniy']],
+    ['20', '651', ['丹阳', '丹陽', 'Tan Yang']],
+    ['20', '656', ['雪风', '雪風', 'Yukikaze']],
+    ['184', '888', ['龙凤', '龍鳳', 'Ryuuhou']],
+    ['521', '529', ['大鹰', '大鷹', 'Taiyou']],
+    ['522', '889', ['云鹰', '雲鷹', 'Unyou']],
+    ['535', '539', ['UIT-25', 'UIT-25', 'UIT-25']],
+    ['535', '530', ['伊504', '伊504', 'I-504']],
+    ['511', '512', ['十月革命', 'Октябрьская революция', 'Oktyabrskaya Revolyutsiya']],
+    ['988', '1002', ['野埼', '野埼', 'Nosaki']],
+  ])('uses the selected identity for %s / %s in all languages', (shipId, variantId, expected) => {
+    const ship = data.ships.find((item) => item.id === shipId)!;
+    const variant = [ship, ...(ship.variants ?? [])].find((item) => item.id === variantId)!;
+    expect((['zh', 'ja', 'en'] as const).map((language) => shipDisplayName(ship, variant, language))).toEqual(expected);
+  });
+
+  it.each(['Kitakami', 'Bismarck', 'Saratoga', 'Chitose', 'Gotland', 'Souya (ASU)', 'Glorious (BC)'])('keeps %s without remodel markers', (name) => {
+    const ship = data.ships.find((item) => item.names.en === name)!;
+    for (const variant of [ship, ...(ship.variants ?? [])]) {
+      for (const language of ['zh', 'ja', 'en'] as const) expect(shipDisplayName(ship, variant, language)).toBe(ship.names[language]);
+    }
+  });
+});
+
 describe('Japanese destroyer class boards', () => {
   const candidates = candidatesFor(data.ships);
   const byName = (name: string) => candidates.find((candidate) => candidate.ship.names.en === name)!;
@@ -51,11 +94,37 @@ describe('Japanese destroyer class boards', () => {
   const fletcher = byName('Fletcher');
   const pick = (candidate: typeof shimakaze) => ({ shipId: candidate.ship.id, variantId: candidate.variants[0].id });
 
+  it.each([
+    ['Hatakaze', ['五番舰', '5番艦', '5th ship']],
+    ['Mutsuki', ['一番舰', '1番艦', '1st ship']],
+    ['Shirakumo', ['八番舰', '8番艦', '8th ship']],
+    ['Ushio', ['十番舰', '10番艦', '10th ship']],
+    ['Hibiki', ['二番舰', '2番艦', '2nd ship']],
+  ])('uses the class ordinal for %s, including renamed remodels', (name, expected) => {
+    const ship = byName(name).ship;
+    expect((['zh', 'ja', 'en'] as const).map((language) => shipClassOrdinal(ship.classNumber, language))).toEqual(expected);
+  });
+
+  it('formats teen ordinals and does not invent missing numbers', () => {
+    expect([11, 12, 13, 21, 22, 23].map((number) => shipClassOrdinal(number, 'en'))).toEqual(['11th ship', '12th ship', '13th ship', '21st ship', '22nd ship', '23rd ship']);
+    expect(shipClassOrdinal(12, 'zh')).toBe('十二番舰');
+    expect(shipClassOrdinal(undefined, 'zh')).toBe('—');
+    expect(shipClassOrdinal(0, 'ja')).toBe('—');
+  });
+
   it('offers 13 Japanese classes in a stable order with 113 eligible shipgirls', () => {
     const slots = boardSlots(data.ships, 'dd-classes');
     expect(slots.map((slot) => slot.names.ja)).toEqual(['神風型', '睦月型', '吹雪型', '綾波型', '暁型', '初春型', '白露型', '朝潮型', '陽炎型', '夕雲型', '秋月型', '島風型', '松型']);
     expect(candidates.filter((candidate) => slots.some((slot) => matchesSlot(candidate, slot.id)))).toHaveLength(113);
     expect(boardSlots(data.ships, 'types').map((slot) => slot.id)).toEqual(GROUPS.map((group) => group.id));
+  });
+
+  it('uses verified silhouettes for all thirteen classes and existing assets for every slot', () => {
+    const slots = boardSlots(data.ships, 'dd-classes');
+    expect(slots.filter((slot) => slot.icon.includes('/destroyer-classes/'))).toHaveLength(13);
+    for (const slot of slots) expect(existsSync(new URL(`../public${slot.icon}`, import.meta.url))).toBe(true);
+    const eligible = candidates.filter((candidate) => slots.some((slot) => matchesSlot(candidate, slot.id)));
+    expect(eligible.every((candidate) => candidate.ship.classNumber && candidate.ship.classNumber > 0)).toBe(true);
   });
 
   it('excludes overseas destroyers and rejects the wrong class or ship type', () => {

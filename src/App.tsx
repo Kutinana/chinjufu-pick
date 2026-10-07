@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { Anchor, Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Download, ExternalLink, Globe2, GripVertical, ImageIcon, Info, LoaderCircle, Minus, Move, Plus, RotateCcw, Search, Share2, X } from 'lucide-react';
-import { GROUPS, SHIP_TYPES, boardForMode, boardSlots, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks } from './model';
+import { GROUPS, SHIP_TYPES, boardForMode, boardSlots, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks, shipDisplayName, shipClassOrdinal } from './model';
 import type { Artwork, ArtworkData, Candidate, Language, Picks, SavedBoard, ShipData, SlotId, TypeId, AvatarCrop, AvatarCropData, AvatarAdjustment } from './model';
 import { initialLanguage, messages } from './i18n';
 import { pageForPath, PICKUP_PATHS } from './routes';
@@ -275,6 +275,7 @@ export default function App() {
   const [active, setActive] = useState<Candidate | null>(null);
   const [dragOver, setDragOver] = useState<SlotId | null>(null);
   const [resetOpen, setResetOpen] = useState(false);
+  const [missingNicknameOpen, setMissingNicknameOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [preview, setPreview] = useState('');
@@ -395,18 +396,20 @@ export default function App() {
     if (!artTarget || !artSlot) return;
     setBoard((current) => ({ ...current, picks: { ...current.picks, [artSlot]: {
       shipId: artTarget.ship.id, variantId, ...(art.id.startsWith('fallback-') ? {} : { artworkId: art.id }), ...(avatar ? { avatar } : {}),
+      ...(current.picks[artSlot]?.shipId === artTarget.ship.id && current.picks[artSlot]?.useOriginalName ? { useOriginalName: true } : {}),
     } } }));
     setArtTarget(null); setChooser(null); setActive(null);
   }
   function removePick(typeId: SlotId) { setBoard((current) => { const picks: Picks = { ...current.picks }; delete picks[typeId]; return { ...current, picks }; }); }
   function boardImage(typeId: SlotId) {
     const pick = board.picks[typeId]; const variant = findVariant(data?.ships ?? [], pick);
-    const name = data?.ships.find((ship) => ship.id === pick?.shipId)?.names[language];
+    const ship = data?.ships.find((ship) => ship.id === pick?.shipId);
+    const name = ship && variant ? shipDisplayName(ship, variant, language, pick?.useOriginalName) : undefined;
     const art = pick?.artworkId ? artworkMap.get(pick.artworkId) : undefined;
     const base = art ? avatarCrops?.images[art.image] : undefined;
     const image = art && (base?.rect || pick?.avatar?.image === art.image) ? art.image : variant?.image;
     const crop = image ? resolveAvatarCrop(image, avatarCrops?.images[image], pick?.avatar) : undefined;
-    return { variant, name, art, crop, image };
+    return { ship, variant, name, art, crop, image };
   }
   function dropShip(event: React.DragEvent, typeId: SlotId) {
     event.preventDefault(); setDragOver(null); setActive(null);
@@ -416,13 +419,19 @@ export default function App() {
     if (!matchesSlot(candidate, typeId)) { setToast(classMode ? t.wrongClass : t.wrongType); return; }
     openArt(candidate);
   }
-  async function saveImage() {
+  async function saveImage(allowUnnamed = false) {
     if (saving) return;
+    const nickname = board.nickname.trim();
+    if (!nickname && !allowUnnamed) { setMissingNicknameOpen(true); return; }
     setSaving(true);
     try {
-      const blob = await exportBoard({ nickname: board.nickname.trim() || { zh: '提督', ja: '提督', en: 'Admiral' }[language], title: introTitle, subtitle: classMode ? t.ddClassExport : t.exportSubtitle, brand: t.brand,
+      const blob = await exportBoard({ nickname: nickname ? t.exportOwner.replace('{name}', () => nickname) : t.exportAnonymousOwner, title: introTitle, subtitle: classMode ? t.ddClassExport : t.exportSubtitle, brand: t.brand,
         footer: `${t.fan} · ${location.host}`, emptyLabel: t.empty,
-        cards: slots.map((group) => { const { name, image, crop } = boardImage(group.id); return { groupId: group.code, icon: group.icon, groupName: group.names[language], name, image, crop }; }),
+        cards: slots.map((group) => {
+          const { ship, name, image, crop } = boardImage(group.id);
+          return { groupId: classMode ? group.names[language] : group.code, icon: group.icon,
+            groupName: classMode ? shipClassOrdinal(ship?.classNumber, language) : group.names[language], name, image, crop };
+        }),
       });
       const url = URL.createObjectURL(blob); setPreview(url); setToast(t.saved);
     } catch { setToast(t.exportFailed); }
@@ -458,7 +467,7 @@ export default function App() {
       <a href={`/?lang=${language}`} className="brand" aria-label={t.brand}><Anchor size={22}/><span>{t.brand}</span></a>
       <span className="header-title">{t.title}</span>
       <div className="header-actions"><StyledSelect className="language-select" label="语言 / 言語 / Language" hideLabel icon={<Globe2 size={17}/>} value={language} options={[{ value: 'zh', label: '中文' }, { value: 'ja', label: '日本語' }, { value: 'en', label: 'English' }]} onChange={(value) => setLanguage(value as Language)}/>
-        {isPickup && <button className="primary-button header-save" onClick={saveImage} disabled={!ready || saving}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>}<span>{saving ? t.saving : t.save}</span></button>}
+        {isPickup && <button className="primary-button header-save" onClick={() => void saveImage()} disabled={!ready || saving}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>}<span>{saving ? t.saving : t.save}</span></button>}
       </div>
     </div></header>
     {!ready ? <main className="loading-state"><Anchor size={42}/><h1>{t.brand}</h1>{error ? <><p>{t.loadFailed}</p><button className="primary-button" onClick={() => setRetry((value) => value + 1)}><RotateCcw size={16}/>{t.retry}</button></> : <><LoaderCircle className="spin" size={22}/><p>{t.loading}</p></>}</main> : page === 'home' ? <main className="page home-page">
@@ -479,7 +488,8 @@ export default function App() {
         <div className="workspace">
           <section className="board-panel panel" aria-labelledby="board-title"><div className="section-header"><h2 id="board-title"><span className="section-number">01</span>{t.board}</h2><button className="text-button muted" onClick={() => count ? setResetOpen(true) : setActive(null)}><RotateCcw size={15}/>{t.reset}</button></div>
             <div className="board-grid">{slots.map((group) => {
-              const { variant, name, image, crop } = boardImage(group.id);
+              const { ship, variant, name, image, crop } = boardImage(group.id);
+              const renamed = ship && variant && shipDisplayName(ship, variant, 'en') !== ship.names.en;
               const candidate = selectable.find((candidate) => candidate.ship.id === board.picks[group.id]?.shipId && matchesSlot(candidate, group.id));
               return <div className="board-item" key={group.id}><div className="type-identity"><TypeMark icon={group.icon}/><span title={group.names[language]}>{group.names[language]}</span><small title={group.code}>{group.code}</small></div>
                 <div className={`slot-frame ${variant ? 'filled' : ''} ${dragOver === group.id ? 'drag-over' : ''}`} onDragOver={(event) => { event.preventDefault(); setDragOver(group.id); }} onDragLeave={() => setDragOver(null)} onDrop={(event) => dropShip(event, group.id)}>
@@ -490,6 +500,13 @@ export default function App() {
                   {variant && <button className="remove-pick" aria-label={`${t.clear} · ${group.names[language]}`} onClick={() => removePick(group.id)}><X size={14}/></button>}
                 </div>
                 {variant && <div className="slot-actions"><button onClick={() => setCropTarget(group.id)}><Move size={11}/>{t.adjustAvatar}</button></div>}
+                {renamed && <label className="original-name-switch"><input type="checkbox" role="switch" checked={board.picks[group.id]?.useOriginalName === true} onChange={(event) => {
+                  const checked = event.target.checked;
+                  setBoard((current) => { const pick = current.picks[group.id]; if (!pick) return current;
+                    const { useOriginalName: _previous, ...rest } = pick;
+                    return { ...current, picks: { ...current.picks, [group.id]: { ...rest, ...(checked ? { useOriginalName: true } : {}) } } };
+                  });
+                }}/><span>{t.useOriginalName}</span></label>}
               </div>;
             })}</div>
             <div className="board-footnote"><CheckCircle2 size={13}/><span>{t.autosaved}</span><button className="text-button" onClick={share}><Share2 size={13}/>{t.share}</button></div>
@@ -507,17 +524,22 @@ export default function App() {
         </div>
         {renderFooter()}
       </main>
-      <div className="mobile-save"><span><strong>{count}</strong> /{slots.length} {t.selected}</span><button className="primary-button" disabled={saving} onClick={saveImage}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>} {saving ? t.saving : t.save}</button></div>
+      <div className="mobile-save"><span><strong>{count}</strong> /{slots.length} {t.selected}</span><button className="primary-button" disabled={saving} onClick={() => void saveImage()}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>} {saving ? t.saving : t.save}</button></div>
     </>}
     <ModalPresence>{chooserSlot && <Modal title={`${t.chooseFor}${chooserSlot.names[language]}`} onClose={() => setChooser(null)}><div className="modal-search search-field"><Search size={18}/><input autoFocus aria-label={t.search} value={modalSearch} placeholder={t.search} onChange={(event) => setModalSearch(event.target.value)}/></div><div className="chooser-list modal-scroll">{candidatesByClass(modalCandidates, language).map((group) => <section className="class-section" key={group.key} aria-label={group.names[language]}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate, true))}</div></section>)}{!modalCandidates.length && <div className="empty-results"><Search size={25}/><strong>{t.noResults}</strong><p>{t.trySearch}</p></div>}</div></Modal>}</ModalPresence>
     <ModalPresence>{artTarget && <ArtworkPicker key={artTarget.key} candidate={artTarget} artworks={artData?.artworks ?? []} language={language} crops={avatarCrops?.images ?? {}} currentAvatar={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick.avatar : undefined} currentId={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick?.artworkId : undefined} currentVariantId={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick?.variantId : undefined} onClose={() => { setArtTarget(null); setActive(null); }} onBack={() => { if (!chooser && artSlot) openChooser(artSlot); setArtTarget(null); setActive(null); }} onChoose={chooseArtwork}/>}</ModalPresence>
     <ModalPresence>{cropTarget && cropDetails?.image && <AvatarEditor key={`${cropTarget}:${cropDetails.image}`} image={cropDetails.image} name={cropDetails.name ?? ''} language={language} base={avatarCrops?.images[cropDetails.image]} adjustment={board.picks[cropTarget]?.avatar} onClose={() => setCropTarget(null)} onApply={(avatar) => {
       setBoard((current) => { const pick = current.picks[cropTarget]; return pick ? { ...current, picks: { ...current.picks, [cropTarget]: { ...pick, avatar } } } : current; }); setCropTarget(null);
     }}/>}</ModalPresence>
+    <ModalPresence>{missingNicknameOpen && <Modal className="small-modal" title={t.missingNicknameTitle} onClose={() => setMissingNicknameOpen(false)}><p className="modal-copy">{t.missingNicknameBody}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => {
+      setMissingNicknameOpen(false);
+      // Focus after the closing modal has restored its previous focus target.
+      window.setTimeout(() => document.getElementById('nickname')?.focus(), MODAL_EXIT_MS + 20);
+    }}>{t.enterNickname}</button><button className="primary-button" disabled={saving} onClick={() => { setMissingNicknameOpen(false); void saveImage(true); }}>{t.continueExport}</button></div></Modal>}</ModalPresence>
     <ModalPresence>{resetOpen && <Modal className="small-modal" title={t.resetTitle} onClose={() => setResetOpen(false)}><p className="modal-copy">{t.resetBody}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => setResetOpen(false)}>{t.cancel}</button><button className="primary-button" onClick={() => { setBoard((current) => ({ ...current, picks: Object.fromEntries(Object.entries(current.picks).filter(([key]) => key.startsWith('DD:') !== classMode)) as Picks })); setActive(null); setResetOpen(false); }}>{t.confirm}</button></div></Modal>}</ModalPresence>
     <ModalPresence>{preview && <Modal className="preview-modal" title={t.imagePreview} onClose={() => setPreview('')}><div className="preview-image modal-scroll"><img src={preview} alt={classMode ? t.ddClassExport : t.exportSubtitle}/></div><div className="art-footer"><span>{t.previewHint}</span><a className="primary-button" href={preview} download={`chinjufu-pick-${board.nickname || 'admiral'}.png`}><Download size={17}/>{t.download}</a></div></Modal>}</ModalPresence>
     <ModalPresence>{shareUrl && <Modal className="small-modal" title={t.shareTitle} onClose={() => setShareUrl('')}><p className="modal-copy">{t.shareHint}</p><input className="share-url" aria-label={t.shareTitle} readOnly value={shareUrl} onFocus={(event) => event.target.select()}/><div className="dialog-actions"><button className="primary-button" onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setToast(t.copied); } catch { setToast(t.copyFailed); } }}><Share2 size={16}/>{t.copy}</button></div></Modal>}</ModalPresence>
-    <ModalPresence>{aboutOpen && <Modal className="small-modal" title={t.about} onClose={() => setAboutOpen(false)}><div className="about-content"><Anchor size={32}/><p>{t.sourceNote}</p><p>{t.artNote}</p><h3>{t.source}</h3>{[...(data?.sources ?? []), ...(artData?.sources ?? []).filter((source) => source.url !== 'https://wikiwiki.jp/kancolle/長波改二補'), { name: 'Ship silhouettes © ちょも · Pastime工廠', url: 'https://blog.pastime.ne.jp/game/kankore/1473' }, { name: '「艦これ」いつかあの海で · Key Visual', url: 'https://kancolle-itsuumi.com/' }].map((source, index) => <a href={source.url} key={index} target="_blank" rel="noreferrer">{source.name}<ExternalLink size={13}/></a>)}<h3>{t.reference}</h3><a href="https://blue-archive-pick.vercel.app/favorite-students" target="_blank" rel="noreferrer">Kivotos Pick <ExternalLink size={13}/></a></div></Modal>}</ModalPresence>
+    <ModalPresence>{aboutOpen && <Modal className="small-modal" title={t.about} onClose={() => setAboutOpen(false)}><div className="about-content"><Anchor size={32}/><p>{t.sourceNote}</p><p>{t.artNote}</p><h3>{t.source}</h3>{[...(data?.sources ?? []), ...(artData?.sources ?? []).filter((source) => source.url !== 'https://wikiwiki.jp/kancolle/長波改二補'), { name: 'Ship silhouettes © ちょも · Pastime工廠', url: 'https://blog.pastime.ne.jp/game/kankore/1473' }, { name: 'Destroyer class profiles · US Navy / Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/Category:ONI_identification_images' }, { name: 'Kamikaze profile · David Bocquelet / Naval Encyclopedia (adapted)', url: 'https://naval-encyclopedia.com/POSTERS/IJN-Destroyers-poster.jpg' }, { name: 'Yūgumo silhouette · MacMoreno · CC BY-SA 4.0 (adapted)', url: 'https://commons.wikimedia.org/wiki/File:Yūgumo_class_destroyer_outline_and_drawing.svg' }, { name: 'Ayanami profile · Dr Dan Saranga / The-Blueprints', url: 'https://www.the-blueprints.com/blueprints/ships/ships-japan/45364/view/ijn_ayanami_destroyer/' }, { name: 'Take profile · Snow Cloud / Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:Fig_of_IJN_DD_Take_1944-1945.gif' }, { name: '「艦これ」いつかあの海で · Key Visual', url: 'https://kancolle-itsuumi.com/' }].map((source, index) => <a href={source.url} key={index} target="_blank" rel="noreferrer">{source.name}<ExternalLink size={13}/></a>)}<h3>{t.reference}</h3><a href="https://blue-archive-pick.vercel.app/favorite-students" target="_blank" rel="noreferrer">Kivotos Pick <ExternalLink size={13}/></a></div></Modal>}</ModalPresence>
     {toast && <div className="toast" role="status"><CheckCircle2 size={17}/>{toast}</div>}
   </>;
 }

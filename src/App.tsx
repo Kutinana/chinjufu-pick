@@ -205,11 +205,16 @@ function AvatarEditor({ image, name, language, base, adjustment, onClose, onAppl
   </Modal>;
 }
 
+function candidateShipTypes(candidate: Candidate) {
+  return SHIP_TYPES.filter((type) => candidate.variants.some((variant) => variant.typeId === type.id));
+}
+
 function ArtworkPicker({ candidate, artworks, language, currentId, currentVariantId, currentAvatar, crops, onClose, onBack, onChoose }: {
   candidate: Candidate; artworks: Artwork[]; language: Language; currentId?: string; currentVariantId?: string; currentAvatar?: AvatarAdjustment; crops: AvatarCropData['images'];
   onClose: () => void; onBack: () => void; onChoose: (art: Artwork, variantId: string, avatar?: AvatarAdjustment) => void;
 }) {
   const t = messages[language];
+  const shipTypes = candidateShipTypes(candidate);
   const [variantId, setVariantId] = useState('all');
   const [kind, setKind] = useState('all');
   const [damage, setDamage] = useState('all');
@@ -239,7 +244,7 @@ function ArtworkPicker({ candidate, artworks, language, currentId, currentVarian
     const canConfirm = card !== null && event.detail === 2 && lastClick.current?.card === card && lastClick.current.detail === 1;
     lastClick.current = { card, detail: event.detail, canConfirm };
   }}>
-    <div className="art-intro"><div className="art-ship-identity"><button className="text-button art-back-button" onClick={onBack}><ChevronLeft size={16}/>{t.backShips}</button><Image src={candidate.ship.image} alt="" /><div><strong>{candidate.ship.names[language]}</strong><span>{GROUPS.find((group) => group.id === candidate.typeId)!.names[language]} · {candidate.typeId}</span></div></div><p>{t.artIntro}</p></div>
+    <div className="art-intro"><div className="art-ship-identity"><button className="text-button art-back-button" onClick={onBack}><ChevronLeft size={16}/>{t.backShips}</button><Image src={candidate.ship.image} alt="" /><div><strong>{candidate.ship.names[language]}</strong><span>{shipTypes.map((type) => type.names[language]).join(' / ')} · {shipTypes.map((type) => type.id).join(' / ')}</span></div></div><p>{t.artIntro}</p></div>
     <div className="art-filters">
       <StyledSelect label={t.remodel} value={variantId} options={[{ value: 'all', label: t.allForms }, ...candidate.variants.map((variant) => ({ value: variant.id, label: variant.names[language] }))]} onChange={(value) => { setVariantId(value); setSelectedId(''); }} />
       <div className="filter-row" role="group" aria-label={t.allArt}>
@@ -454,12 +459,12 @@ export default function App() {
   function renderShip(candidate: Candidate, modal = false) {
     const slot = slotFor(candidate, mode);
     const picked = slot && board.picks[slot]?.shipId === candidate.ship.id;
-    const categoryName = classMode ? candidate.ship.className?.[language] : GROUPS.find((group) => group.id === candidate.typeId)!.names[language];
+    const categoryName = classMode ? candidate.ship.className?.[language] : candidateShipTypes(candidate).map((type) => type.names[language]).join(' / ');
     return <button key={candidate.key} className={`ship-card ${active?.key === candidate.key ? 'active' : ''} ${picked ? 'picked' : ''}`} onClick={() => openArt(candidate)} draggable={!modal}
       onDragStart={(event) => { event.dataTransfer.setData('application/chinjufu-ship', candidate.key); event.dataTransfer.effectAllowed = 'copy'; setActive(candidate); }}
       onDragEnd={() => { setActive(null); setDragOver(null); }}
       aria-label={`${candidate.ship.names[language]} · ${categoryName} · ${t.chooseArt}`}>
-      <Image src={candidate.ship.image} alt="" /><span className="ship-card-text"><strong>{candidate.ship.names[language]}</strong><small>{categoryName}</small></span>
+      <Image src={candidate.ship.image} alt="" /><span className="ship-card-text"><strong>{candidate.ship.names[language]}</strong><small title={categoryName}>{categoryName}</small></span>
       {picked ? <CheckCircle2 className="ship-status" size={16}/> : modal ? <ChevronRight className="ship-status" size={15}/> : <GripVertical className="ship-grip" size={16}/>}
     </button>;
   }

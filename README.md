@@ -2,7 +2,7 @@
 
 Pick your favorite shipgirls in Kancolle.
 
-<a href="chinjufu-pick.vercel.app">Visit Site</a>
+<a href="https://chinjufu-pick.vercel.app/" target="_blank">Visit Site</a>
 
 ## Sources & Copyright
 

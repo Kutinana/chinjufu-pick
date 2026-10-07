@@ -1,0 +1,1143 @@
+{
+  "sources": [
+    {
+      "name": "KC3改 ctype catalog",
+      "url": "https://github.com/KC3Kai/kc3-translations/blob/208d8d8ae87ab90c51dee4ae3021ecf9afe5e2fa/data/en/ctype.json"
+    },
+    {
+      "name": "kcwiki ship classes",
+      "url": "https://kcwikizh.github.io/kcdata/shipclass/all.json"
+    }
+  ],
+  "notes": "Japanese class identifiers from KC3; Chinese names prefer kcwiki. Additional Chinese and English class names are locally curated.",
+  "classes": [
+    {
+      "id": "1",
+      "names": {
+        "zh": "绫波型",
+        "ja": "綾波型",
+        "en": "Ayanami Class"
+      }
+    },
+    {
+      "id": "2",
+      "names": {
+        "zh": "伊势型",
+        "ja": "伊勢型",
+        "en": "Ise Class"
+      }
+    },
+    {
+      "id": "3",
+      "names": {
+        "zh": "加贺型",
+        "ja": "加賀型",
+        "en": "Kaga Class"
+      }
+    },
+    {
+      "id": "4",
+      "names": {
+        "zh": "球磨型",
+        "ja": "球磨型",
+        "en": "Kuma Class"
+      }
+    },
+    {
+      "id": "5",
+      "names": {
+        "zh": "晓型",
+        "ja": "暁型",
+        "en": "Akatsuki Class"
+      }
+    },
+    {
+      "id": "6",
+      "names": {
+        "zh": "金刚型",
+        "ja": "金剛型",
+        "en": "Kongou Class"
+      }
+    },
+    {
+      "id": "7",
+      "names": {
+        "zh": "古鹰型",
+        "ja": "古鷹型",
+        "en": "Furutaka Class"
+      }
+    },
+    {
+      "id": "8",
+      "names": {
+        "zh": "高雄型",
+        "ja": "高雄型",
+        "en": "Takao Class"
+      }
+    },
+    {
+      "id": "9",
+      "names": {
+        "zh": "最上型",
+        "ja": "最上型",
+        "en": "Mogami Class"
+      }
+    },
+    {
+      "id": "10",
+      "names": {
+        "zh": "初春型",
+        "ja": "初春型",
+        "en": "Hatsuharu Class"
+      }
+    },
+    {
+      "id": "11",
+      "names": {
+        "zh": "祥凤型",
+        "ja": "祥鳳型",
+        "en": "Shouhou Class"
+      }
+    },
+    {
+      "id": "12",
+      "names": {
+        "zh": "吹雪型",
+        "ja": "吹雪型",
+        "en": "Fubuki Class"
+      }
+    },
+    {
+      "id": "13",
+      "names": {
+        "zh": "青叶型",
+        "ja": "青葉型",
+        "en": "Aoba Class"
+      }
+    },
+    {
+      "id": "14",
+      "names": {
+        "zh": "赤城型",
+        "ja": "赤城型",
+        "en": "Akagi Class"
+      }
+    },
+    {
+      "id": "15",
+      "names": {
+        "zh": "千岁型",
+        "ja": "千歳型",
+        "en": "Chitose Class"
+      }
+    },
+    {
+      "id": "16",
+      "names": {
+        "zh": "川内型",
+        "ja": "川内型",
+        "en": "Sendai Class"
+      }
+    },
+    {
+      "id": "17",
+      "names": {
+        "zh": "苍龙型",
+        "ja": "蒼龍型",
+        "en": "Souryuu Class"
+      }
+    },
+    {
+      "id": "18",
+      "names": {
+        "zh": "朝潮型",
+        "ja": "朝潮型",
+        "en": "Asashio Class"
+      }
+    },
+    {
+      "id": "19",
+      "names": {
+        "zh": "长门型",
+        "ja": "長門型",
+        "en": "Nagato Class"
+      }
+    },
+    {
+      "id": "20",
+      "names": {
+        "zh": "长良型",
+        "ja": "長良型",
+        "en": "Nagara Class"
+      }
+    },
+    {
+      "id": "21",
+      "names": {
+        "zh": "天龙型",
+        "ja": "天龍型",
+        "en": "Tenryuu Class"
+      }
+    },
+    {
+      "id": "22",
+      "names": {
+        "zh": "岛风型",
+        "ja": "島風型",
+        "en": "Shimakaze Class"
+      }
+    },
+    {
+      "id": "23",
+      "names": {
+        "zh": "白露型",
+        "ja": "白露型",
+        "en": "Shiratsuyu Class"
+      }
+    },
+    {
+      "id": "24",
+      "names": {
+        "zh": "飞鹰型",
+        "ja": "飛鷹型",
+        "en": "Hiyou Class"
+      }
+    },
+    {
+      "id": "25",
+      "names": {
+        "zh": "飞龙型",
+        "ja": "飛龍型",
+        "en": "Hiryuu Class"
+      }
+    },
+    {
+      "id": "26",
+      "names": {
+        "zh": "扶桑型",
+        "ja": "扶桑型",
+        "en": "Fusou Class"
+      }
+    },
+    {
+      "id": "27",
+      "names": {
+        "zh": "凤翔型",
+        "ja": "鳳翔型",
+        "en": "Houshou Class"
+      }
+    },
+    {
+      "id": "28",
+      "names": {
+        "zh": "睦月型",
+        "ja": "睦月型",
+        "en": "Mutsuki Class"
+      }
+    },
+    {
+      "id": "29",
+      "names": {
+        "zh": "妙高型",
+        "ja": "妙高型",
+        "en": "Myoukou Class"
+      }
+    },
+    {
+      "id": "30",
+      "names": {
+        "zh": "阳炎型",
+        "ja": "陽炎型",
+        "en": "Kagerou Class"
+      }
+    },
+    {
+      "id": "31",
+      "names": {
+        "zh": "利根型",
+        "ja": "利根型",
+        "en": "Tone Class"
+      }
+    },
+    {
+      "id": "32",
+      "names": {
+        "zh": "龙骧型",
+        "ja": "龍驤型",
+        "en": "Ryuujou Class"
+      }
+    },
+    {
+      "id": "33",
+      "names": {
+        "zh": "翔鹤型",
+        "ja": "翔鶴型",
+        "en": "Shoukaku Class"
+      }
+    },
+    {
+      "id": "34",
+      "names": {
+        "zh": "夕张型",
+        "ja": "夕張型",
+        "en": "Yuubari Class"
+      }
+    },
+    {
+      "id": "35",
+      "names": {
+        "zh": "海大VI型",
+        "ja": "海大VI型",
+        "en": "Kaidai VI Class"
+      }
+    },
+    {
+      "id": "36",
+      "names": {
+        "zh": "巡潜乙型改二",
+        "ja": "巡潜乙型改二",
+        "en": "Type B Modified 2 Class"
+      }
+    },
+    {
+      "id": "37",
+      "names": {
+        "zh": "大和型",
+        "ja": "大和型",
+        "en": "Yamato Class"
+      }
+    },
+    {
+      "id": "38",
+      "names": {
+        "zh": "夕云型",
+        "ja": "夕雲型",
+        "en": "Yuugumo Class"
+      }
+    },
+    {
+      "id": "39",
+      "names": {
+        "zh": "巡潜乙型",
+        "ja": "巡潜乙型",
+        "en": "Type B Class"
+      }
+    },
+    {
+      "id": "40",
+      "names": {
+        "zh": "巡潜3型",
+        "ja": "巡潜3型",
+        "en": "Junsen III Class"
+      }
+    },
+    {
+      "id": "41",
+      "names": {
+        "zh": "阿贺野型",
+        "ja": "阿賀野型",
+        "en": "Agano Class"
+      }
+    },
+    {
+      "id": "42",
+      "names": {
+        "zh": "霧の艦隊",
+        "ja": "霧の艦隊",
+        "en": "Fleet of Fog Class"
+      }
+    },
+    {
+      "id": "43",
+      "names": {
+        "zh": "大凤型",
+        "ja": "大鳳型",
+        "en": "Taihou Class"
+      }
+    },
+    {
+      "id": "44",
+      "names": {
+        "zh": "潜特型",
+        "ja": "潜特型(伊400型潜水艦)",
+        "en": "Sentoku Class"
+      }
+    },
+    {
+      "id": "45",
+      "names": {
+        "zh": "特种船丙型",
+        "ja": "特種船丙型",
+        "en": "Type C Special-purpose Ship Class"
+      }
+    },
+    {
+      "id": "46",
+      "names": {
+        "zh": "三式潜航输送艇",
+        "ja": "三式潜航輸送艇",
+        "en": "Type 3 Submergence Transport Vehicle Class"
+      }
+    },
+    {
+      "id": "47",
+      "names": {
+        "zh": "俾斯麦级",
+        "ja": "Bismarck級",
+        "en": "Bismarck Class"
+      }
+    },
+    {
+      "id": "48",
+      "names": {
+        "zh": "Z1型",
+        "ja": "Z1型",
+        "en": "Type 1934 Class"
+      }
+    },
+    {
+      "id": "49",
+      "names": {
+        "zh": "工作舰",
+        "ja": "明石型",
+        "en": "Akashi Class"
+      }
+    },
+    {
+      "id": "50",
+      "names": {
+        "zh": "大鲸型",
+        "ja": "大鯨型",
+        "en": "Taigei Class"
+      }
+    },
+    {
+      "id": "51",
+      "names": {
+        "zh": "龙凤型",
+        "ja": "龍鳳型",
+        "en": "Ryuuhou Class"
+      }
+    },
+    {
+      "id": "52",
+      "names": {
+        "zh": "大淀型",
+        "ja": "大淀型",
+        "en": "Ooyodo Class"
+      }
+    },
+    {
+      "id": "53",
+      "names": {
+        "zh": "云龙型",
+        "ja": "雲龍型",
+        "en": "Unryuu Class"
+      }
+    },
+    {
+      "id": "54",
+      "names": {
+        "zh": "秋月型",
+        "ja": "秋月型",
+        "en": "Akizuki Class"
+      }
+    },
+    {
+      "id": "55",
+      "names": {
+        "zh": "希佩尔海军上将级",
+        "ja": "Admiral Hipper級",
+        "en": "Admiral Hipper Class"
+      }
+    },
+    {
+      "id": "56",
+      "names": {
+        "zh": "香取型",
+        "ja": "香取型",
+        "en": "Katori Class"
+      }
+    },
+    {
+      "id": "57",
+      "names": {
+        "zh": "U型潜水艇IXC型",
+        "ja": "UボートIXC型",
+        "en": "Type IXC U-boat Class"
+      }
+    },
+    {
+      "id": "58",
+      "names": {
+        "zh": "维内托级",
+        "ja": "V.Veneto級",
+        "en": "Vittorio Veneto Class"
+      }
+    },
+    {
+      "id": "59",
+      "names": {
+        "zh": "秋津洲型",
+        "ja": "秋津洲型",
+        "en": "Akitsushima Class"
+      }
+    },
+    {
+      "id": "60",
+      "names": {
+        "zh": "改风早型",
+        "ja": "改風早型",
+        "en": "Modified Kazahaya Class"
+      }
+    },
+    {
+      "id": "61",
+      "names": {
+        "zh": "西北风级",
+        "ja": "Maestrale級",
+        "en": "Maestrale Class"
+      }
+    },
+    {
+      "id": "62",
+      "names": {
+        "zh": "瑞穗型",
+        "ja": "瑞穂型",
+        "en": "Mizuho Class"
+      }
+    },
+    {
+      "id": "63",
+      "names": {
+        "zh": "齐柏林伯爵级",
+        "ja": "Graf Zeppelin級",
+        "en": "Graf Zeppelin Class"
+      }
+    },
+    {
+      "id": "64",
+      "names": {
+        "zh": "扎拉级",
+        "ja": "Zara級",
+        "en": "Zara Class"
+      }
+    },
+    {
+      "id": "65",
+      "names": {
+        "zh": "衣阿华级",
+        "ja": "Iowa級",
+        "en": "Iowa Class"
+      }
+    },
+    {
+      "id": "66",
+      "names": {
+        "zh": "神风型",
+        "ja": "神風型",
+        "en": "Kamikaze Class"
+      }
+    },
+    {
+      "id": "67",
+      "names": {
+        "zh": "伊丽莎白女王级",
+        "ja": "Queen Elizabeth級",
+        "en": "Queen Elizabeth Class"
+      }
+    },
+    {
+      "id": "68",
+      "names": {
+        "zh": "天鹰座级",
+        "ja": "Aquila級",
+        "en": "Aquila Class"
+      }
+    },
+    {
+      "id": "69",
+      "names": {
+        "zh": "列克星敦级",
+        "ja": "Lexington級",
+        "en": "Lexington Class"
+      }
+    },
+    {
+      "id": "70",
+      "names": {
+        "zh": "C.Teste级",
+        "ja": "C.Teste級",
+        "en": "Commandant Teste Class"
+      }
+    },
+    {
+      "id": "71",
+      "names": {
+        "zh": "巡潜甲型改二",
+        "ja": "巡潜甲型改二",
+        "en": "Type A Modified 2 Class"
+      }
+    },
+    {
+      "id": "72",
+      "names": {
+        "zh": "神威型",
+        "ja": "神威型",
+        "en": "Kamoi Class"
+      }
+    },
+    {
+      "id": "73",
+      "names": {
+        "zh": "甘古特级",
+        "ja": "Гангут級",
+        "en": "Gangut Class"
+      }
+    },
+    {
+      "id": "74",
+      "names": {
+        "zh": "占守型",
+        "ja": "占守型",
+        "en": "Shimushu Class"
+      }
+    },
+    {
+      "id": "75",
+      "names": {
+        "zh": "春日丸级",
+        "ja": "春日丸級",
+        "en": "Kasuga Maru Class"
+      }
+    },
+    {
+      "id": "76",
+      "names": {
+        "zh": "大鹰型",
+        "ja": "大鷹型",
+        "en": "Taiyou Class"
+      }
+    },
+    {
+      "id": "77",
+      "names": {
+        "zh": "择捉型",
+        "ja": "択捉型",
+        "en": "Etorofu Class"
+      }
+    },
+    {
+      "id": "78",
+      "names": {
+        "zh": "皇家方舟级",
+        "ja": "Ark Royal級",
+        "en": "Ark Royal Class"
+      }
+    },
+    {
+      "id": "79",
+      "names": {
+        "zh": "黎塞留级",
+        "ja": "Richelieu級",
+        "en": "Richelieu Class"
+      }
+    },
+    {
+      "id": "80",
+      "names": {
+        "zh": "古列尔莫·马可尼级",
+        "ja": "Guglielmo Marconi級",
+        "en": "Guglielmo Marconi Class"
+      }
+    },
+    {
+      "id": "81",
+      "names": {
+        "zh": "塔什干级",
+        "ja": "Ташкент級",
+        "en": "Tashkent Class"
+      }
+    },
+    {
+      "id": "82",
+      "names": {
+        "zh": "J级",
+        "ja": "J級",
+        "en": "J Class"
+      }
+    },
+    {
+      "id": "83",
+      "names": {
+        "zh": "卡萨布兰卡级",
+        "ja": "Casablanca級",
+        "en": "Casablanca Class"
+      }
+    },
+    {
+      "id": "84",
+      "names": {
+        "zh": "埃塞克斯级",
+        "ja": "Essex級",
+        "en": "Essex Class"
+      }
+    },
+    {
+      "id": "85",
+      "names": {
+        "zh": "日振型",
+        "ja": "日振型",
+        "en": "Hiburi Class"
+      }
+    },
+    {
+      "id": "86",
+      "names": {
+        "zh": "呂号潜水艦",
+        "ja": "呂号潜水艦",
+        "en": "Ro Class Class"
+      }
+    },
+    {
+      "id": "87",
+      "names": {
+        "zh": "约翰·C·巴特勒级",
+        "ja": "John C.Butler級",
+        "en": "John C. Butler Class"
+      }
+    },
+    {
+      "id": "88",
+      "names": {
+        "zh": "纳尔逊级",
+        "ja": "Nelson級",
+        "en": "Nelson Class"
+      }
+    },
+    {
+      "id": "89",
+      "names": {
+        "zh": "哥特兰级",
+        "ja": "Gotland級",
+        "en": "Gotland Class"
+      }
+    },
+    {
+      "id": "90",
+      "names": {
+        "zh": "日进型",
+        "ja": "日進型",
+        "en": "Nisshin Class"
+      }
+    },
+    {
+      "id": "91",
+      "names": {
+        "zh": "弗莱彻级",
+        "ja": "Fletcher級",
+        "en": "Fletcher Class"
+      }
+    },
+    {
+      "id": "92",
+      "names": {
+        "zh": "阿布鲁齐公爵级",
+        "ja": "L.d.S.D.d.Abruzzi級",
+        "en": "Duca degli Abruzzi Class"
+      }
+    },
+    {
+      "id": "93",
+      "names": {
+        "zh": "科罗拉多级",
+        "ja": "Colorado級",
+        "en": "Colorado Class"
+      }
+    },
+    {
+      "id": "94",
+      "names": {
+        "zh": "御藏型",
+        "ja": "御蔵型",
+        "en": "Mikura Class"
+      }
+    },
+    {
+      "id": "95",
+      "names": {
+        "zh": "北安普敦级",
+        "ja": "Northampton級",
+        "en": "Northampton Class"
+      }
+    },
+    {
+      "id": "96",
+      "names": {
+        "zh": "改利安得级",
+        "ja": "Perth級",
+        "en": "Modified Leander Class"
+      }
+    },
+    {
+      "id": "97",
+      "names": {
+        "zh": "神州丸型",
+        "ja": "陸軍特種船(R1)",
+        "en": "Shinshuu Maru Class"
+      }
+    },
+    {
+      "id": "98",
+      "names": {
+        "zh": "德·鲁伊特级",
+        "ja": "De Ruyter級",
+        "en": "De Ruyter Class"
+      }
+    },
+    {
+      "id": "99",
+      "names": {
+        "zh": "亚特兰大级",
+        "ja": "Atlanta級",
+        "en": "Atlanta Class"
+      }
+    },
+    {
+      "id": "100",
+      "names": {
+        "zh": "迅鲸型",
+        "ja": "迅鯨型",
+        "en": "Jingei Class"
+      }
+    },
+    {
+      "id": "101",
+      "names": {
+        "zh": "松型",
+        "ja": "松型",
+        "en": "Matsu Class"
+      }
+    },
+    {
+      "id": "102",
+      "names": {
+        "zh": "南达科他级",
+        "ja": "South Dakota級",
+        "en": "South Dakota Class"
+      }
+    },
+    {
+      "id": "103",
+      "names": {
+        "zh": "巡潜丙型",
+        "ja": "巡潜丙型",
+        "en": "Type C Class"
+      }
+    },
+    {
+      "id": "104",
+      "names": {
+        "zh": "丁型海防舰",
+        "ja": "丁型海防艦",
+        "en": "Type D Coastal Defense Class"
+      }
+    },
+    {
+      "id": "105",
+      "names": {
+        "zh": "约克城级",
+        "ja": "Yorktown級",
+        "en": "Yorktown Class"
+      }
+    },
+    {
+      "id": "106",
+      "names": {
+        "zh": "圣路易斯级",
+        "ja": "St. Louis級",
+        "en": "St. Louis Class"
+      }
+    },
+    {
+      "id": "107",
+      "names": {
+        "zh": "北卡罗来纳级",
+        "ja": "North Carolina級",
+        "en": "North Carolina Class"
+      }
+    },
+    {
+      "id": "108",
+      "names": {
+        "zh": "城级",
+        "ja": "Town級",
+        "en": "Town Class"
+      }
+    },
+    {
+      "id": "109",
+      "names": {
+        "zh": "潜高型",
+        "ja": "潜高型",
+        "en": "Sen Taka Class"
+      }
+    },
+    {
+      "id": "110",
+      "names": {
+        "zh": "布鲁克林级",
+        "ja": "Brooklyn級",
+        "en": "Brooklyn Class"
+      }
+    },
+    {
+      "id": "111",
+      "names": {
+        "zh": "宗谷型",
+        "ja": "耐氷型雑用運送艦",
+        "en": "Souya Class"
+      }
+    },
+    {
+      "id": "112",
+      "names": {
+        "zh": "光辉级",
+        "ja": "Illustrious級",
+        "en": "Illustrious Class"
+      }
+    },
+    {
+      "id": "113",
+      "names": {
+        "zh": "加富尔伯爵级",
+        "ja": "Conte di Cavour級",
+        "en": "Conte di Cavour Class"
+      }
+    },
+    {
+      "id": "114",
+      "names": {
+        "zh": "猫鲨级",
+        "ja": "Gato級",
+        "en": "Gato Class"
+      }
+    },
+    {
+      "id": "115",
+      "names": {
+        "zh": "山汐丸型",
+        "ja": "特2TL型",
+        "en": "Yamashio Maru Class"
+      }
+    },
+    {
+      "id": "116",
+      "names": {
+        "zh": "独立级",
+        "ja": "Independence級",
+        "en": "Independence Class"
+      }
+    },
+    {
+      "id": "117",
+      "names": {
+        "zh": "鹈来型",
+        "ja": "鵜来型",
+        "en": "Ukuru Class"
+      }
+    },
+    {
+      "id": "118",
+      "names": {
+        "zh": "突击者级",
+        "ja": "Ranger級",
+        "en": "Ranger Class"
+      }
+    },
+    {
+      "id": "119",
+      "names": {
+        "zh": "熊野丸型",
+        "ja": "特種船M丙型",
+        "en": "Kumano Maru Class"
+      }
+    },
+    {
+      "id": "120",
+      "names": {
+        "zh": "第一〇一号型运输舰",
+        "ja": "二等輸送艦",
+        "en": "No.101 Transport Class"
+      }
+    },
+    {
+      "id": "121",
+      "names": {
+        "zh": "新奥尔良级",
+        "ja": "New Orleans級",
+        "en": "New Orleans Class"
+      }
+    },
+    {
+      "id": "122",
+      "names": {
+        "zh": "鲑鱼级",
+        "ja": "Salmon級",
+        "en": "Salmon Class"
+      }
+    },
+    {
+      "id": "123",
+      "names": {
+        "zh": "改敷岛型",
+        "ja": "改敷島型",
+        "en": "Modified Shikishima Class"
+      }
+    },
+    {
+      "id": "124",
+      "names": {
+        "zh": "马尔切洛级",
+        "ja": "Marcello級",
+        "en": "Marcello Class"
+      }
+    },
+    {
+      "id": "125",
+      "names": {
+        "zh": "内华达级",
+        "ja": "Nevada級",
+        "en": "Nevada Class"
+      }
+    },
+    {
+      "id": "126",
+      "names": {
+        "zh": "改冰川丸型",
+        "ja": "改氷川丸級",
+        "en": "Modified Hikawa Maru Class"
+      }
+    },
+    {
+      "id": "127",
+      "names": {
+        "zh": "巡潜乙型改一",
+        "ja": "巡潜乙型改一",
+        "en": "Type B Modified 1 Class"
+      }
+    },
+    {
+      "id": "128",
+      "names": {
+        "zh": "拉·加利索尼埃级",
+        "ja": "La Galissonnière級",
+        "en": "La Galissonnière Class"
+      }
+    },
+    {
+      "id": "129",
+      "names": {
+        "zh": "莫加多尔级",
+        "ja": "Mogador級",
+        "en": "Mogador Class"
+      }
+    },
+    {
+      "id": "130",
+      "names": {
+        "zh": "大泊型",
+        "ja": "大泊型",
+        "en": "Ootomari Class"
+      }
+    },
+    {
+      "id": "131",
+      "names": {
+        "zh": "基洛夫级",
+        "ja": "Киров級",
+        "en": "Kirov Class"
+      }
+    },
+    {
+      "id": "132",
+      "names": {
+        "zh": "特1TL型",
+        "ja": "特1TL型",
+        "en": "Type 1TL Class"
+      }
+    },
+    {
+      "id": "133",
+      "names": {
+        "zh": "挪威级",
+        "ja": "Norge級",
+        "en": "Norge Class"
+      }
+    },
+    {
+      "id": "134",
+      "names": {
+        "zh": "勇敢级",
+        "ja": "Courageous級",
+        "en": "Courageous Class"
+      }
+    },
+    {
+      "id": "135",
+      "names": {
+        "zh": "Glorious級",
+        "ja": "Glorious級",
+        "en": "Glorious Class"
+      }
+    },
+    {
+      "id": "136",
+      "names": {
+        "zh": "野埼型",
+        "ja": "野埼型",
+        "en": "Nosaki Class"
+      }
+    },
+    {
+      "id": "137",
+      "names": {
+        "zh": "吞武里级",
+        "ja": "Thonburi級",
+        "en": "Thonburi Class"
+      }
+    },
+    {
+      "id": "138",
+      "names": {
+        "zh": "阿尔及利亚级",
+        "ja": "Algérie級",
+        "en": "Algérie Class"
+      }
+    },
+    {
+      "id": "139",
+      "names": {
+        "zh": "鹰级",
+        "ja": "Aigle級",
+        "en": "Aigle Class"
+      }
+    },
+    {
+      "id": "140",
+      "names": {
+        "zh": "维斯比级",
+        "ja": "Visby級",
+        "en": "Visby Class"
+      }
+    },
+    {
+      "id": "141",
+      "names": {
+        "zh": "贝亚恩级",
+        "ja": "Béarn級",
+        "en": "Béarn Class"
+      }
+    }
+  ]
+}

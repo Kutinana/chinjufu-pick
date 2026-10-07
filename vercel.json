@@ -1,0 +1,45 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "headers": [
+    {
+      "source": "/ships/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/artworks/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/favorite-shipgirls",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/favorite-destroyers",
+      "destination": "/index.html"
+    }
+  ]
+}

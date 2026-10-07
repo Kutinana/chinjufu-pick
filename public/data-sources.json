@@ -1,0 +1,40 @@
+{
+  "updatedAt": "2026-10-07T11:36:27.355Z",
+  "sources": [
+    {
+      "name": "舰娘百科 · kcdata ship catalog",
+      "url": "https://kcwikizh.github.io/kcdata/ship/ship.json",
+      "reference": "https://zh.kcwiki.cn/wiki/舰娘百科"
+    },
+    {
+      "name": "KC3改 English ship names",
+      "url": "https://raw.githubusercontent.com/KC3Kai/kc3-translations/208d8d8ae87ab90c51dee4ae3021ecf9afe5e2fa/data/en/ships.json",
+      "revision": "208d8d8ae87ab90c51dee4ae3021ecf9afe5e2fa",
+      "license": "MIT"
+    },
+    {
+      "name": "KC3改 Simplified Chinese ship names",
+      "url": "https://raw.githubusercontent.com/KC3Kai/kc3-translations/208d8d8ae87ab90c51dee4ae3021ecf9afe5e2fa/data/scn/ships.json",
+      "revision": "208d8d8ae87ab90c51dee4ae3021ecf9afe5e2fa",
+      "license": "MIT"
+    },
+    {
+      "name": "KC3改 ship portraits",
+      "url": "https://github.com/KC3Kai/KC3Kai/tree/6b0534d291c27220da1b6fe454e91fc96a6a7b27/src/assets/img/ships",
+      "revision": "6b0534d291c27220da1b6fe454e91fc96a6a7b27"
+    }
+  ],
+  "fingerprints": {
+    "shipCatalog": "285b32bd44cd7620d76e66662d827d5a91f814d1d290cfb2d7bd63748cdfb5c7",
+    "enNames": "7ca35dbd86a9d44193d758adfd9ec9261001ecf5215de04df84a26e14f3876ab",
+    "zhNames": "847c0bd1eab566c9f829dc7f548fd34b8e76f4f794d312852e881fa521e975f7",
+    "enAffixes": "48067bf65be5621806dda2d3f2369b3642f1c194c05442232fc5fdd4f5eb3344",
+    "zhAffixes": "033a7ae42ab1bd414e410033cd3fcf0a5c24ce89d78a3d4a376dddb44fbe9bc4"
+  },
+  "notes": [
+    "Ship names and remodel links come from kcwiki’s public game master catalog.",
+    "English names use KC3改 translations; Chinese names prefer kcwiki labels.",
+    "Normal portrait artwork belongs to the original KanColle rights holders (DMM / C2 / KADOKAWA). Source repository licensing does not transfer artwork copyright.",
+    "Game artwork is bundled locally so the deployed site has no runtime wiki or image-host dependency."
+  ]
+}

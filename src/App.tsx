@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, MouseEventHandler, ReactNode } from 'react';
 import { Anchor, Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Download, ExternalLink, Globe2, GripVertical, ImageIcon, Info, LoaderCircle, Minus, Move, Plus, RotateCcw, Search, Share2, X } from 'lucide-react';
 import { GROUPS, SHIP_TYPES, boardForMode, boardSlots, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks, shipDisplayName, shipClassOrdinal } from './model';
 import type { Artwork, ArtworkData, Candidate, Language, Picks, SavedBoard, ShipData, SlotId, TypeId, AvatarCrop, AvatarCropData, AvatarAdjustment } from './model';
@@ -31,7 +31,7 @@ function ModalPresence({ children }: { children: ReactNode }) {
   return <ModalClosing.Provider value={closing}>{children || retained}</ModalClosing.Provider>;
 }
 
-function Modal({ title, onClose, children, className = '' }: { title: string; onClose: () => void; children: ReactNode; className?: string }) {
+function Modal({ title, onClose, children, className = '', onClickCapture }: { title: string; onClose: () => void; children: ReactNode; className?: string; onClickCapture?: MouseEventHandler<HTMLDivElement> }) {
   const closing = useContext(ModalClosing);
   const closingRef = useRef(closing);
   closingRef.current = closing;
@@ -76,7 +76,7 @@ function Modal({ title, onClose, children, className = '' }: { title: string; on
   }, []);
   return <div className={`modal-backdrop${closing ? ' closing' : ''}`} style={{ '--modal-exit-duration': `${MODAL_EXIT_MS}ms` } as CSSProperties} onClick={(event) => { if (!closing && event.target === event.currentTarget) onClose(); }}>
     <div className="modal-shade" aria-hidden="true" />
-    <div ref={panel} className={`modal ${className}`} role="dialog" aria-modal="true" aria-labelledby={titleId} inert={closing}>
+    <div ref={panel} className={`modal ${className}`} role="dialog" aria-modal="true" aria-labelledby={titleId} inert={closing} onClickCapture={onClickCapture}>
       <div className="modal-header"><h2 id={titleId}>{title}</h2><button className="icon-button" aria-label="Close / 关闭 / 閉じる" onClick={onClose}><X size={22} /></button></div>
       {children}
     </div>
@@ -215,6 +215,7 @@ function ArtworkPicker({ candidate, artworks, language, currentId, currentVarian
   const [selectedId, setSelectedId] = useState(currentId ?? '');
   const [editing, setEditing] = useState<Artwork | null>(null);
   const [adjustments, setAdjustments] = useState<Record<string, AvatarAdjustment>>({});
+  const lastClick = useRef<{ card: Element | null; detail: number; canConfirm: boolean } | null>(null);
   function adjustmentFor(art: Artwork) { return adjustments[art.id] ?? (art.id === currentId ? currentAvatar : undefined); }
   const available = useMemo(() => {
     const real = artworks.filter((art) => applicableArt(art, candidate, variantId === 'all' ? undefined : variantId));
@@ -231,7 +232,12 @@ function ArtworkPicker({ candidate, artworks, language, currentId, currentVarian
     const matchedVariant = variantId === 'all' ? retainedVariant ?? candidate.variants.find((variant) => matchingIds.includes(variant.id))?.id ?? candidate.variants[0].id : variantId;
     onChoose(art, matchedVariant, adjustmentFor(art));
   }
-  return <><Modal className="art-modal" title={t.artTitle} onClose={onClose}>
+  return <><Modal className="art-modal" title={t.artTitle} onClose={onClose} onClickCapture={(event) => {
+    const card = event.target instanceof Element ? event.target.closest('.art-card') : null;
+    // Native double-click counts can include the click that opened this picker.
+    const canConfirm = card !== null && event.detail === 2 && lastClick.current?.card === card && lastClick.current.detail === 1;
+    lastClick.current = { card, detail: event.detail, canConfirm };
+  }}>
     <div className="art-intro"><div className="art-ship-identity"><button className="text-button art-back-button" onClick={onBack}><ChevronLeft size={16}/>{t.backShips}</button><Image src={candidate.ship.image} alt="" /><div><strong>{candidate.ship.names[language]}</strong><span>{GROUPS.find((group) => group.id === candidate.typeId)!.names[language]} · {candidate.typeId}</span></div></div><p>{t.artIntro}</p></div>
     <div className="art-filters">
       <StyledSelect label={t.remodel} value={variantId} options={[{ value: 'all', label: t.allForms }, ...candidate.variants.map((variant) => ({ value: variant.id, label: variant.names[language] }))]} onChange={(value) => { setVariantId(value); setSelectedId(''); }} />
@@ -244,7 +250,9 @@ function ArtworkPicker({ candidate, artworks, language, currentId, currentVarian
       </div>
     </div>
     <div className="art-gallery modal-scroll">
-      {filtered.length ? filtered.map((art) => <button key={art.id} className={`art-card ${selectedId === art.id ? 'chosen' : ''}`} aria-label={`${art.names[language]} · ${art.damage === 'damaged' ? t.damaged : t.normal}`} aria-pressed={selectedId === art.id} onClick={() => setSelectedId(art.id)} onDoubleClick={() => confirmArtwork(art)}>
+      {filtered.length ? filtered.map((art) => <button key={art.id} className={`art-card ${selectedId === art.id ? 'chosen' : ''}`} aria-label={`${art.names[language]} · ${art.damage === 'damaged' ? t.damaged : t.normal}`} aria-pressed={selectedId === art.id} onClick={() => setSelectedId(art.id)} onDoubleClick={(event) => {
+        if (lastClick.current?.canConfirm && lastClick.current.card === event.currentTarget) confirmArtwork(art);
+      }}>
         <div className="art-picture"><Image src={art.thumbnail ?? art.image} alt={art.names[language]} /><span className={`damage-badge ${art.damage}`}>{art.damage === 'damaged' ? t.damaged : t.normal}</span>{selectedId === art.id && <span className="art-check"><Check size={18}/></span>}</div>
         <span className="art-name">{art.names[language]}</span><span className="art-kind">{art.kind === 'seasonal' ? t.seasonal : t.standard}</span>
       </button>) : <div className="empty-results"><ImageIcon size={30}/><strong>{t.noArt}</strong><p>{t.noArtHint}</p><button className="text-button" onClick={() => { setKind('all'); setDamage('all'); }}>{t.allArt}</button></div>}
@@ -426,7 +434,7 @@ export default function App() {
     setSaving(true);
     try {
       const blob = await exportBoard({ nickname: nickname ? t.exportOwner.replace('{name}', () => nickname) : t.exportAnonymousOwner, title: introTitle, subtitle: classMode ? t.ddClassExport : t.exportSubtitle, brand: t.brand,
-        footer: `${t.fan} · ${location.host}`, emptyLabel: t.empty,
+        footer: location.host, emptyLabel: t.empty,
         cards: slots.map((group) => {
           const { ship, name, image, crop } = boardImage(group.id);
           return { groupId: classMode ? group.names[language] : group.code, icon: group.icon,

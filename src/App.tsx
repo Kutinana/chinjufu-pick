@@ -118,14 +118,15 @@ function StyledSelect({ label, value, options, onChange, icon, hideLabel = false
   const listId = useId();
   useEffect(() => {
     if (!open) return;
-    const dismiss = (event: PointerEvent) => { if (!root.current?.contains(event.target as Node)) setOpen(false); };
+    // Safari may blur an option without focusing the tapped button. Wait for an
+    // actual outside pointer/focus target so the option's click can finish.
+    const dismiss = (event: Event) => { if (!root.current?.contains(event.target as Node)) setOpen(false); };
     document.addEventListener('pointerdown', dismiss);
+    document.addEventListener('focusin', dismiss);
     root.current?.querySelector<HTMLButtonElement>('[aria-selected="true"]')?.focus();
-    return () => document.removeEventListener('pointerdown', dismiss);
+    return () => { document.removeEventListener('pointerdown', dismiss); document.removeEventListener('focusin', dismiss); };
   }, [open]);
-  return <div className={`remodel-select ${hideLabel ? '' : 'form-label'} ${className}`} ref={root} onBlur={(event) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
-  }} onKeyDown={(event) => {
+  return <div className={`remodel-select ${hideLabel ? '' : 'form-label'} ${className}`} ref={root} onKeyDown={(event) => {
     if (event.key === 'Escape' && open) { event.preventDefault(); event.stopPropagation(); setOpen(false); trigger.current?.focus(); }
     if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
       event.preventDefault();
@@ -280,6 +281,8 @@ export default function App() {
   const [shareUrl, setShareUrl] = useState('');
   const [toast, setToast] = useState('');
   const filterScroll = useRef<HTMLDivElement>(null);
+  const libraryScroll = useRef<HTMLDivElement>(null);
+  const loadMoreSentinel = useRef<HTMLDivElement>(null);
   const candidates = useMemo(() => candidatesFor(data?.ships ?? []), [data]);
   const artworkMap = useMemo(() => new Map((artData?.artworks ?? []).map((art) => [art.id, art])), [artData]);
   const mode = page === 'dd-classes' ? 'dd-classes' : 'types';
@@ -355,7 +358,10 @@ export default function App() {
     restoreShared();
     return () => window.removeEventListener('hashchange', restoreShared);
   }, [ready, data, artData, t.restored]);
-  useEffect(() => { setLimit(PAGE_SIZE); }, [search, filter, mode, board.showShimakaze]);
+  useEffect(() => {
+    setLimit(PAGE_SIZE);
+    libraryScroll.current?.scrollTo({ top: 0 });
+  }, [search, filter, mode, board.showShimakaze, language]);
   useEffect(() => { if (toast) { const timeout = setTimeout(() => setToast(''), 3500); return () => clearTimeout(timeout); } }, [toast]);
   useEffect(() => { if (preview) return () => URL.revokeObjectURL(preview); }, [preview]);
 
@@ -364,6 +370,16 @@ export default function App() {
     const matching = selectable.filter((candidate) => (filter === 'all' || (classMode ? matchesSlot(candidate, filter as SlotId) : candidate.variants.some((variant) => variant.typeId === filter))) && matchesSearch(candidate, search));
     return classMode ? candidatesByClass(matching, language).flatMap((group) => group.candidates) : matching.sort((a, b) => collator.compare(a.ship.names[language], b.ship.names[language]));
   }, [selectable, classMode, filter, search, language]);
+  useEffect(() => {
+    const root = libraryScroll.current;
+    const sentinel = loadMoreSentinel.current;
+    if (!ready || !isPickup || !root || !sentinel || limit >= filtered.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) setLimit((current) => Math.min(current + PAGE_SIZE, filtered.length));
+    }, { root, rootMargin: '0px 0px 160px 0px' });
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [ready, isPickup, limit, filtered]);
   const modalCandidates = selectable.filter((candidate) => chooser && matchesSlot(candidate, chooser) && matchesSearch(candidate, modalSearch));
 
   function openChooser(typeId: SlotId) { setModalSearch(''); setChooser(typeId); setActive(null); }
@@ -482,9 +498,9 @@ export default function App() {
             <div className="library-controls"><div className="search-field"><Search size={18}/><input aria-label={t.search} placeholder={t.search} value={search} onChange={(event) => setSearch(event.target.value)}/>{search && <button className="icon-button" aria-label={t.clearSearch} onClick={() => setSearch('')}><X size={15}/></button>}</div>
               <div className="filter-strip"><button className="filter-arrow" aria-label="Previous / 上一个 / 前へ" onClick={() => filterScroll.current?.scrollBy({ left: -180, behavior: 'smooth' })}><ChevronLeft size={16}/></button><div ref={filterScroll} className="type-filters" role="group" aria-label={classMode ? t.classLabel : t.countLabel}><button className={`chip ${filter === 'all' ? 'active' : ''}`} aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>{t.all}</button>{libraryFilters.map((group) => <button key={group.id} className={`chip ${filter === group.id ? 'active' : ''}`} aria-pressed={filter === group.id} title={group.names[language]} onClick={() => setFilter(group.id)}>{group.names[language]}</button>)}</div><button className="filter-arrow" aria-label="Next / 下一个 / 次へ" onClick={() => filterScroll.current?.scrollBy({ left: 180, behavior: 'smooth' })}><ChevronRight size={16}/></button></div>
             </div>
-            <div className="library-scroll">{classMode ? candidatesByClass(filtered.slice(0, limit), language).map((group) => <section className="class-section" key={group.key}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate))}</div></section>) : <div className="ship-list">{filtered.slice(0, limit).map((candidate) => renderShip(candidate))}</div>}
+            <div className="library-scroll" ref={libraryScroll}>{classMode ? candidatesByClass(filtered.slice(0, limit), language).map((group) => <section className="class-section" key={group.key}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate))}</div></section>) : <div className="ship-list">{filtered.slice(0, limit).map((candidate) => renderShip(candidate))}</div>}
               {!filtered.length && <div className="empty-results"><Search size={28}/><strong>{t.noResults}</strong><p>{t.trySearch}</p><button className="text-button" onClick={() => { setSearch(''); setFilter('all'); }}>{t.clearSearch}</button></div>}
-              {filtered.length > limit && <button className="show-more" onClick={() => setLimit((value) => value + PAGE_SIZE)}>{t.more}<span>{Math.min(limit, filtered.length)} / {filtered.length}</span><ChevronRight size={14}/></button>}
+              {filtered.length > limit && <div className="library-load-sentinel" ref={loadMoreSentinel} aria-hidden="true"/>}
             </div>
             <div className="library-footer"><ImageIcon size={13}/><span>{t.chooseArt}</span><span>{availableArtworkCount.toLocaleString()} {t.artworks}</span></div>
           </aside>

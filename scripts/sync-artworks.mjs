@@ -9,9 +9,15 @@
  *   [--no-download] [--metadata-only] [--refresh]
  *   [--python=/path/to/python-with-pillow] [--max-size=1000]
  *   [--output=/tmp/catalog.json] [--cache=/tmp/chinjufu-artwork-cache]
+ *
+ * Find full illustrations for card fallbacks, then apply the reviewed results:
+ * node scripts/sync-artworks.mjs --resolve-cards [--python=python3] [--csv=path]
+ * node scripts/sync-artworks.mjs --resolve-cards --apply
+ *   [--cache=/tmp/chinjufu-card-resolution] [--catalog=path] [--output=path]
+ * Verified source corrections are stored on artwork records as sourceLocked.
  */
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile, stat, unlink, readdir } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, stat, unlink, readdir, copyFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { dirname, resolve, basename, extname } from 'node:path';
@@ -22,7 +28,9 @@ const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, ...value] = arg.replace(/^--/, '').split('=');
   return [key, value.length ? value.join('=') : true];
 }));
-const cacheDir = String(args.get('cache') || '/tmp/chinjufu-artwork-cache');
+const resolvingCards = args.has('resolve-cards');
+if (args.has('apply') && !resolvingCards) throw new Error('--apply requires --resolve-cards');
+const cacheDir = String(args.get('cache') || (resolvingCards ? '/tmp/chinjufu-card-resolution' : '/tmp/chinjufu-artwork-cache'));
 const concurrency = Math.max(1, Math.min(8, Number(args.get('concurrency') || 4)));
 const metadataOnly = args.has('metadata-only');
 const download = !args.has('no-download') && !metadataOnly;
@@ -30,8 +38,10 @@ const refresh = args.has('refresh');
 const python = args.get('python');
 const maxSize = Math.max(600, Number(args.get('max-size') || 1000));
 const runFile = promisify(execFile);
-const outputDir = resolve(root, 'public/artworks');
+const outputDir = args.get('assets') ? resolve(String(args.get('assets'))) : resolve(root, 'public/artworks');
 const outputPath = args.get('output') ? resolve(String(args.get('output'))) : resolve(root, 'public/data/artworks.json');
+const catalogPath = args.get('catalog') ? resolve(String(args.get('catalog'))) : resolve(root, 'public/data/artworks.json');
+const previousDocument = JSON.parse(await readFile(catalogPath, 'utf8'));
 // The older kcdata spelling has a short stub; the English redirect reaches the
 // complete current gallery and avoids guessing a Chinese transliteration.
 const wikiPageOverrides = { '519': 'Jervis' };
@@ -39,7 +49,7 @@ const sharedStandardForms = {
   '743': { original: '543', source: 'https://wikiwiki.jp/kancolle/長波改二補' },
 };
 // Explicit, verified corrections retain artwork IDs so saved boards keep working.
-const sourceOverrides = JSON.parse(await readFile(resolve(root, 'scripts/artwork-source-overrides.json'), 'utf8'));
+const sourceOverrides = previousDocument.artworks.filter((artwork) => artwork.sourceLocked === true);
 const shipsDocument = JSON.parse(await readFile(resolve(root, 'public/data/ships.json'), 'utf8'));
 const allShips = shipsDocument.ships;
 const ships = args.has('limit') ? allShips.slice(0, Number(args.get('limit'))) : allShips;
@@ -90,6 +100,11 @@ async function pool(items, callback) {
 function originalUrl(url) {
   // MediaWiki gallery previews put the actual filename before /120px-...
   return entity(url).replace('/commons/thumb/', '/commons/').replace(/\/(?:\d+px-|lossy-page\d+-)[^/]+$/, '');
+}
+
+if (resolvingCards) {
+  await resolveCards();
+  process.exit(0);
 }
 
 const seasons = [
@@ -261,7 +276,9 @@ for (const ship of ships) {
 }
 
 const correctedImages = new Set();
-for (const [id, correction] of Object.entries(sourceOverrides)) {
+for (const correction of sourceOverrides) {
+  const { id } = correction;
+  if (!ships.some((ship) => ship.id === correction.shipId)) continue;
   let artwork = artworks.find((artwork) => artwork.id === id) || artworks.find((artwork) => artwork.kind === 'standard' && artwork.shipId === correction.shipId && artwork.damage === correction.damage && artwork.variantId === correction.variantId);
   if (!artwork) {
     // Keep a separate stable record for each corrected saved selection, even
@@ -320,6 +337,11 @@ if (download) await pool(uniqueImages, async (artwork) => {
 const available = artworks.filter((a) => !failedImages.has(a.image)).map((a) => download || metadataOnly ? a : { ...a, image: a.sourceImage });
 available.sort((a, b) => Number(a.shipId) - Number(b.shipId) || Number(a.variantId) - Number(b.variantId) || (a.kind === b.kind ? 0 : a.kind === 'standard' ? -1 : 1) || a.names.zh.localeCompare(b.names.zh, 'zh') || a.damage.localeCompare(b.damage));
 function makeDocument(available, syncing = false) {
+  // The catalog also owns source locks: failed downloads or partial checkpoints
+  // must not discard the only copy of a verified correction.
+  const ids = new Set(available.map((artwork) => artwork.id));
+  const selectedShips = new Set(ships.map((ship) => ship.id));
+  available = [...available, ...sourceOverrides.filter((artwork) => selectedShips.has(artwork.shipId) && !ids.has(artwork.id))];
   const forms = new Set(ships.flatMap((ship) => [ship, ...(ship.variants || [])].map((variant) => `${ship.id}:${variant.id}`)));
   const coveredForms = (damage) => new Set(available.filter((artwork) => artwork.kind === 'standard' && artwork.damage === damage).flatMap((artwork) => artwork.variantIds.map((variantId) => `${artwork.shipId}:${variantId}`)).filter((form) => forms.has(form))).size;
   return {
@@ -352,7 +374,7 @@ if (python && download) for (const artwork of available) {
   try { await unlink(resolve(outputDir, `${basename(artwork.image, '.webp')}.png`)); } catch {}
 }
 if (download && !args.has('limit') && !args.has('no-prune')) {
-  const keep = new Set(available.map((artwork) => basename(artwork.image)));
+  const keep = new Set(document.artworks.map((artwork) => basename(artwork.image)));
   for (const filename of await readdir(outputDir)) {
     // Only this script's hash-named assets are owned here. Leave unrelated files
     // untouched even when they happen to live in the same directory.
@@ -360,3 +382,150 @@ if (download && !args.has('limit') && !args.has('no-prune')) {
   }
 }
 console.log(JSON.stringify(document.coverage, null, 2));
+
+function csvRows(value) {
+  const rows = [];
+  let row = [], field = '', quoted = false;
+  for (let index = 0; index < value.length; index += 1) {
+    const character = value[index];
+    if (character === '"') {
+      if (quoted && value[index + 1] === '"') { field += '"'; index += 1; }
+      else quoted = !quoted;
+    } else if (!quoted && (character === ',' || character === '\n' || character === '\r')) {
+      row.push(field); field = '';
+      if (character !== ',') {
+        if (character === '\r' && value[index + 1] === '\n') index += 1;
+        rows.push(row); row = [];
+      }
+    } else field += character;
+  }
+  if (quoted) throw new Error('Unclosed quoted CSV field');
+  if (field || row.length) rows.push([...row, field]);
+  return rows;
+}
+
+async function resolveCards() {
+  const manifestPath = resolve(cacheDir, 'manifest.json');
+  const byId = new Map(previousDocument.artworks.map((artwork) => [artwork.id, artwork]));
+  if (args.has('apply')) {
+    const records = JSON.parse(await readFile(manifestPath, 'utf8'));
+    const verified = records.filter((record) => record.status === 'verified');
+    // Validate the whole review before changing images or the catalog.
+    for (const record of verified) {
+      const artwork = byId.get(record.id);
+      if (!artwork || artwork.image !== record.image || artwork.damage !== record.damage) throw new Error(`Stale review record: ${record.id}`);
+      if (!record.source || !record.sourceImage || basename(record.webp) !== record.webp) throw new Error(`Invalid review record: ${record.id}`);
+      if (!validImage(await readFile(resolve(cacheDir, record.webp)))) throw new Error(`Invalid reviewed image: ${record.id}`);
+    }
+    for (const record of verified) {
+      const artwork = byId.get(record.id);
+      await copyFile(resolve(cacheDir, record.webp), resolve(outputDir, basename(artwork.image)));
+      Object.assign(artwork, {
+        source: record.source, sourceImage: record.sourceImage,
+        sourceCaption: `${record.name} ${artwork.damage === 'damaged' ? '中破' : '正常'}全身图`,
+        sourceLocked: true,
+      });
+      if (record.sharedVariantSource) artwork.sharedVariantSource = record.sharedVariantSource;
+    }
+    previousDocument.updatedAt = new Date().toISOString();
+    await writeFile(outputPath, `${JSON.stringify(previousDocument, null, 2)}\n`);
+    if (outputPath === resolve(root, 'public/data/artworks.json')) {
+      await mkdir(resolve(root, 'docs'), { recursive: true });
+      await writeFile(resolve(root, 'docs/artwork-resolution.json'), `${JSON.stringify(records, null, 2)}\n`);
+    }
+    console.log(`Applied ${verified.length} verified full illustrations; IDs and asset paths preserved in artworks.json.`);
+    return;
+  }
+
+  const forms = new Map(allShips.flatMap((ship) => [ship, ...(ship.variants || [])].map((variant) => [variant.id, variant])));
+  const cards = previousDocument.artworks.filter((artwork) => artwork.sourceCaption?.includes('图鉴立绘'));
+  const csvPath = args.get('csv') ? resolve(String(args.get('csv'))) : resolve(root, 'docs/card-artwork-fallbacks.csv');
+  const csv = await readFile(csvPath, 'utf8').catch((error) => { if (error.code === 'ENOENT') return ''; throw error; });
+  const [header = [], ...rows] = csvRows(csv.replace(/^\uFEFF/, ''));
+  const idColumn = header.indexOf('立绘 ID');
+  const provided = new Map(rows.filter((row) => idColumn >= 0 && row.at(-1)?.trim()).map((row) => [row[idColumn], row.at(-1).trim()]));
+  const candidates = new Map(cards.map((artwork) => {
+    const form = forms.get(artwork.variantId);
+    if (!form?.wikiId) throw new Error(`Missing wiki form for ${artwork.id}`);
+    const state = artwork.damage === 'damaged' ? 'Dmg' : '';
+    const titles = ['HD', ''].map((hd) => `File:KanMusu${form.wikiId}${hd}${state}Illust.png`);
+    if (provided.has(artwork.id)) {
+      const path = decodeURIComponent(new URL(provided.get(artwork.id)).pathname);
+      titles.unshift(`File:${path.includes('File:') ? path.split('File:')[1] : path.split('/').at(-1)}`);
+    }
+    return [artwork.id, [...new Set(titles)]];
+  }));
+  const titles = [...new Set([...candidates.values()].flat())];
+  const batches = [];
+  for (let index = 0; index < titles.length; index += 40) batches.push(titles.slice(index, index + 40));
+  const known = new Map();
+  const titleKey = (title) => title.replaceAll('_', ' ');
+  await pool(batches, async (batch) => {
+    const url = new URL('https://zh.kcwiki.cn/api.php');
+    url.search = new URLSearchParams({ action: 'query', format: 'json', prop: 'imageinfo', iiprop: 'url|size', titles: batch.join('|') }).toString();
+    const path = resolve(cacheDir, `api-${createHash('sha256').update(url.href).digest('hex').slice(0, 16)}.json`);
+    let cached;
+    if (!refresh) cached = await readFile(path, 'utf8').catch((error) => { if (error.code === 'ENOENT') return null; throw error; });
+    const result = JSON.parse(cached ?? await request(url.href));
+    if (result.error) throw new Error(JSON.stringify(result.error));
+    if (!cached) await writeFile(path, `${JSON.stringify(result)}\n`);
+    for (const page of Object.values(result.query.pages)) if (page.imageinfo?.[0]) known.set(titleKey(page.title), page.imageinfo[0]);
+  });
+  console.log(`${known.size}/${titles.length} candidate files exist; ${provided.size} user links.`);
+
+  const records = new Array(cards.length);
+  await pool(cards, async (artwork, index) => {
+    const form = forms.get(artwork.variantId);
+    const record = { id: artwork.id, name: form.names.zh, wikiId: form.wikiId, damage: artwork.damage, image: artwork.image, status: 'missing', candidates: candidates.get(artwork.id), rejected: [] };
+    for (const title of record.candidates) {
+      const info = known.get(titleKey(title));
+      if (!info) continue;
+      try {
+        const rawPath = resolve(cacheDir, `original-${createHash('sha256').update(info.url).digest('hex').slice(0, 16)}.png`);
+        if (refresh || !(await stat(rawPath).catch(() => null))) await writeFile(rawPath, await request(info.url, true));
+        const webp = `${artwork.id}.webp`;
+        const { stdout } = await runFile(String(python || 'python3'), ['-c', `
+from PIL import Image
+import json, sys
+im = Image.open(sys.argv[1]).convert('RGBA')
+alpha = im.getchannel('A')
+lo, hi = alpha.getextrema()
+transparent = alpha.histogram()[0] / (im.width * im.height)
+if lo != 0 or hi != 255 or transparent < .02 or alpha.getbbox() is None:
+    print(json.dumps({'reason': 'No substantial transparent background', 'alpha': [lo, hi]}))
+else:
+    im.thumbnail((int(sys.argv[3]), int(sys.argv[3])), Image.Resampling.LANCZOS)
+    im.save(sys.argv[2], 'WEBP', quality=88, method=4)
+    print(json.dumps({'size': list(im.size), 'transparentFraction': round(transparent, 3)}))
+`, rawPath, resolve(cacheDir, webp), String(maxSize)]);
+        const checked = JSON.parse(stdout);
+        if (checked.reason) { record.rejected.push({ title, ...checked }); continue; }
+        Object.assign(record, checked, { status: 'verified', source: info.descriptionurl, sourceImage: info.url, webp });
+        break;
+      } catch (error) { record.rejected.push({ title, reason: error.message }); }
+    }
+    records[index] = record;
+  });
+  await writeFile(manifestPath, `${JSON.stringify(records, null, 2)}\n`);
+  const verified = records.filter((record) => record.status === 'verified');
+  if (verified.length) await runFile(String(python || 'python3'), ['-c', `
+from PIL import Image, ImageDraw
+from pathlib import Path
+import json, sys
+cache = Path(sys.argv[1])
+verified = [r for r in json.loads((cache / 'manifest.json').read_text()) if r['status'] == 'verified']
+for start in range(0, len(verified), 40):
+    subset = verified[start:start+40]
+    sheet = Image.new('RGB', (1200, ((len(subset)+7)//8)*240), '#d9e8ed')
+    draw = ImageDraw.Draw(sheet)
+    for i, record in enumerate(subset):
+        im = Image.open(cache / record['webp']).convert('RGBA')
+        im.thumbnail((146, 208))
+        x, y = i % 8 * 150, i // 8 * 240
+        sheet.paste(im, (x+(150-im.width)//2, y), im)
+        draw.text((x+3, y+210), record['wikiId']+' '+record['damage'], fill='#17283e')
+        draw.text((x+3, y+224), record['id'].rsplit('-', 1)[-1], fill='#17283e')
+    sheet.save(cache / f'review-{start//40:02}.jpg', quality=92)
+`, cacheDir]);
+  console.log(`${verified.length} verified; ${records.length - verified.length} unresolved. Review ${cacheDir}/review-*.jpg, then run with --resolve-cards --apply.`);
+}

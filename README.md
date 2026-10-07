@@ -2,7 +2,50 @@
 
 Pick your favorite shipgirls in Kancolle.
 
-<a href="https://chinjufu-pick.vercel.app/" target="_blank">Visit Site</a>
+## Deployment
+
+Import this repository into Vercel. The included `vercel.json` configures Vite,
+the build command `npm run build`, the output directory `dist`, and rewrites for
+both pickup pages. Keep the bundled data and images in `public/` when deploying.
+
+To build and preview locally:
+
+```sh
+npm ci
+npm run build
+npm run preview
+```
+
+## Artwork synchronization
+
+Synchronization runs manually with `npm run sync:artworks`; opening the site and
+running the Vercel build do not fetch artwork. No scheduled synchronization is
+configured in this repository.
+
+The single entry point is `scripts/sync-artworks.mjs`. The catalog and verified
+source corrections both live in `public/data/artworks.json`: records marked
+`sourceLocked: true` retain their corrected sources, artwork IDs and asset paths
+during later syncs. No separate source override JSON is needed.
+
+```sh
+# Refresh gallery data and convert downloaded artwork to WebP (requires Pillow).
+npm run sync:artworks -- --python=python3 --refresh
+
+# Discover full illustrations for remaining card fallbacks; optionally supply
+# --csv=path to a CSV with reviewed source links. Results stay in a temporary cache.
+npm run sync:artworks -- --resolve-cards --python=python3
+
+# After reviewing /tmp/chinjufu-card-resolution/review-*.jpg, apply the results.
+npm run sync:artworks -- --resolve-cards --apply
+
+# Rebuild avatar crops after changing artwork, then verify all local data.
+npm run sync:avatars
+npm run check:data
+```
+
+Discovery and application use the same `--cache=path` when a custom cache is
+specified. The CSV is optional and is never overwritten. Applying a reviewed
+replacement stores its source lock directly on the artwork record.
 
 ## Sources & Copyright
 

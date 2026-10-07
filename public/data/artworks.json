@@ -8,10 +8,6 @@
     {
       "name": "kcwiki 中文舰娘数据 · 图鉴编号映射",
       "url": "https://kcwikizh.github.io/kcdata/ship/ship.json"
-    },
-    {
-      "name": "艦これ攻略 Wiki · 长波补强改装共用立绘说明",
-      "url": "https://wikiwiki.jp/kancolle/長波改二補"
     }
   ],
   "coverage": {
@@ -5089,7 +5085,8 @@
       "image": "/artworks/a868c2a2f183.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu661HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/92/KanMusu661HDDmgIllust.png",
-      "sourceCaption": "北上改三 中破高清全身图"
+      "sourceCaption": "北上改三 中破高清全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-25-180661e7a27a",
@@ -5108,7 +5105,8 @@
       "image": "/artworks/180661e7a27a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu661HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e2/KanMusu661HDIllust.png",
-      "sourceCaption": "北上改三 正常高清全身图"
+      "sourceCaption": "北上改三 正常高清全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-26-ce6e66283703",
@@ -5481,7 +5479,8 @@
       "image": "/artworks/874eb3217813.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu211aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/ee/KanMusu211aHDDmgIllust.png",
-      "sourceCaption": "扶桑改二补 中破全身图"
+      "sourceCaption": "扶桑改二补 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-26-57df2af65983",
@@ -5500,7 +5499,8 @@
       "image": "/artworks/57df2af65983.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu211aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/10/KanMusu211aHDIllust.png",
-      "sourceCaption": "扶桑改二补 正常全身图"
+      "sourceCaption": "扶桑改二补 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-27-3549cd4d6fe5",
@@ -5795,7 +5795,8 @@
       "image": "/artworks/9c1039067fad.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu212aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6d/KanMusu212aHDDmgIllust.png",
-      "sourceCaption": "山城改二补 中破全身图"
+      "sourceCaption": "山城改二补 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-27-cb4cfd6efadc",
@@ -5814,7 +5815,8 @@
       "image": "/artworks/cb4cfd6efadc.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu212aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ab/KanMusu212aHDIllust.png",
-      "sourceCaption": "山城改二补 正常全身图"
+      "sourceCaption": "山城改二补 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-28-4b25cc5eeb70",
@@ -24547,7 +24549,8 @@
       "image": "/artworks/3717244cc272.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu163DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/8b/KanMusu163DmgIllust.png",
-      "sourceCaption": "丸输 中破全身图"
+      "sourceCaption": "丸输 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-163-a62397ff882f",
@@ -24566,7 +24569,8 @@
       "image": "/artworks/a62397ff882f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu163Illust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/67/KanMusu163Illust.png",
-      "sourceCaption": "丸输 正常全身图"
+      "sourceCaption": "丸输 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-163-964f41f8ae99",
@@ -24661,7 +24665,8 @@
       "image": "/artworks/d8fe2e27913b.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu163aDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/47/KanMusu163aDmgIllust.png",
-      "sourceCaption": "丸输改 中破全身图"
+      "sourceCaption": "丸输改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-163-44dd52e5b304",
@@ -24680,7 +24685,8 @@
       "image": "/artworks/44dd52e5b304.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu163aIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e8/KanMusu163aIllust.png",
-      "sourceCaption": "丸输改 正常全身图"
+      "sourceCaption": "丸输改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-164-4e9e95cc6aec",
@@ -25385,7 +25391,8 @@
       "image": "/artworks/2b5394e7f70e.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu170DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/98/KanMusu170DmgIllust.png",
-      "sourceCaption": "浜风 中破全身图"
+      "sourceCaption": "浜风 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-170-ce7086b7e5ca",
@@ -25404,7 +25411,8 @@
       "image": "/artworks/ce7086b7e5ca.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu170Illust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c5/KanMusu170Illust.png",
-      "sourceCaption": "浜风 正常全身图"
+      "sourceCaption": "浜风 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-170-583e0e6dedb0",
@@ -25537,7 +25545,8 @@
       "image": "/artworks/0d6aa35846a3.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu170aDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ad/KanMusu170aDmgIllust.png",
-      "sourceCaption": "浜风改 中破全身图"
+      "sourceCaption": "浜风改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-170-1e3579de9838",
@@ -25556,7 +25565,8 @@
       "image": "/artworks/1e3579de9838.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu170aIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/05/KanMusu170aIllust.png",
-      "sourceCaption": "浜风改 正常全身图"
+      "sourceCaption": "浜风改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-170-0a17642de7e9",
@@ -26203,7 +26213,8 @@
       "image": "/artworks/fb56b6f462ce.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu551HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b1/KanMusu551HDDmgIllust.png",
-      "sourceCaption": "天津风改二 中破全身图"
+      "sourceCaption": "天津风改二 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-181-dbb8fdf646e5",
@@ -27142,7 +27153,8 @@
       "image": "/artworks/fb961f57f1ef.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu183aDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b1/KanMusu183aDmgIllust.png",
-      "sourceCaption": "大淀改 中破全身图"
+      "sourceCaption": "大淀改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-183-1f3343e5215f",
@@ -27161,7 +27173,8 @@
       "image": "/artworks/1f3343e5215f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu183aIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/47/KanMusu183aIllust.png",
-      "sourceCaption": "大淀改 正常全身图"
+      "sourceCaption": "大淀改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-183-279fbcbbeeb2",
@@ -28363,7 +28376,8 @@
       "image": "/artworks/36206d507028.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu493HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/ef/KanMusu493HDDmgIllust.png",
-      "sourceCaption": "巫喙鲈 中破全身图"
+      "sourceCaption": "巫喙鲈 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-299-4db8759aeb45",
@@ -28382,7 +28396,8 @@
       "image": "/artworks/4db8759aeb45.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu493HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/31/KanMusu493HDIllust.png",
-      "sourceCaption": "巫喙鲈 正常全身图"
+      "sourceCaption": "巫喙鲈 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-299-5d5a8f611e33",
@@ -28401,7 +28416,8 @@
       "image": "/artworks/5d5a8f611e33.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu493aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/02/KanMusu493aHDDmgIllust.png",
-      "sourceCaption": "巫喙鲈改 中破全身图"
+      "sourceCaption": "巫喙鲈改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-299-090ea2da0016",
@@ -28420,7 +28436,8 @@
       "image": "/artworks/090ea2da0016.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu493aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/7e/KanMusu493aHDIllust.png",
-      "sourceCaption": "巫喙鲈改 正常全身图"
+      "sourceCaption": "巫喙鲈改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-331-8f056ac28482",
@@ -32444,7 +32461,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E5%88%A9%E4%BC%AF%E9%BD%90%E5%A5%A5",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/be/KanMusu243DmgIllust.png",
       "sourceCaption": "利伯齐奥改 中破全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E5%88%A9%E4%BC%AF%E9%BD%90%E5%A5%A5"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E5%88%A9%E4%BC%AF%E9%BD%90%E5%A5%A5",
+      "sourceLocked": true
     },
     {
       "id": "art-443-e4ee6d38344a",
@@ -32464,7 +32482,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E5%88%A9%E4%BC%AF%E9%BD%90%E5%A5%A5",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/9a/KanMusu243Illust.png",
       "sourceCaption": "利伯齐奥改 正常全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E5%88%A9%E4%BC%AF%E9%BD%90%E5%A5%A5"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E5%88%A9%E4%BC%AF%E9%BD%90%E5%A5%A5",
+      "sourceLocked": true
     },
     {
       "id": "art-443-c7029cd89ca0",
@@ -32483,7 +32502,8 @@
       "image": "/artworks/c7029cd89ca0.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu243DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/be/KanMusu243DmgIllust.png",
-      "sourceCaption": "利伯齐奥 中破全身图"
+      "sourceCaption": "利伯齐奥 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-443-6f2b38e7958a",
@@ -32502,7 +32522,8 @@
       "image": "/artworks/6f2b38e7958a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu243Illust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/9a/KanMusu243Illust.png",
-      "sourceCaption": "利伯齐奥 正常全身图"
+      "sourceCaption": "利伯齐奥 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-443-99f3a8020101",
@@ -32750,7 +32771,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E9%B9%AB%E5%BA%A7",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3d/KanMusu244DmgIllust.png",
       "sourceCaption": "鹫座改 中破全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%AB%E5%BA%A7"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%AB%E5%BA%A7",
+      "sourceLocked": true
     },
     {
       "id": "art-444-e039d5217e41",
@@ -32770,7 +32792,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E9%B9%AB%E5%BA%A7",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c6/KanMusu244Illust.png",
       "sourceCaption": "鹫座改 正常全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%AB%E5%BA%A7"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%AB%E5%BA%A7",
+      "sourceLocked": true
     },
     {
       "id": "art-444-cb4f80e24306",
@@ -32789,7 +32812,8 @@
       "image": "/artworks/cb4f80e24306.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu244DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3d/KanMusu244DmgIllust.png",
-      "sourceCaption": "鹫座 中破全身图"
+      "sourceCaption": "鹫座 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-444-6a523f15d20f",
@@ -32808,7 +32832,8 @@
       "image": "/artworks/6a523f15d20f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu244Illust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c6/KanMusu244Illust.png",
-      "sourceCaption": "鹫座 正常全身图"
+      "sourceCaption": "鹫座 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-444-86a22cb175e2",
@@ -33181,7 +33206,8 @@
       "image": "/artworks/ef021e390377.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu296DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/98/KanMusu296DmgIllust.png",
-      "sourceCaption": "扎拉due 中破全身图"
+      "sourceCaption": "扎拉due 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-448-e66cefa899e7",
@@ -33200,7 +33226,8 @@
       "image": "/artworks/e66cefa899e7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu296Illust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/90/KanMusu296Illust.png",
-      "sourceCaption": "扎拉due 正常全身图"
+      "sourceCaption": "扎拉due 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-448-a628decb239b",
@@ -34835,7 +34862,8 @@
       "image": "/artworks/39e704ea57c2.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu470HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a9/KanMusu470HDDmgIllust.png",
-      "sourceCaption": "親潮改二 中破全身图"
+      "sourceCaption": "親潮改二 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-456-a8305cbe5e90",
@@ -34854,7 +34882,8 @@
       "image": "/artworks/a8305cbe5e90.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu470HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/40/KanMusu470HDIllust.png",
-      "sourceCaption": "親潮改二 正常全身图"
+      "sourceCaption": "親潮改二 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-456-d65fcc376a49",
@@ -35772,7 +35801,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E9%B9%BF%E5%B2%9B",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/02/KanMusu265DmgIllust.png",
       "sourceCaption": "鹿岛改 中破全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%BF%E5%B2%9B"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%BF%E5%B2%9B",
+      "sourceLocked": true
     },
     {
       "id": "art-465-ab63f9bef9a4",
@@ -35792,7 +35822,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E9%B9%BF%E5%B2%9B",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/0c/KanMusu265Illust.png",
       "sourceCaption": "鹿岛改 正常全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%BF%E5%B2%9B"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E9%B9%BF%E5%B2%9B",
+      "sourceLocked": true
     },
     {
       "id": "art-465-366afaffe9ac",
@@ -36042,7 +36073,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%A5%9E%E9%A3%8E",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/28/KanMusu271DmgIllust.png",
       "sourceCaption": "神风改 中破全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E7%A5%9E%E9%A3%8E"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E7%A5%9E%E9%A3%8E",
+      "sourceLocked": true
     },
     {
       "id": "art-471-608b5ffa4aa1",
@@ -36062,7 +36094,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%A5%9E%E9%A3%8E",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e8/KanMusu271Illust.png",
       "sourceCaption": "神风改 正常全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E7%A5%9E%E9%A3%8E"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E7%A5%9E%E9%A3%8E",
+      "sourceLocked": true
     },
     {
       "id": "art-472-1d4a9bb540f1",
@@ -36162,7 +36195,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E6%9D%BE%E9%A3%8E",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/fe/KanMusu274DmgIllust.png",
       "sourceCaption": "松风改 中破全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E6%9D%BE%E9%A3%8E"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E6%9D%BE%E9%A3%8E",
+      "sourceLocked": true
     },
     {
       "id": "art-474-81ef8cb4a69a",
@@ -36182,7 +36216,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E6%9D%BE%E9%A3%8E",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/d6/KanMusu274Illust.png",
       "sourceCaption": "松风改 正常全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E6%9D%BE%E9%A3%8E"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E6%9D%BE%E9%A3%8E",
+      "sourceLocked": true
     },
     {
       "id": "art-474-77e5eb36771d",
@@ -37728,7 +37763,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E8%97%A4%E6%B3%A2",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/03/KanMusu285DmgIllust.png",
       "sourceCaption": "藤波改 中破全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E8%97%A4%E6%B3%A2"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E8%97%A4%E6%B3%A2",
+      "sourceLocked": true
     },
     {
       "id": "art-485-d944b5bb2603",
@@ -37748,7 +37784,8 @@
       "source": "https://zh.kcwiki.cn/wiki/%E8%97%A4%E6%B3%A2",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3c/KanMusu285Illust.png",
       "sourceCaption": "藤波改 正常全身图",
-      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E8%97%A4%E6%B3%A2"
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E8%97%A4%E6%B3%A2",
+      "sourceLocked": true
     },
     {
       "id": "art-485-7662af8da47f",
@@ -39608,7 +39645,8 @@
       "image": "/artworks/5d153c5496c3.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu316DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c5/KanMusu316DmgIllust.png",
-      "sourceCaption": "甘古特改 中破全身图"
+      "sourceCaption": "甘古特改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-511-6694df7da14a",
@@ -39627,7 +39665,8 @@
       "image": "/artworks/6694df7da14a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu316Illust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/62/KanMusu316Illust.png",
-      "sourceCaption": "甘古特改 正常全身图"
+      "sourceCaption": "甘古特改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-511-7e514275c957",
@@ -40110,7 +40149,8 @@
       "image": "/artworks/9e70c4b3ddef.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu320HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/ca/KanMusu320HDDmgIllust.png",
-      "sourceCaption": "雅努斯 中破全身图"
+      "sourceCaption": "雅努斯 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-520-3e0562fe7c8c",
@@ -40129,7 +40169,8 @@
       "image": "/artworks/3e0562fe7c8c.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu320HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6f/KanMusu320HDIllust.png",
-      "sourceCaption": "雅努斯 正常全身图"
+      "sourceCaption": "雅努斯 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-520-61ed71ab0cbc",
@@ -40148,7 +40189,8 @@
       "image": "/artworks/61ed71ab0cbc.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu320aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/27/KanMusu320aHDDmgIllust.png",
-      "sourceCaption": "雅努斯改 中破全身图"
+      "sourceCaption": "雅努斯改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-520-9d087cd4394f",
@@ -40167,7 +40209,8 @@
       "image": "/artworks/9d087cd4394f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu320aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ae/KanMusu320aHDIllust.png",
-      "sourceCaption": "雅努斯改 正常全身图"
+      "sourceCaption": "雅努斯改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-521-9c89161b4bdc",
@@ -43602,7 +43645,8 @@
       "image": "/artworks/d6026a7120e1.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu361DmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/33/KanMusu361DmgIllust.png",
-      "sourceCaption": "塞缪尔·B·罗伯茨 中破全身图"
+      "sourceCaption": "塞缪尔·B·罗伯茨 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-561-ae78172dda69",
@@ -44541,7 +44585,8 @@
       "image": "/artworks/100c59748293.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu370HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/45/KanMusu370HDDmgIllust.png",
-      "sourceCaption": "平户 中破全身图"
+      "sourceCaption": "平户 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-570-022e85610135",
@@ -44560,7 +44605,8 @@
       "image": "/artworks/022e85610135.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu370HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a5/KanMusu370HDIllust.png",
-      "sourceCaption": "平户 正常全身图"
+      "sourceCaption": "平户 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-570-e9cde8cacbb6",
@@ -44657,7 +44703,8 @@
       "image": "/artworks/e6bf1e277f15.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu370aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ab/KanMusu370aHDDmgIllust.png",
-      "sourceCaption": "平户改 中破全身图"
+      "sourceCaption": "平户改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-570-ad828706d1fd",
@@ -44676,7 +44723,8 @@
       "image": "/artworks/ad828706d1fd.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu370aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a3/KanMusu370aHDIllust.png",
-      "sourceCaption": "平户改 正常全身图"
+      "sourceCaption": "平户改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-571-3a08843d981b",
@@ -44695,7 +44743,8 @@
       "image": "/artworks/3a08843d981b.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu371HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/18/KanMusu371HDDmgIllust.png",
-      "sourceCaption": "纳尔逊 中破全身图"
+      "sourceCaption": "纳尔逊 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-571-5a0189b0cb15",
@@ -44714,7 +44763,8 @@
       "image": "/artworks/5a0189b0cb15.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu371HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2c/KanMusu371HDIllust.png",
-      "sourceCaption": "纳尔逊 正常全身图"
+      "sourceCaption": "纳尔逊 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-571-46b57ac25bb7",
@@ -44733,7 +44783,8 @@
       "image": "/artworks/46b57ac25bb7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu376HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/0a/KanMusu376HDDmgIllust.png",
-      "sourceCaption": "纳尔逊改 中破全身图"
+      "sourceCaption": "纳尔逊改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-571-17cb4c51e33a",
@@ -44752,7 +44803,8 @@
       "image": "/artworks/17cb4c51e33a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu376HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/84/KanMusu376HDIllust.png",
-      "sourceCaption": "纳尔逊改 正常全身图"
+      "sourceCaption": "纳尔逊改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-572-f5049817d2f6",
@@ -45401,7 +45453,8 @@
       "image": "/artworks/35d4a649003b.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu430HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/5d/KanMusu430HDDmgIllust.png",
-      "sourceCaption": "哥特兰改二 中破全身图"
+      "sourceCaption": "哥特兰改二 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-574-91f846c1398e",
@@ -45420,7 +45473,8 @@
       "image": "/artworks/91f846c1398e.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu430HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/63/KanMusu430HDIllust.png",
-      "sourceCaption": "哥特兰改二 正常全身图"
+      "sourceCaption": "哥特兰改二 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-574-55beb4bf63e1",
@@ -45667,7 +45721,8 @@
       "image": "/artworks/cb69330d67b7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu375HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/70/KanMusu375HDDmgIllust.png",
-      "sourceCaption": "西北风 中破全身图"
+      "sourceCaption": "西北风 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-575-fbc406f3d841",
@@ -45686,7 +45741,8 @@
       "image": "/artworks/fbc406f3d841.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu375HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6c/KanMusu375HDIllust.png",
-      "sourceCaption": "西北风 正常全身图"
+      "sourceCaption": "西北风 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-575-867f4d181a43",
@@ -45901,7 +45957,8 @@
       "image": "/artworks/ea445b228df7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu380HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2b/KanMusu380HDDmgIllust.png",
-      "sourceCaption": "西北风改 中破全身图"
+      "sourceCaption": "西北风改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-575-8a51a8dd864a",
@@ -45920,7 +45977,8 @@
       "image": "/artworks/8a51a8dd864a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu380HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/50/KanMusu380HDIllust.png",
-      "sourceCaption": "西北风改 正常全身图"
+      "sourceCaption": "西北风改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-575-8498ef1b02c9",
@@ -45977,7 +46035,8 @@
       "image": "/artworks/497cb1557cfa.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu381HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/54/KanMusu381HDDmgIllust.png",
-      "sourceCaption": "日进 中破全身图"
+      "sourceCaption": "日进 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-581-518adc4d6174",
@@ -45996,7 +46055,8 @@
       "image": "/artworks/518adc4d6174.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu381HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/91/KanMusu381HDIllust.png",
-      "sourceCaption": "日进 正常全身图"
+      "sourceCaption": "日进 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-581-28cef2986d5a",
@@ -46015,7 +46075,8 @@
       "image": "/artworks/28cef2986d5a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu386HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/d4/KanMusu386HDDmgIllust.png",
-      "sourceCaption": "日进甲 中破全身图"
+      "sourceCaption": "日进甲 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-581-9f5c98a04198",
@@ -46034,7 +46095,8 @@
       "image": "/artworks/9f5c98a04198.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu386HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/5a/KanMusu386HDIllust.png",
-      "sourceCaption": "日进甲 正常全身图"
+      "sourceCaption": "日进甲 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-581-737e8c05b985",
@@ -46053,7 +46115,8 @@
       "image": "/artworks/737e8c05b985.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu381aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/39/KanMusu381aHDDmgIllust.png",
-      "sourceCaption": "日进改 中破全身图"
+      "sourceCaption": "日进改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-581-b009c3c0a7b9",
@@ -46072,7 +46135,8 @@
       "image": "/artworks/b009c3c0a7b9.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu381aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ad/KanMusu381aHDIllust.png",
-      "sourceCaption": "日进改 正常全身图"
+      "sourceCaption": "日进改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-582-073352eadae6",
@@ -46091,7 +46155,8 @@
       "image": "/artworks/073352eadae6.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu382HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/1f/KanMusu382HDDmgIllust.png",
-      "sourceCaption": "夏云 中破全身图"
+      "sourceCaption": "夏云 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-582-ad698123062f",
@@ -46110,7 +46175,8 @@
       "image": "/artworks/ad698123062f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu382HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/cf/KanMusu382HDIllust.png",
-      "sourceCaption": "夏云 正常全身图"
+      "sourceCaption": "夏云 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-582-36f6de3b2b64",
@@ -46167,7 +46233,8 @@
       "image": "/artworks/8b162176b115.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu382aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/59/KanMusu382aHDDmgIllust.png",
-      "sourceCaption": "夏云改 中破全身图"
+      "sourceCaption": "夏云改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-582-ba127398ca7a",
@@ -46186,7 +46253,8 @@
       "image": "/artworks/ba127398ca7a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu382aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a6/KanMusu382aHDIllust.png",
-      "sourceCaption": "夏云改 正常全身图"
+      "sourceCaption": "夏云改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-582-7f988ed82d7e",
@@ -46243,7 +46311,8 @@
       "image": "/artworks/ebe1d877b04c.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu383HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/8f/KanMusu383HDDmgIllust.png",
-      "sourceCaption": "峰云 中破全身图"
+      "sourceCaption": "峰云 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-583-454fcdcc28a8",
@@ -46262,7 +46331,8 @@
       "image": "/artworks/454fcdcc28a8.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu383HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/8c/KanMusu383HDIllust.png",
-      "sourceCaption": "峰云 正常全身图"
+      "sourceCaption": "峰云 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-583-3a21bfb5248e",
@@ -46361,7 +46431,8 @@
       "image": "/artworks/e29ef19200ae.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu383aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/af/KanMusu383aHDDmgIllust.png",
-      "sourceCaption": "峰云改 中破全身图"
+      "sourceCaption": "峰云改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-583-0f9a926bb491",
@@ -46380,7 +46451,8 @@
       "image": "/artworks/0f9a926bb491.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu383aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/0e/KanMusu383aHDIllust.png",
-      "sourceCaption": "峰云改 正常全身图"
+      "sourceCaption": "峰云改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-584-68c1880b748d",
@@ -46555,7 +46627,8 @@
       "image": "/artworks/ef9a2a903e0c.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu385aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/80/KanMusu385aHDDmgIllust.png",
-      "sourceCaption": "石垣改 中破全身图"
+      "sourceCaption": "石垣改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-585-c9f0064e4978",
@@ -46574,7 +46647,8 @@
       "image": "/artworks/c9f0064e4978.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu385aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/ec/KanMusu385aHDIllust.png",
-      "sourceCaption": "石垣改 正常全身图"
+      "sourceCaption": "石垣改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-585-fb29b6138da3",
@@ -46593,7 +46667,8 @@
       "image": "/artworks/fb29b6138da3.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu385HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/0b/KanMusu385HDDmgIllust.png",
-      "sourceCaption": "石垣 中破全身图"
+      "sourceCaption": "石垣 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-585-04a598f33635",
@@ -46612,7 +46687,8 @@
       "image": "/artworks/04a598f33635.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu385HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e9/KanMusu385HDIllust.png",
-      "sourceCaption": "石垣 正常全身图"
+      "sourceCaption": "石垣 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-589-fe71f77258ac",
@@ -46631,7 +46707,8 @@
       "image": "/artworks/fe71f77258ac.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu389HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b0/KanMusu389HDDmgIllust.png",
-      "sourceCaption": "阿布鲁齐 中破全身图"
+      "sourceCaption": "阿布鲁齐 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-589-cd4eb3dafef6",
@@ -46650,7 +46727,8 @@
       "image": "/artworks/cd4eb3dafef6.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu389HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/64/KanMusu389HDIllust.png",
-      "sourceCaption": "阿布鲁齐 正常全身图"
+      "sourceCaption": "阿布鲁齐 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-589-01b7f5f37fbb",
@@ -46709,7 +46787,8 @@
       "image": "/artworks/da0cd5690d32.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu389aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2b/KanMusu389aHDDmgIllust.png",
-      "sourceCaption": "阿布鲁齐改 中破全身图"
+      "sourceCaption": "阿布鲁齐改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-589-429302faf92d",
@@ -46728,7 +46807,8 @@
       "image": "/artworks/429302faf92d.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu389aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b3/KanMusu389aHDIllust.png",
-      "sourceCaption": "阿布鲁齐改 正常全身图"
+      "sourceCaption": "阿布鲁齐改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-590-f3ec672d1687",
@@ -46747,7 +46827,8 @@
       "image": "/artworks/f3ec672d1687.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu390HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/86/KanMusu390HDDmgIllust.png",
-      "sourceCaption": "加里波第 中破全身图"
+      "sourceCaption": "加里波第 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-590-a11aa056c4ac",
@@ -46766,7 +46847,8 @@
       "image": "/artworks/a11aa056c4ac.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu390HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/fe/KanMusu390HDIllust.png",
-      "sourceCaption": "加里波第 正常全身图"
+      "sourceCaption": "加里波第 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-590-703258bd01b0",
@@ -46785,7 +46867,8 @@
       "image": "/artworks/703258bd01b0.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu390aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/f2/KanMusu390aHDDmgIllust.png",
-      "sourceCaption": "加里波第改 中破全身图"
+      "sourceCaption": "加里波第改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-590-0423e5ffe3c4",
@@ -46804,7 +46887,8 @@
       "image": "/artworks/0423e5ffe3c4.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu390aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/dc/KanMusu390aHDIllust.png",
-      "sourceCaption": "加里波第改 正常全身图"
+      "sourceCaption": "加里波第改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-595-dab4bc5eddb0",
@@ -47633,7 +47717,8 @@
       "image": "/artworks/90eb18a92742.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu397HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/74/KanMusu397HDDmgIllust.png",
-      "sourceCaption": "亚特兰大 中破全身图"
+      "sourceCaption": "亚特兰大 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-597-4700e7f2c105",
@@ -47652,7 +47737,8 @@
       "image": "/artworks/4700e7f2c105.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu397HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e9/KanMusu397HDIllust.png",
-      "sourceCaption": "亚特兰大 正常全身图"
+      "sourceCaption": "亚特兰大 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-597-00da580f0625",
@@ -47709,7 +47795,8 @@
       "image": "/artworks/64bb62d4f1b1.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu397aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/90/KanMusu397aHDDmgIllust.png",
-      "sourceCaption": "亚特兰大改 中破全身图"
+      "sourceCaption": "亚特兰大改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-597-aa1e04eae7b8",
@@ -47728,7 +47815,8 @@
       "image": "/artworks/aa1e04eae7b8.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu397aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/fa/KanMusu397aHDIllust.png",
-      "sourceCaption": "亚特兰大改 正常全身图"
+      "sourceCaption": "亚特兰大改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-598-ec5a79951463",
@@ -47943,7 +48031,8 @@
       "image": "/artworks/441ba6f83438.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu401HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/77/KanMusu401HDDmgIllust.png",
-      "sourceCaption": "科罗拉多 中破全身图"
+      "sourceCaption": "科罗拉多 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-601-76a770e4e4f5",
@@ -47962,7 +48051,8 @@
       "image": "/artworks/76a770e4e4f5.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu401HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/30/KanMusu401HDIllust.png",
-      "sourceCaption": "科罗拉多 正常全身图"
+      "sourceCaption": "科罗拉多 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-601-7f66110e1522",
@@ -47981,7 +48071,8 @@
       "image": "/artworks/7f66110e1522.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu406HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/bf/KanMusu406HDDmgIllust.png",
-      "sourceCaption": "科罗拉多改 中破全身图"
+      "sourceCaption": "科罗拉多改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-601-c505bf1b1436",
@@ -48000,7 +48091,8 @@
       "image": "/artworks/c505bf1b1436.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu406HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/77/KanMusu406HDIllust.png",
-      "sourceCaption": "科罗拉多改 正常全身图"
+      "sourceCaption": "科罗拉多改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-602-d3300eab2442",
@@ -48363,7 +48455,8 @@
       "image": "/artworks/4581862d82a1.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu403HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/98/KanMusu403HDDmgIllust.png",
-      "sourceCaption": "大黄蜂 中破全身图"
+      "sourceCaption": "大黄蜂 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-603-ff0547e859f9",
@@ -48382,7 +48475,8 @@
       "image": "/artworks/ff0547e859f9.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu403HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c0/KanMusu403HDIllust.png",
-      "sourceCaption": "大黄蜂 正常全身图"
+      "sourceCaption": "大黄蜂 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-603-e4c36512688d",
@@ -48439,7 +48533,8 @@
       "image": "/artworks/584f5a173a48.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu403aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/52/KanMusu403aHDDmgIllust.png",
-      "sourceCaption": "大黄蜂改 中破全身图"
+      "sourceCaption": "大黄蜂改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-603-7c57cb65c658",
@@ -48458,7 +48553,8 @@
       "image": "/artworks/7c57cb65c658.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu403aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/9e/KanMusu403aHDIllust.png",
-      "sourceCaption": "大黄蜂改 正常全身图"
+      "sourceCaption": "大黄蜂改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-604-a01b27a458b4",
@@ -48633,7 +48729,8 @@
       "image": "/artworks/d175d8906537.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu411HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e0/KanMusu411HDDmgIllust.png",
-      "sourceCaption": "御藏 中破全身图"
+      "sourceCaption": "御藏 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-611-7b2ff92a0e95",
@@ -48652,7 +48749,8 @@
       "image": "/artworks/7b2ff92a0e95.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu411HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/1b/KanMusu411HDIllust.png",
-      "sourceCaption": "御藏 正常全身图"
+      "sourceCaption": "御藏 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-611-c8e0cde749cc",
@@ -48711,7 +48809,8 @@
       "image": "/artworks/b06569eee59f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu416HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/ef/KanMusu416HDDmgIllust.png",
-      "sourceCaption": "御藏改 中破全身图"
+      "sourceCaption": "御藏改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-611-719d368bd0f7",
@@ -48730,7 +48829,8 @@
       "image": "/artworks/719d368bd0f7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu416HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/79/KanMusu416HDIllust.png",
-      "sourceCaption": "御藏改 正常全身图"
+      "sourceCaption": "御藏改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-612-de0e33b41d4a",
@@ -48749,7 +48849,8 @@
       "image": "/artworks/de0e33b41d4a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu412HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/04/KanMusu412HDDmgIllust.png",
-      "sourceCaption": "屋代 中破全身图"
+      "sourceCaption": "屋代 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-612-844e66537122",
@@ -48768,7 +48869,8 @@
       "image": "/artworks/844e66537122.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu412HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/24/KanMusu412HDIllust.png",
-      "sourceCaption": "屋代 正常全身图"
+      "sourceCaption": "屋代 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-612-7878cf597dd8",
@@ -48863,7 +48965,8 @@
       "image": "/artworks/a0d52f838a30.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu417HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/97/KanMusu417HDDmgIllust.png",
-      "sourceCaption": "屋代改 中破全身图"
+      "sourceCaption": "屋代改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-612-2ab6d68c7739",
@@ -48882,7 +48985,8 @@
       "image": "/artworks/2ab6d68c7739.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu417HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b5/KanMusu417HDIllust.png",
-      "sourceCaption": "屋代改 正常全身图"
+      "sourceCaption": "屋代改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-613-330f6e2ddbd3",
@@ -48901,7 +49005,8 @@
       "image": "/artworks/330f6e2ddbd3.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu413HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2a/KanMusu413HDDmgIllust.png",
-      "sourceCaption": "珀斯 中破全身图"
+      "sourceCaption": "珀斯 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-613-8dd53188470f",
@@ -48920,7 +49025,8 @@
       "image": "/artworks/8dd53188470f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu413HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e1/KanMusu413HDIllust.png",
-      "sourceCaption": "珀斯 正常全身图"
+      "sourceCaption": "珀斯 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-613-82fe2ae0ea69",
@@ -49015,7 +49121,8 @@
       "image": "/artworks/f93ea9d96ce0.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu418HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/d2/KanMusu418HDDmgIllust.png",
-      "sourceCaption": "珀斯改 中破全身图"
+      "sourceCaption": "珀斯改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-613-b7618498e8bf",
@@ -49034,7 +49141,8 @@
       "image": "/artworks/b7618498e8bf.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu418HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/70/KanMusu418HDIllust.png",
-      "sourceCaption": "珀斯改 正常全身图"
+      "sourceCaption": "珀斯改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-614-b5e1cdf9fcbd",
@@ -49053,7 +49161,8 @@
       "image": "/artworks/b5e1cdf9fcbd.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu414HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ac/KanMusu414HDDmgIllust.png",
-      "sourceCaption": "东北风 中破全身图"
+      "sourceCaption": "东北风 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-614-6a044384e257",
@@ -49072,7 +49181,8 @@
       "image": "/artworks/6a044384e257.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu414HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c4/KanMusu414HDIllust.png",
-      "sourceCaption": "东北风 正常全身图"
+      "sourceCaption": "东北风 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-614-95315bee58a5",
@@ -49250,7 +49360,8 @@
       "image": "/artworks/2a6faa3a4134.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu419HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b0/KanMusu419HDDmgIllust.png",
-      "sourceCaption": "东北风改 中破全身图"
+      "sourceCaption": "东北风改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-614-cc6ad6dbe41f",
@@ -49269,7 +49380,8 @@
       "image": "/artworks/cc6ad6dbe41f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu419HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/02/KanMusu419HDIllust.png",
-      "sourceCaption": "东北风改 正常全身图"
+      "sourceCaption": "东北风改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-614-7e2f152573e0",
@@ -49577,7 +49689,8 @@
       "image": "/artworks/b44442586641.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu421HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ab/KanMusu421HDDmgIllust.png",
-      "sourceCaption": "神州丸 中破全身图"
+      "sourceCaption": "神州丸 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-621-c43c354fb556",
@@ -49596,7 +49709,8 @@
       "image": "/artworks/c43c354fb556.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu421HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/08/KanMusu421HDIllust.png",
-      "sourceCaption": "神州丸 正常全身图"
+      "sourceCaption": "神州丸 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-621-a48f85064110",
@@ -49615,7 +49729,8 @@
       "image": "/artworks/a48f85064110.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu426HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/7a/KanMusu426HDDmgIllust.png",
-      "sourceCaption": "神州丸改 中破全身图"
+      "sourceCaption": "神州丸改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-621-aa60fc666f45",
@@ -49634,7 +49749,8 @@
       "image": "/artworks/aa60fc666f45.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu426HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/9a/KanMusu426HDIllust.png",
-      "sourceCaption": "神州丸改 正常全身图"
+      "sourceCaption": "神州丸改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-625-518dbe4cdde2",
@@ -49845,7 +49961,8 @@
       "image": "/artworks/16cbbd871434.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu431HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3e/KanMusu431HDDmgIllust.png",
-      "sourceCaption": "薄云 中破全身图"
+      "sourceCaption": "薄云 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-631-4514a92ce2fd",
@@ -49864,7 +49981,8 @@
       "image": "/artworks/4514a92ce2fd.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu431HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e5/KanMusu431HDIllust.png",
-      "sourceCaption": "薄云 正常全身图"
+      "sourceCaption": "薄云 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-631-1afeb4efcf06",
@@ -49921,7 +50039,8 @@
       "image": "/artworks/cbd878370851.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu431aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/1c/KanMusu431aHDDmgIllust.png",
-      "sourceCaption": "薄云改 中破全身图"
+      "sourceCaption": "薄云改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-631-a0119ebeaea4",
@@ -49940,7 +50059,8 @@
       "image": "/artworks/a0119ebeaea4.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu431aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/8a/KanMusu431aHDIllust.png",
-      "sourceCaption": "薄云改 正常全身图"
+      "sourceCaption": "薄云改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-632-d846050562a8",
@@ -52360,7 +52480,8 @@
       "image": "/artworks/9b91a6843a61.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu441HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e1/KanMusu441HDDmgIllust.png",
-      "sourceCaption": "松 中破全身图"
+      "sourceCaption": "松 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-641-55f5a99f5568",
@@ -52379,7 +52500,8 @@
       "image": "/artworks/55f5a99f5568.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu441HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/fa/KanMusu441HDIllust.png",
-      "sourceCaption": "松 正常全身图"
+      "sourceCaption": "松 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-641-0f899ccb0b1e",
@@ -52398,7 +52520,8 @@
       "image": "/artworks/0f899ccb0b1e.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu441aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/24/KanMusu441aHDDmgIllust.png",
-      "sourceCaption": "松改 中破全身图"
+      "sourceCaption": "松改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-641-ecd0c30d9c2f",
@@ -52417,7 +52540,8 @@
       "image": "/artworks/ecd0c30d9c2f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu441aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/9b/KanMusu441aHDIllust.png",
-      "sourceCaption": "松改 正常全身图"
+      "sourceCaption": "松改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-642-9f4425e4dd57",
@@ -52512,7 +52636,8 @@
       "image": "/artworks/eb5ec57a8218.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu443HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6d/KanMusu443HDDmgIllust.png",
-      "sourceCaption": "梅 中破全身图"
+      "sourceCaption": "梅 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-643-ee0225b0273b",
@@ -52531,7 +52656,8 @@
       "image": "/artworks/ee0225b0273b.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu443HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/24/KanMusu443HDIllust.png",
-      "sourceCaption": "梅 正常全身图"
+      "sourceCaption": "梅 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-643-0a211a944c70",
@@ -52550,7 +52676,8 @@
       "image": "/artworks/0a211a944c70.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu443aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/60/KanMusu443aHDDmgIllust.png",
-      "sourceCaption": "梅改 中破全身图"
+      "sourceCaption": "梅改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-643-2fab2bb38d1d",
@@ -52569,7 +52696,8 @@
       "image": "/artworks/2fab2bb38d1d.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu443aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/db/KanMusu443aHDIllust.png",
-      "sourceCaption": "梅改 正常全身图"
+      "sourceCaption": "梅改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-644-a53337c677d2",
@@ -52588,7 +52716,8 @@
       "image": "/artworks/a53337c677d2.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu444HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ad/KanMusu444HDDmgIllust.png",
-      "sourceCaption": "桃 中破全身图"
+      "sourceCaption": "桃 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-644-a283a8baf70c",
@@ -52607,7 +52736,8 @@
       "image": "/artworks/a283a8baf70c.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu444HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/ea/KanMusu444HDIllust.png",
-      "sourceCaption": "桃 正常全身图"
+      "sourceCaption": "桃 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-644-e579894b2b62",
@@ -52626,7 +52756,8 @@
       "image": "/artworks/e579894b2b62.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu444aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b4/KanMusu444aHDDmgIllust.png",
-      "sourceCaption": "桃改 中破全身图"
+      "sourceCaption": "桃改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-644-a627ec22905a",
@@ -52645,7 +52776,8 @@
       "image": "/artworks/a627ec22905a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu444aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3a/KanMusu444aHDIllust.png",
-      "sourceCaption": "桃改 正常全身图"
+      "sourceCaption": "桃改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-653-7d7343fdecff",
@@ -53736,7 +53868,8 @@
       "image": "/artworks/366a704aec16.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu475aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/37/KanMusu475aHDDmgIllust.png",
-      "sourceCaption": "凉波改 中破全身图"
+      "sourceCaption": "凉波改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-675-3f37cd8656b5",
@@ -53755,7 +53888,8 @@
       "image": "/artworks/3f37cd8656b5.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu475aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/dc/KanMusu475aHDIllust.png",
-      "sourceCaption": "凉波改 正常全身图"
+      "sourceCaption": "凉波改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-675-638600d29ccb",
@@ -53888,7 +54022,8 @@
       "image": "/artworks/4305d5e2b470.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu445HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e2/KanMusu445HDDmgIllust.png",
-      "sourceCaption": "宗谷 中破全身图"
+      "sourceCaption": "宗谷 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-699-bc44a1c6b919",
@@ -53907,7 +54042,8 @@
       "image": "/artworks/bc44a1c6b919.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu445HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2e/KanMusu445HDIllust.png",
-      "sourceCaption": "宗谷 正常全身图"
+      "sourceCaption": "宗谷 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-699-5e5556fd8dbc",
@@ -54116,7 +54252,8 @@
       "image": "/artworks/e57facb162e9.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu450HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2e/KanMusu450HDDmgIllust.png",
-      "sourceCaption": "宗谷 中破全身图"
+      "sourceCaption": "宗谷 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-699-d677904b9342",
@@ -54135,7 +54272,8 @@
       "image": "/artworks/d677904b9342.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu450HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/47/KanMusu450HDIllust.png",
-      "sourceCaption": "宗谷 正常全身图"
+      "sourceCaption": "宗谷 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-699-22d264a148cd",
@@ -54344,7 +54482,8 @@
       "image": "/artworks/e4750f5f95e6.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu408HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/83/KanMusu408HDDmgIllust.png",
-      "sourceCaption": "宗谷 中破全身图"
+      "sourceCaption": "宗谷 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-699-e249a54d08f0",
@@ -54363,7 +54502,8 @@
       "image": "/artworks/e249a54d08f0.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu408HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/f9/KanMusu408HDIllust.png",
-      "sourceCaption": "宗谷 正常全身图"
+      "sourceCaption": "宗谷 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-699-4f995b0ec469",
@@ -55375,7 +55515,8 @@
       "image": "/artworks/93167d3ca53b.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu485aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b8/KanMusu485aHDDmgIllust.png",
-      "sourceCaption": "胜利改 中破全身图"
+      "sourceCaption": "胜利改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-885-9b7f89201870",
@@ -55394,7 +55535,8 @@
       "image": "/artworks/9b7f89201870.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu485aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/01/KanMusu485aHDIllust.png",
-      "sourceCaption": "胜利改 正常全身图"
+      "sourceCaption": "胜利改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-885-dd2d39af21be",
@@ -55413,7 +55555,8 @@
       "image": "/artworks/dd2d39af21be.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu485HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/38/KanMusu485HDDmgIllust.png",
-      "sourceCaption": "胜利 中破全身图"
+      "sourceCaption": "胜利 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-885-71b78801405b",
@@ -55432,7 +55575,8 @@
       "image": "/artworks/71b78801405b.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu485HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/46/KanMusu485HDIllust.png",
-      "sourceCaption": "胜利 正常全身图"
+      "sourceCaption": "胜利 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-885-1e55c5794503",
@@ -55831,7 +55975,8 @@
       "image": "/artworks/516a1059aee1.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu495aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3b/KanMusu495aHDDmgIllust.png",
-      "sourceCaption": "昭南改 中破全身图"
+      "sourceCaption": "昭南改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-895-75cc95a79a92",
@@ -55850,7 +55995,8 @@
       "image": "/artworks/75cc95a79a92.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu495aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/05/KanMusu495aHDIllust.png",
-      "sourceCaption": "昭南改 正常全身图"
+      "sourceCaption": "昭南改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-895-769a055ca1da",
@@ -55869,7 +56015,8 @@
       "image": "/artworks/769a055ca1da.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu495HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/41/KanMusu495HDDmgIllust.png",
-      "sourceCaption": "昭南 中破全身图"
+      "sourceCaption": "昭南 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-895-48d5c4b703a7",
@@ -55888,7 +56035,8 @@
       "image": "/artworks/48d5c4b703a7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu495HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/87/KanMusu495HDIllust.png",
-      "sourceCaption": "昭南 正常全身图"
+      "sourceCaption": "昭南 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-896-11d71d126b38",
@@ -55907,7 +56055,8 @@
       "image": "/artworks/11d71d126b38.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu497aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/4a/KanMusu497aHDDmgIllust.png",
-      "sourceCaption": "布鲁克林改 中破全身图"
+      "sourceCaption": "布鲁克林改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-896-65dbf823de40",
@@ -55926,7 +56075,8 @@
       "image": "/artworks/65dbf823de40.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu497aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/0a/KanMusu497aHDIllust.png",
-      "sourceCaption": "布鲁克林改 正常全身图"
+      "sourceCaption": "布鲁克林改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-896-8ff6ff3aa0af",
@@ -55945,7 +56095,8 @@
       "image": "/artworks/8ff6ff3aa0af.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu497HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/0/06/KanMusu497HDDmgIllust.png",
-      "sourceCaption": "布鲁克林 中破全身图"
+      "sourceCaption": "布鲁克林 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-896-494366d6e9ae",
@@ -55964,7 +56115,8 @@
       "image": "/artworks/494366d6e9ae.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu497HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e5/KanMusu497HDIllust.png",
-      "sourceCaption": "布鲁克林 正常全身图"
+      "sourceCaption": "布鲁克林 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-896-03501e6fcb27",
@@ -56059,7 +56211,8 @@
       "image": "/artworks/48c49286bac5.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu498aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/3d/KanMusu498aHDDmgIllust.png",
-      "sourceCaption": "第二十二号海防舰改 中破全身图"
+      "sourceCaption": "第二十二号海防舰改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-898-314b086ef839",
@@ -56078,7 +56231,8 @@
       "image": "/artworks/314b086ef839.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu498aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/86/KanMusu498aHDIllust.png",
-      "sourceCaption": "第二十二号海防舰改 正常全身图"
+      "sourceCaption": "第二十二号海防舰改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-898-1f93f8d3a6bf",
@@ -57223,7 +57377,8 @@
       "image": "/artworks/d4c4a900f1cd.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu504HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/87/KanMusu504HDDmgIllust.png",
-      "sourceCaption": "能美 中破全身图"
+      "sourceCaption": "能美 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-904-3f16bcc3a362",
@@ -57242,7 +57397,8 @@
       "image": "/artworks/3f16bcc3a362.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu504HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/74/KanMusu504HDIllust.png",
-      "sourceCaption": "能美 正常全身图"
+      "sourceCaption": "能美 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-904-4ad8e3e169b3",
@@ -57299,7 +57455,8 @@
       "image": "/artworks/ef9f41e29b33.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu509HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/cb/KanMusu509HDDmgIllust.png",
-      "sourceCaption": "能美改 中破全身图"
+      "sourceCaption": "能美改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-904-95c84f8cf65f",
@@ -57318,7 +57475,8 @@
       "image": "/artworks/95c84f8cf65f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu509HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/55/KanMusu509HDIllust.png",
-      "sourceCaption": "能美改 正常全身图"
+      "sourceCaption": "能美改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-905-c2a5d6eeac73",
@@ -57337,7 +57495,8 @@
       "image": "/artworks/c2a5d6eeac73.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu505HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/5a/KanMusu505HDDmgIllust.png",
-      "sourceCaption": "仓桥 中破全身图"
+      "sourceCaption": "仓桥 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-905-0979a1115df1",
@@ -57356,7 +57515,8 @@
       "image": "/artworks/0979a1115df1.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu505HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2f/KanMusu505HDIllust.png",
-      "sourceCaption": "仓桥 正常全身图"
+      "sourceCaption": "仓桥 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-905-07132bfb4365",
@@ -57375,7 +57535,8 @@
       "image": "/artworks/07132bfb4365.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu510HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b2/KanMusu510HDDmgIllust.png",
-      "sourceCaption": "仓桥改 中破全身图"
+      "sourceCaption": "仓桥改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-905-ec8b15cdd547",
@@ -57394,7 +57555,8 @@
       "image": "/artworks/ec8b15cdd547.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu510HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/c0/KanMusu510HDIllust.png",
-      "sourceCaption": "仓桥改 正常全身图"
+      "sourceCaption": "仓桥改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-913-3a8c8a4dab12",
@@ -57413,7 +57575,8 @@
       "image": "/artworks/3a8c8a4dab12.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu513HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/8f/KanMusu513HDDmgIllust.png",
-      "sourceCaption": "马里兰 中破全身图"
+      "sourceCaption": "马里兰 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-913-55f72422e9ca",
@@ -57432,7 +57595,8 @@
       "image": "/artworks/55f72422e9ca.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu513HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/1c/KanMusu513HDIllust.png",
-      "sourceCaption": "马里兰 正常全身图"
+      "sourceCaption": "马里兰 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-913-7a04e7d319b5",
@@ -57470,7 +57634,8 @@
       "image": "/artworks/3314a2d3e75f.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu518HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/d7/KanMusu518HDDmgIllust.png",
-      "sourceCaption": "马里兰改 中破全身图"
+      "sourceCaption": "马里兰改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-913-4038df4061a7",
@@ -57489,7 +57654,8 @@
       "image": "/artworks/4038df4061a7.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu518HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/4b/KanMusu518HDIllust.png",
-      "sourceCaption": "马里兰改 正常全身图"
+      "sourceCaption": "马里兰改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-913-33eb56a52731",
@@ -58951,7 +59117,8 @@
       "image": "/artworks/334b8d9dbd07.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu525HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/7b/KanMusu525HDDmgIllust.png",
-      "sourceCaption": "兰利 中破全身图"
+      "sourceCaption": "兰利 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-925-a87311ff397e",
@@ -58970,7 +59137,8 @@
       "image": "/artworks/a87311ff397e.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu525HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/3/32/KanMusu525HDIllust.png",
-      "sourceCaption": "兰利 正常全身图"
+      "sourceCaption": "兰利 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-925-c96ac9bbff9a",
@@ -59103,7 +59271,8 @@
       "image": "/artworks/79b2a62e0faf.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu530HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/79/KanMusu530HDDmgIllust.png",
-      "sourceCaption": "兰利改 中破全身图"
+      "sourceCaption": "兰利改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-925-63754492b54d",
@@ -59122,7 +59291,8 @@
       "image": "/artworks/63754492b54d.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu530HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/fb/KanMusu530HDIllust.png",
-      "sourceCaption": "兰利改 正常全身图"
+      "sourceCaption": "兰利改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-925-e4e140df6482",
@@ -59217,7 +59387,8 @@
       "image": "/artworks/90a3d96b5687.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu527aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/67/KanMusu527aHDDmgIllust.png",
-      "sourceCaption": "英勇改 中破全身图"
+      "sourceCaption": "英勇改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-927-2a0885c90fd9",
@@ -59236,7 +59407,8 @@
       "image": "/artworks/2a0885c90fd9.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu527aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a8/KanMusu527aHDIllust.png",
-      "sourceCaption": "英勇改 正常全身图"
+      "sourceCaption": "英勇改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-927-fffff2c8e89a",
@@ -59641,7 +59813,8 @@
       "image": "/artworks/4382b5499d1c.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu533HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/cd/KanMusu533HDDmgIllust.png",
-      "sourceCaption": "马萨诸塞 中破全身图"
+      "sourceCaption": "马萨诸塞 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-933-776425b2e154",
@@ -59660,7 +59833,8 @@
       "image": "/artworks/776425b2e154.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu533HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/97/KanMusu533HDIllust.png",
-      "sourceCaption": "马萨诸塞 正常全身图"
+      "sourceCaption": "马萨诸塞 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-933-e9ab30440b5c",
@@ -59755,7 +59929,8 @@
       "image": "/artworks/dd51fb37cd4a.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu538HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/ba/KanMusu538HDDmgIllust.png",
-      "sourceCaption": "马萨诸塞改 中破全身图"
+      "sourceCaption": "马萨诸塞改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-933-f02802397aa0",
@@ -59774,7 +59949,8 @@
       "image": "/artworks/f02802397aa0.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu538HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/db/KanMusu538HDIllust.png",
-      "sourceCaption": "马萨诸塞改 正常全身图"
+      "sourceCaption": "马萨诸塞改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-934-252c5394e527",
@@ -60373,7 +60549,8 @@
       "image": "/artworks/2b587d811e4d.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu541aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/61/KanMusu541aHDDmgIllust.png",
-      "sourceCaption": "海伍德·L·爱德华兹改 中破全身图"
+      "sourceCaption": "海伍德·L·爱德华兹改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-941-694f1be031e9",
@@ -60392,7 +60569,8 @@
       "image": "/artworks/694f1be031e9.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu541aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6b/KanMusu541aHDIllust.png",
-      "sourceCaption": "海伍德·L·爱德华兹改 正常全身图"
+      "sourceCaption": "海伍德·L·爱德华兹改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-941-2f556ed3553f",
@@ -60563,7 +60741,8 @@
       "image": "/artworks/41763002de23.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu541HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/2/2a/KanMusu541HDDmgIllust.png",
-      "sourceCaption": "海伍德·L·爱德华兹 中破全身图"
+      "sourceCaption": "海伍德·L·爱德华兹 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-941-8586aaaaa6b4",
@@ -60582,7 +60761,8 @@
       "image": "/artworks/8586aaaaa6b4.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu541HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6f/KanMusu541HDIllust.png",
-      "sourceCaption": "海伍德·L·爱德华兹 正常全身图"
+      "sourceCaption": "海伍德·L·爱德华兹 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-941-77b869ab25a0",
@@ -62263,7 +62443,8 @@
       "image": "/artworks/33a3e33fe739.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu545aHDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e8/KanMusu545aHDDmgIllust.png",
-      "sourceCaption": "第百一号输送舰改 中破全身图"
+      "sourceCaption": "第百一号输送舰改 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-945-f299e96e0faa",
@@ -62282,7 +62463,8 @@
       "image": "/artworks/f299e96e0faa.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu545aHDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/bf/KanMusu545aHDIllust.png",
-      "sourceCaption": "第百一号输送舰改 正常全身图"
+      "sourceCaption": "第百一号输送舰改 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-945-e0d86adc6d5e",
@@ -62301,7 +62483,8 @@
       "image": "/artworks/e0d86adc6d5e.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu545HDDmgIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/bc/KanMusu545HDDmgIllust.png",
-      "sourceCaption": "第百一号输送舰 中破全身图"
+      "sourceCaption": "第百一号输送舰 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-945-118be77bc055",
@@ -62320,7 +62503,8 @@
       "image": "/artworks/118be77bc055.webp",
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu545HDIllust.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/75/KanMusu545HDIllust.png",
-      "sourceCaption": "第百一号输送舰 正常全身图"
+      "sourceCaption": "第百一号输送舰 正常全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-952-6046fcd04988",

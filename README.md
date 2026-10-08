@@ -24,9 +24,16 @@ image catalog from CLI uploads.
 The catch-all permanent redirect preserves every path, including old image
 and JSON URLs. Vercel forwards query parameters; browsers inherit the original
 fragment when the redirect destination has none, preserving `#p=...` share
-links. No serverless function or client-side script performs the redirect.
+links. The normal redirect happens at Vercel's CDN before any HTML is served,
+and needs no serverless function or JavaScript.
 The initial request to the old Vercel address still counts toward its CDN
 usage; subsequent page and asset requests go to Cloudflare Pages.
+
+If the fallback HTML is served, it immediately redirects with
+`location.replace`, preserving the path, query parameters, and fragment. Its
+message supports Chinese, Japanese, and English, using `?lang=zh|ja|en` first
+and browser language preferences otherwise. A manual link remains available;
+with JavaScript disabled, all three language versions are visible.
 
 Local browser saves are scoped to the old origin and do not move automatically.
 Existing share links carry the board data and can restore it on the new origin.

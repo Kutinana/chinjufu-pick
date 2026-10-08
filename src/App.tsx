@@ -4,7 +4,7 @@ import { Anchor, Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Do
 import { Analytics } from '@vercel/analytics/react';
 import { GROUPS, SHIP_TYPES, boardForMode, boardSlots, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks, shipDisplayName, shipClassOrdinal } from './model';
 import type { Artwork, ArtworkData, Candidate, Language, Picks, SavedBoard, ShipData, SlotId, TypeId, AvatarCrop, AvatarCropData, AvatarAdjustment } from './model';
-import { initialLanguage, messages } from './i18n';
+import { initialLanguage, localizedCount, localizedSourceName, messages } from './i18n';
 import { pageForPath, PICKUP_PATHS } from './routes';
 import type { Page } from './routes';
 import { exportBoard } from './export';
@@ -32,7 +32,7 @@ function ModalPresence({ children }: { children: ReactNode }) {
   return <ModalClosing.Provider value={closing}>{children || retained}</ModalClosing.Provider>;
 }
 
-function Modal({ title, onClose, children, className = '', onClickCapture }: { title: string; onClose: () => void; children: ReactNode; className?: string; onClickCapture?: MouseEventHandler<HTMLDivElement> }) {
+function Modal({ title, language, onClose, children, className = '', onClickCapture }: { title: string; language: Language; onClose: () => void; children: ReactNode; className?: string; onClickCapture?: MouseEventHandler<HTMLDivElement> }) {
   const closing = useContext(ModalClosing);
   const closingRef = useRef(closing);
   closingRef.current = closing;
@@ -78,7 +78,7 @@ function Modal({ title, onClose, children, className = '', onClickCapture }: { t
   return <div className={`modal-backdrop${closing ? ' closing' : ''}`} style={{ '--modal-exit-duration': `${MODAL_EXIT_MS}ms` } as CSSProperties} onClick={(event) => { if (!closing && event.target === event.currentTarget) onClose(); }}>
     <div className="modal-shade" aria-hidden="true" />
     <div ref={panel} className={`modal ${className}`} role="dialog" aria-modal="true" aria-labelledby={titleId} inert={closing} onClickCapture={onClickCapture}>
-      <div className="modal-header"><h2 id={titleId}>{title}</h2><button className="icon-button" aria-label="Close / 关闭 / 閉じる" onClick={onClose}><X size={22} /></button></div>
+      <div className="modal-header"><h2 id={titleId}>{title}</h2><button className="icon-button" aria-label={messages[language].close} onClick={onClose}><X size={22} /></button></div>
       {children}
     </div>
   </div>;
@@ -160,7 +160,7 @@ function AvatarEditor({ image, name, language, base, adjustment, onClose, onAppl
     if (size && original) setRect((current) => current && zoomSquare(size, current, original[2] / value));
   }
   function finishDrag() { drag.current = null; }
-  return <Modal className="avatar-editor-modal" title={t.adjustAvatar} onClose={onClose}>
+  return <Modal language={language} className="avatar-editor-modal" title={t.adjustAvatar} onClose={onClose}>
     <div className="avatar-editor-content modal-scroll"><p className="avatar-editor-help"><strong>{name}</strong><span>{t.avatarHelp}</span></p>
       <div className="avatar-editor-stage" role="group" aria-label={t.avatarPreview} tabIndex={0}
         onPointerDown={(event) => {
@@ -238,7 +238,7 @@ function ArtworkPicker({ candidate, artworks, language, currentId, currentVarian
     const matchedVariant = variantId === 'all' ? retainedVariant ?? candidate.variants.find((variant) => matchingIds.includes(variant.id))?.id ?? candidate.variants[0].id : variantId;
     onChoose(art, matchedVariant, adjustmentFor(art));
   }
-  return <><Modal className="art-modal" title={t.artTitle} onClose={onClose} onClickCapture={(event) => {
+  return <><Modal language={language} className="art-modal" title={t.artTitle} onClose={onClose} onClickCapture={(event) => {
     const card = event.target instanceof Element ? event.target.closest('.art-card') : null;
     // Native double-click counts can include the click that opened this picker.
     const canConfirm = card !== null && event.detail === 2 && lastClick.current?.card === card && lastClick.current.detail === 1;
@@ -252,7 +252,7 @@ function ArtworkPicker({ candidate, artworks, language, currentId, currentVarian
       </div>
       <div className="filter-row" role="group" aria-label={t.allDamage}>
         {[['all', t.allDamage], ['normal', t.normal], ['damaged', t.damaged]].map(([value, label]) => <button key={value} className={`chip ${damage === value ? 'active' : ''}`} aria-pressed={damage === value} onClick={() => setDamage(value)}>{label}</button>)}
-        <span className="result-count">{filtered.length} {t.artworks}</span>
+        <span className="result-count">{localizedCount(filtered.length, 'artworks', language)}</span>
       </div>
     </div>
     <div className="art-gallery modal-scroll">
@@ -349,9 +349,10 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = { zh: 'zh-CN', ja: 'ja', en: 'en' }[language];
     document.title = page === 'home' ? t.brand : `${introTitle} | ${t.brand}`;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t.siteDescription);
     try { localStorage.setItem('chinjufu-language', language); } catch { /* Optional. */ }
     const url = new URL(location.href); url.searchParams.set('lang', language); history.replaceState(null, '', url);
-  }, [language, page, introTitle, t.brand]);
+  }, [language, page, introTitle, t.brand, t.siteDescription]);
   useEffect(() => { if (ready && isPickup) { try { localStorage.setItem(classMode ? CLASS_STORAGE_KEY : STORAGE_KEY, JSON.stringify(boardForMode(board, mode))); } catch { /* Optional. */ } } }, [board, ready, isPickup, classMode, mode]);
   useEffect(() => {
     if (!ready || !data || !artData) return;
@@ -470,8 +471,9 @@ export default function App() {
   }
 
   const cropDetails = cropTarget ? boardImage(cropTarget) : undefined;
+  const dataUpdateDate = [data?.updatedAt, artData?.updatedAt].filter((value): value is string => Boolean(value)).sort().at(-1)?.slice(0, 10).replaceAll('-', '.');
   function renderFooter() {
-    return <footer className="site-footer"><div><strong>{t.brand}</strong><p>{t.fan}</p><p className="copyright">{t.rights}</p></div><div className="footer-links"><div className="footer-meta"><div className="footer-version"><button onClick={() => setAboutOpen(true)}><Info size={13}/>{t.source}</button><span><b>v1.1</b> · 数据最后更新于 2026.10.07</span></div><div className="footer-credit"><a href="https://github.com/Kutinana/chinjufu-pick" target="_blank" rel="noreferrer">Github</a><span aria-hidden="true">·</span><span>Made by Kuchinashi Hoshikawa</span></div></div></div></footer>;
+    return <footer className="site-footer"><div><strong>{t.brand}</strong><p>{t.fan}</p><p className="copyright">{t.rights}</p></div><div className="footer-links"><div className="footer-meta"><div className="footer-version"><button onClick={() => setAboutOpen(true)}><Info size={13}/>{t.source}</button><span><b>v1.1</b>{dataUpdateDate && <> · {t.dataLastUpdated.replace('{date}', dataUpdateDate)}</>}</span></div><div className="footer-credit"><a href="https://github.com/Kutinana/chinjufu-pick" target="_blank" rel="noreferrer">GitHub</a><span aria-hidden="true">·</span><span>{t.creatorCredit.replace('{name}', 'Kuchinashi Hoshikawa')}</span></div></div></div></footer>;
   }
   function homePortraits(names: string[]) {
     return names.map((name) => data?.ships.find((ship) => ship.names.en === name)).filter((ship) => Boolean(ship));
@@ -480,7 +482,7 @@ export default function App() {
     <header className="site-header"><div className="header-inner">
       <a href={`/?lang=${language}`} className="brand" aria-label={t.brand}><Anchor size={22}/><span>{t.brand}</span></a>
       <span className="header-title">{t.title}</span>
-      <div className="header-actions"><StyledSelect className="language-select" label="语言 / 言語 / Language" hideLabel icon={<Globe2 size={17}/>} value={language} options={[{ value: 'zh', label: '中文' }, { value: 'ja', label: '日本語' }, { value: 'en', label: 'English' }]} onChange={(value) => setLanguage(value as Language)}/>
+      <div className="header-actions"><StyledSelect className="language-select" label={t.language} hideLabel icon={<Globe2 size={17}/>} value={language} options={[{ value: 'zh', label: '中文' }, { value: 'ja', label: '日本語' }, { value: 'en', label: 'English' }]} onChange={(value) => setLanguage(value as Language)}/>
         {isPickup && <button className="primary-button header-save" onClick={() => void saveImage()} disabled={!ready || saving}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>}<span>{saving ? t.saving : t.save}</span></button>}
       </div>
     </div></header>
@@ -525,35 +527,35 @@ export default function App() {
             })}</div>
             <div className="board-footnote"><CheckCircle2 size={13}/><span>{t.autosaved}</span><button className="text-button" onClick={share}><Share2 size={13}/>{t.share}</button></div>
           </section>
-          <aside className="library-panel panel" aria-labelledby="library-title"><div className="section-header"><h2 id="library-title"><span className="section-number">02</span>{t.library}</h2><span className="result-count">{classMode ? selectable.length : data?.ships.length} {t.ships}</span></div>
+          <aside className="library-panel panel" aria-labelledby="library-title"><div className="section-header"><h2 id="library-title"><span className="section-number">02</span>{t.library}</h2><span className="result-count">{localizedCount(classMode ? selectable.length : data?.ships.length ?? 0, 'ships', language)}</span></div>
             <div className="library-controls"><div className="search-field"><Search size={18}/><input aria-label={t.search} placeholder={t.search} value={search} onChange={(event) => setSearch(event.target.value)}/>{search && <button className="icon-button" aria-label={t.clearSearch} onClick={() => setSearch('')}><X size={15}/></button>}</div>
-              <div className="filter-strip"><button className="filter-arrow" aria-label="Previous / 上一个 / 前へ" onClick={() => filterScroll.current?.scrollBy({ left: -180, behavior: 'smooth' })}><ChevronLeft size={16}/></button><div ref={filterScroll} className="type-filters" role="group" aria-label={classMode ? t.classLabel : t.countLabel}><button className={`chip ${filter === 'all' ? 'active' : ''}`} aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>{t.all}</button>{libraryFilters.map((group) => <button key={group.id} className={`chip ${filter === group.id ? 'active' : ''}`} aria-pressed={filter === group.id} title={group.names[language]} onClick={() => setFilter(group.id)}>{group.names[language]}</button>)}</div><button className="filter-arrow" aria-label="Next / 下一个 / 次へ" onClick={() => filterScroll.current?.scrollBy({ left: 180, behavior: 'smooth' })}><ChevronRight size={16}/></button></div>
+              <div className="filter-strip"><button className="filter-arrow" aria-label={t.previousFilters} onClick={() => filterScroll.current?.scrollBy({ left: -180, behavior: 'smooth' })}><ChevronLeft size={16}/></button><div ref={filterScroll} className="type-filters" role="group" aria-label={classMode ? t.classLabel : t.countLabel}><button className={`chip ${filter === 'all' ? 'active' : ''}`} aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>{t.all}</button>{libraryFilters.map((group) => <button key={group.id} className={`chip ${filter === group.id ? 'active' : ''}`} aria-pressed={filter === group.id} title={group.names[language]} onClick={() => setFilter(group.id)}>{group.names[language]}</button>)}</div><button className="filter-arrow" aria-label={t.nextFilters} onClick={() => filterScroll.current?.scrollBy({ left: 180, behavior: 'smooth' })}><ChevronRight size={16}/></button></div>
             </div>
             <div className="library-scroll" ref={libraryScroll}>{classMode ? candidatesByClass(filtered.slice(0, limit), language).map((group) => <section className="class-section" key={group.key}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate))}</div></section>) : <div className="ship-list">{filtered.slice(0, limit).map((candidate) => renderShip(candidate))}</div>}
               {!filtered.length && <div className="empty-results"><Search size={28}/><strong>{t.noResults}</strong><p>{t.trySearch}</p><button className="text-button" onClick={() => { setSearch(''); setFilter('all'); }}>{t.clearSearch}</button></div>}
               {filtered.length > limit && <div className="library-load-sentinel" ref={loadMoreSentinel} aria-hidden="true"/>}
             </div>
-            <div className="library-footer"><ImageIcon size={13}/><span>{t.chooseArt}</span><span>{availableArtworkCount.toLocaleString()} {t.artworks}</span></div>
+            <div className="library-footer"><ImageIcon size={13}/><span>{t.chooseArt}</span><span>{localizedCount(availableArtworkCount, 'artworks', language)}</span></div>
           </aside>
         </div>
         {renderFooter()}
       </main>
       <div className="mobile-save"><span><strong>{count}</strong> /{slots.length} {t.selected}</span><button className="primary-button" disabled={saving} onClick={() => void saveImage()}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>} {saving ? t.saving : t.save}</button></div>
     </>}
-    <ModalPresence>{chooserSlot && <Modal title={`${t.chooseFor}${chooserSlot.names[language]}`} onClose={() => setChooser(null)}><div className="modal-search search-field"><Search size={18}/><input autoFocus aria-label={t.search} value={modalSearch} placeholder={t.search} onChange={(event) => setModalSearch(event.target.value)}/></div><div className="chooser-list modal-scroll">{candidatesByClass(modalCandidates, language).map((group) => <section className="class-section" key={group.key} aria-label={group.names[language]}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate, true))}</div></section>)}{!modalCandidates.length && <div className="empty-results"><Search size={25}/><strong>{t.noResults}</strong><p>{t.trySearch}</p></div>}</div></Modal>}</ModalPresence>
+    <ModalPresence>{chooserSlot && <Modal language={language} title={`${t.chooseFor}${chooserSlot.names[language]}`} onClose={() => setChooser(null)}><div className="modal-search search-field"><Search size={18}/><input autoFocus aria-label={t.search} value={modalSearch} placeholder={t.search} onChange={(event) => setModalSearch(event.target.value)}/></div><div className="chooser-list modal-scroll">{candidatesByClass(modalCandidates, language).map((group) => <section className="class-section" key={group.key} aria-label={group.names[language]}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate, true))}</div></section>)}{!modalCandidates.length && <div className="empty-results"><Search size={25}/><strong>{t.noResults}</strong><p>{t.trySearch}</p></div>}</div></Modal>}</ModalPresence>
     <ModalPresence>{artTarget && <ArtworkPicker key={artTarget.key} candidate={artTarget} artworks={artData?.artworks ?? []} language={language} crops={avatarCrops?.images ?? {}} currentAvatar={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick.avatar : undefined} currentId={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick?.artworkId : undefined} currentVariantId={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick?.variantId : undefined} onClose={() => { setArtTarget(null); setActive(null); }} onBack={() => { if (!chooser && artSlot) openChooser(artSlot); setArtTarget(null); setActive(null); }} onChoose={chooseArtwork}/>}</ModalPresence>
     <ModalPresence>{cropTarget && cropDetails?.image && <AvatarEditor key={`${cropTarget}:${cropDetails.image}`} image={cropDetails.image} name={cropDetails.name ?? ''} language={language} base={avatarCrops?.images[cropDetails.image]} adjustment={board.picks[cropTarget]?.avatar} onClose={() => setCropTarget(null)} onApply={(avatar) => {
       setBoard((current) => { const pick = current.picks[cropTarget]; return pick ? { ...current, picks: { ...current.picks, [cropTarget]: { ...pick, avatar } } } : current; }); setCropTarget(null);
     }}/>}</ModalPresence>
-    <ModalPresence>{missingNicknameOpen && <Modal className="small-modal" title={t.missingNicknameTitle} onClose={() => setMissingNicknameOpen(false)}><p className="modal-copy">{t.missingNicknameBody}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => {
+    <ModalPresence>{missingNicknameOpen && <Modal language={language} className="small-modal" title={t.missingNicknameTitle} onClose={() => setMissingNicknameOpen(false)}><p className="modal-copy">{t.missingNicknameBody}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => {
       setMissingNicknameOpen(false);
       // Focus after the closing modal has restored its previous focus target.
       window.setTimeout(() => document.getElementById('nickname')?.focus(), MODAL_EXIT_MS + 20);
     }}>{t.enterNickname}</button><button className="primary-button" disabled={saving} onClick={() => { setMissingNicknameOpen(false); void saveImage(true); }}>{t.continueExport}</button></div></Modal>}</ModalPresence>
-    <ModalPresence>{resetOpen && <Modal className="small-modal" title={t.resetTitle} onClose={() => setResetOpen(false)}><p className="modal-copy">{t.resetBody}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => setResetOpen(false)}>{t.cancel}</button><button className="primary-button" onClick={() => { setBoard((current) => ({ ...current, picks: Object.fromEntries(Object.entries(current.picks).filter(([key]) => key.startsWith('DD:') !== classMode)) as Picks })); setActive(null); setResetOpen(false); }}>{t.confirm}</button></div></Modal>}</ModalPresence>
-    <ModalPresence>{preview && <Modal className="preview-modal" title={t.imagePreview} onClose={() => setPreview('')}><div className="preview-image modal-scroll"><img src={preview} alt={classMode ? t.ddClassExport : t.exportSubtitle}/></div><div className="art-footer"><span>{t.previewHint}</span><a className="primary-button" href={preview} download={`chinjufu-pick-${board.nickname || 'admiral'}-${classMode ? 'destroyer-class' : 'ship-type'}.png`}><Download size={17}/>{t.download}</a></div></Modal>}</ModalPresence>
-    <ModalPresence>{shareUrl && <Modal className="small-modal" title={t.shareTitle} onClose={() => setShareUrl('')}><p className="modal-copy">{t.shareHint}</p><input className="share-url" aria-label={t.shareTitle} readOnly value={shareUrl} onFocus={(event) => event.target.select()}/><div className="dialog-actions"><button className="primary-button" onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setToast(t.copied); } catch { setToast(t.copyFailed); } }}><Share2 size={16}/>{t.copy}</button></div></Modal>}</ModalPresence>
-    <ModalPresence>{aboutOpen && <Modal className="small-modal" title={t.about} onClose={() => setAboutOpen(false)}><div className="about-content"><Anchor size={32}/><p>{t.sourceNote}</p><p>{t.artNote}</p><h3>{t.source}</h3>{[...(data?.sources ?? []), ...(artData?.sources ?? []), { name: 'Ship silhouettes © ちょも · Pastime工廠', url: 'https://blog.pastime.ne.jp/game/kankore/1473' }, { name: '「艦これ」いつかあの海で · Key Visual', url: 'https://kancolle-itsuumi.com/' }].map((source, index) => <a href={source.url} key={index} target="_blank" rel="noreferrer">{source.name}<ExternalLink size={13}/></a>)}<h3>{t.reference}</h3><a href="https://blue-archive-pick.vercel.app/favorite-students" target="_blank" rel="noreferrer">Kivotos Pick <ExternalLink size={13}/></a></div></Modal>}</ModalPresence>
+    <ModalPresence>{resetOpen && <Modal language={language} className="small-modal" title={t.resetTitle} onClose={() => setResetOpen(false)}><p className="modal-copy">{t.resetBody}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => setResetOpen(false)}>{t.cancel}</button><button className="primary-button" onClick={() => { setBoard((current) => ({ ...current, picks: Object.fromEntries(Object.entries(current.picks).filter(([key]) => key.startsWith('DD:') !== classMode)) as Picks })); setActive(null); setResetOpen(false); }}>{t.confirm}</button></div></Modal>}</ModalPresence>
+    <ModalPresence>{preview && <Modal language={language} className="preview-modal" title={t.imagePreview} onClose={() => setPreview('')}><div className="preview-image modal-scroll"><img src={preview} alt={classMode ? t.ddClassExport : t.exportSubtitle}/></div><div className="art-footer"><span>{t.previewHint}</span><a className="primary-button" href={preview} download={`chinjufu-pick-${board.nickname || 'admiral'}-${classMode ? 'destroyer-class' : 'ship-type'}.png`}><Download size={17}/>{t.download}</a></div></Modal>}</ModalPresence>
+    <ModalPresence>{shareUrl && <Modal language={language} className="small-modal" title={t.shareTitle} onClose={() => setShareUrl('')}><p className="modal-copy">{t.shareHint}</p><input className="share-url" aria-label={t.shareTitle} readOnly value={shareUrl} onFocus={(event) => event.target.select()}/><div className="dialog-actions"><button className="primary-button" onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setToast(t.copied); } catch { setToast(t.copyFailed); } }}><Share2 size={16}/>{t.copy}</button></div></Modal>}</ModalPresence>
+    <ModalPresence>{aboutOpen && <Modal language={language} className="small-modal" title={t.about} onClose={() => setAboutOpen(false)}><div className="about-content"><Anchor size={32}/><p>{t.sourceNote}</p><p>{t.artNote}</p><h3>{t.source}</h3>{[...(data?.sources ?? []), ...(artData?.sources ?? []), { name: t.sourceSilhouettes, url: 'https://blog.pastime.ne.jp/game/kankore/1473' }, { name: t.sourceHeroVisual, url: 'https://kancolle-itsuumi.com/' }].map((source, index) => <a href={source.url} key={index} target="_blank" rel="noreferrer">{localizedSourceName(source.name, language)}<ExternalLink size={13}/></a>)}<h3>{t.reference}</h3><a href="https://blue-archive-pick.vercel.app/favorite-students" target="_blank" rel="noreferrer">Kivotos Pick <ExternalLink size={13}/></a></div></Modal>}</ModalPresence>
     {toast && <div className="toast" role="status"><CheckCircle2 size={17}/>{toast}</div>}
     <Analytics />
   </>;

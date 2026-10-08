@@ -5,7 +5,7 @@ export type Language = 'zh' | 'ja' | 'en';
 export type LocalizedName = Record<Language, string>;
 export const SHIP_TYPES = [
   { id: 'DD', names: { zh: '驱逐舰', ja: '駆逐艦', en: 'Destroyer' }, icon: 'destroyer' },
-  { id: 'DE', names: { zh: '海防舰', ja: '海防艦', en: 'Coastal Defense' }, icon: 'escort' },
+  { id: 'DE', names: { zh: '海防舰', ja: '海防艦', en: 'Coastal Defense Ship' }, icon: 'escort' },
   { id: 'CL', names: { zh: '轻巡洋舰', ja: '軽巡洋艦', en: 'Light Cruiser' }, icon: 'cruiser' },
   { id: 'CLT', names: { zh: '重雷装巡洋舰', ja: '重雷装巡洋艦', en: 'Torpedo Cruiser' }, icon: 'torpedo' },
   { id: 'CA', names: { zh: '重巡洋舰', ja: '重巡洋艦', en: 'Heavy Cruiser' }, icon: 'heavy' },
@@ -35,7 +35,7 @@ export const GROUPS = [
   { id: 'CVL', names: SHIP_TYPES[10].names, members: ['CVL'], icon: '/icons/ship-types/cvl.svg', code: 'CVL' },
   { id: 'AV', names: SHIP_TYPES[11].names, members: ['AV'], icon: '/icons/ship-types/av.svg', code: 'AV' },
   { id: 'SS', names: SHIP_TYPES[12].names, members: ['SS', 'SSV'], icon: '/icons/ship-types/ss.svg', code: 'SS / SSV' },
-  { id: 'AUX', names: { zh: '辅助舰', ja: '補助艦', en: 'Auxiliary' }, members: ['AO', 'AS', 'LHA', 'AR'], icon: '/icons/ship-types/aux.svg', code: 'AO / AS / LHA / AR' },
+  { id: 'AUX', names: { zh: '辅助舰', ja: '補助艦', en: 'Auxiliary Ships' }, members: ['AO', 'AS', 'LHA', 'AR'], icon: '/icons/ship-types/aux.svg', code: 'AO / AS / LHA / AR' },
 ] as const;
 export type GroupId = typeof GROUPS[number]['id'];
 export type BoardMode = 'types' | 'dd-classes';

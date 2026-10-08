@@ -1,0 +1,38 @@
+# Vite assets have content hashes; a changed file gets a new URL.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Image and icon URLs can be reused when their contents change.
+/artworks/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/ships/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/images/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/icons/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/favicon.svg
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Revalidate catalogs and the app shell so deployments become visible promptly.
+/data/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/data-sources.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/favorite-shipgirls
+  Cache-Control: public, max-age=0, must-revalidate
+
+/favorite-destroyers
+  Cache-Control: public, max-age=0, must-revalidate

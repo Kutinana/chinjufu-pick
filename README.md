@@ -8,6 +8,25 @@ Import this repository into Vercel. The included `vercel.json` configures Vite,
 the build command `npm run build`, the output directory `dist`, and rewrites for
 both pickup pages. Keep the bundled data and images in `public/` when deploying.
 
+For Cloudflare Pages, use `npm run build` as the build command and `dist` as the
+output directory. Vite copies `public/_headers` into `dist/_headers`, where Pages
+reads the browser cache rules:
+
+- Content-hashed JS, CSS, and fonts in `/assets/` are cached for one year with
+  `immutable`.
+- Artwork, ship portraits, homepage images, icons, and the favicon are cached
+  for one day, then revalidated. Their filenames are not necessarily content
+  hashes, so replacing a file at the same URL can take up to a day to appear.
+- HTML and JSON catalogs are revalidated on each visit, allowing browsers to
+  reuse unchanged responses through Pages' ETags.
+
+Pages' default SPA fallback serves both pickup routes without Functions. Keep
+the default Pages CDN caching; these rules control browser caching and do not
+require additional dashboard Cache Rules. See the Cloudflare
+[headers](https://developers.cloudflare.com/pages/configuration/headers/) and
+[serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/)
+documentation. The Vercel deployment continues to use `vercel.json`.
+
 To build and preview locally:
 
 ```sh

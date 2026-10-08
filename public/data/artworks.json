@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T05:41:58.874Z",
+  "updatedAt": "2026-10-08T10:23:52.399Z",
   "sources": [
     {
       "name": "舰娘百科 · 公开舰娘条目立绘画廊",
@@ -14,11 +14,11 @@
     "syncing": false,
     "ships": 332,
     "shipsWithArt": 332,
-    "artworks": 3511,
+    "artworks": 3519,
     "standard": 1422,
-    "seasonal": 2089,
-    "normal": 1761,
-    "damaged": 1750,
+    "seasonal": 2097,
+    "normal": 1765,
+    "damaged": 1754,
     "pageFailures": [],
     "imageFailures": [],
     "forms": 865,
@@ -21523,6 +21523,88 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%A7%8B%E4%BA%91",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a7/KanMusu448HDDmgIllustChristmas2022.png",
       "sourceCaption": "秋云改二 圣诞节限定全身中破立绘图"
+    },
+    {
+      "id": "art-132-10aa8a617907",
+      "shipId": "132",
+      "variantId": "132",
+      "variantIds": [
+        "132",
+        "301"
+      ],
+      "names": {
+        "zh": "秋云 / 秋云改 初秋季节限定立绘",
+        "ja": "秋雲 / 秋雲改 · 初秋限定立ち絵",
+        "en": "Akigumo / Akigumo Kai · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/10aa8a617907.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu132HDIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/1a/KanMusu132HDIllustShoshuu2022.png",
+      "sourceCaption": "秋云 / 秋云改 2022初秋限定全身立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-132-7e966bebc5e9",
+      "shipId": "132",
+      "variantId": "132",
+      "variantIds": [
+        "132",
+        "301"
+      ],
+      "names": {
+        "zh": "秋云 / 秋云改 初秋季节限定（中破）立绘",
+        "ja": "秋雲 / 秋雲改 · 初秋限定立ち絵（中破）",
+        "en": "Akigumo / Akigumo Kai · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/7e966bebc5e9.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu132HDDmgIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/91/KanMusu132HDDmgIllustShoshuu2022.png",
+      "sourceCaption": "秋云 / 秋云改 2022初秋限定全身中破立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-132-8a0850ae1a75",
+      "shipId": "132",
+      "variantId": "648",
+      "variantIds": [
+        "648"
+      ],
+      "names": {
+        "zh": "秋云改二 初秋季节限定立绘",
+        "ja": "秋雲改二 · 初秋限定立ち絵",
+        "en": "Akigumo Kai Ni · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/8a0850ae1a75.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu448HDIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/5d/KanMusu448HDIllustShoshuu2022.png",
+      "sourceCaption": "秋云改二 2022初秋限定全身立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-132-a759f98f7af8",
+      "shipId": "132",
+      "variantId": "648",
+      "variantIds": [
+        "648"
+      ],
+      "names": {
+        "zh": "秋云改二 初秋季节限定（中破）立绘",
+        "ja": "秋雲改二 · 初秋限定立ち絵（中破）",
+        "en": "Akigumo Kai Ni · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/a759f98f7af8.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu448HDDmgIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b7/KanMusu448HDDmgIllustShoshuu2022.png",
+      "sourceCaption": "秋云改二 2022初秋限定全身中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-133-6ffd802bcd16",
@@ -51932,6 +52014,46 @@
       "sourceCaption": "第四号海防舰改 秋刀鱼限定中破立绘"
     },
     {
+      "id": "art-637-5cb351884894",
+      "shipId": "637",
+      "variantId": "637",
+      "variantIds": [
+        "637"
+      ],
+      "names": {
+        "zh": "第四号海防舰 初秋季节限定立绘",
+        "ja": "第四号海防艦 · 初秋限定立ち絵",
+        "en": "Kaiboukan No.4 · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/5cb351884894.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu437HDIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/54/KanMusu437HDIllustShoshuu2022.png",
+      "sourceCaption": "第四号海防舰 2022初秋限定全身立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-637-7343bee137e4",
+      "shipId": "637",
+      "variantId": "637",
+      "variantIds": [
+        "637"
+      ],
+      "names": {
+        "zh": "第四号海防舰 初秋季节限定（中破）立绘",
+        "ja": "第四号海防艦 · 初秋限定立ち絵（中破）",
+        "en": "Kaiboukan No.4 · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/7343bee137e4.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu437HDDmgIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/e/e8/KanMusu437HDDmgIllustShoshuu2022.png",
+      "sourceCaption": "第四号海防舰 2022初秋限定全身中破立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-638-32ac306ad266",
       "shipId": "638",
       "variantId": "638",
@@ -52462,6 +52584,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%AC%AC%E4%B8%89%E3%80%87%E5%8F%B7%E6%B5%B7%E9%98%B2%E8%88%B0",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e1/KanMusu438aHDIllust.png",
       "sourceCaption": "第三〇号海防舰改 全身图"
+    },
+    {
+      "id": "art-638-c39996fa7d81",
+      "shipId": "638",
+      "variantId": "638",
+      "variantIds": [
+        "638"
+      ],
+      "names": {
+        "zh": "第三〇号海防舰 初秋季节限定立绘",
+        "ja": "第三〇号海防艦 · 初秋限定立ち絵",
+        "en": "Kaiboukan No.30 · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/4d5e6bb20ab0.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu438HDIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/d/d2/KanMusu438HDIllustShoshuu2022.png",
+      "sourceCaption": "第三〇号海防舰 2022初秋限定全身立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-638-49a594d9c8ef",
+      "shipId": "638",
+      "variantId": "638",
+      "variantIds": [
+        "638"
+      ],
+      "names": {
+        "zh": "第三〇号海防舰 初秋季节限定（中破）立绘",
+        "ja": "第三〇号海防艦 · 初秋限定立ち絵（中破）",
+        "en": "Kaiboukan No.30 · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/745260cfc465.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu438HDDmgIllustShoshuu2022.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/15/KanMusu438HDDmgIllustShoshuu2022.png",
+      "sourceCaption": "第三〇号海防舰 2022初秋限定全身中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-641-9b91a6843a61",

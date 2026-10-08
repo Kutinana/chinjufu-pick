@@ -1,5 +1,5 @@
-node_modules/
-dist/
-docs/
-*.tsbuildinfo
-.DS_Store
+# This branch only deploys the redirect configuration and a tiny fallback page.
+*
+!vercel.json
+!vercel-redirect-public/
+!vercel-redirect-public/**

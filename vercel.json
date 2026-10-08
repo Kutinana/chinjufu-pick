@@ -6,6 +6,11 @@
   "outputDirectory": "vercel-redirect-public",
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://chinjufu-pick.pages.dev/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://chinjufu-pick.pages.dev/:path*",
       "permanent": true

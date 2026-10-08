@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T11:40:13.949Z",
+  "updatedAt": "2026-10-08T05:41:58.874Z",
   "sources": [
     {
       "name": "舰娘百科 · 公开舰娘条目立绘画廊",
@@ -14,11 +14,11 @@
     "syncing": false,
     "ships": 332,
     "shipsWithArt": 332,
-    "artworks": 3483,
+    "artworks": 3511,
     "standard": 1422,
-    "seasonal": 2061,
-    "normal": 1747,
-    "damaged": 1736,
+    "seasonal": 2089,
+    "normal": 1761,
+    "damaged": 1750,
     "pageFailures": [],
     "imageFailures": [],
     "forms": 865,
@@ -57760,9 +57760,9 @@
         "921"
       ],
       "names": {
-        "zh": "鹈来 初秋季节限定立绘",
-        "ja": "鵜来 · 2024年 秋季",
-        "en": "Ukuru · Autumn 2024"
+        "zh": "鹈来 2024初秋季节限定立绘",
+        "ja": "鵜来 · 2024年 初秋限定立ち絵",
+        "en": "Ukuru · Early Autumn 2024"
       },
       "kind": "seasonal",
       "damage": "normal",
@@ -57779,9 +57779,9 @@
         "921"
       ],
       "names": {
-        "zh": "鹈来 初秋季节限定中破立绘",
-        "ja": "鵜来 · 2024年 秋季",
-        "en": "Ukuru · Autumn 2024"
+        "zh": "鹈来 2024初秋季节限定（中破）立绘",
+        "ja": "鵜来 · 2024年 初秋限定立ち絵（中破）",
+        "en": "Ukuru · Early Autumn 2024 (Damaged)"
       },
       "kind": "seasonal",
       "damage": "damaged",
@@ -58032,9 +58032,9 @@
         "926"
       ],
       "names": {
-        "zh": "鹈来改 初秋季节限定立绘",
-        "ja": "鵜来改 · 2024年 秋季",
-        "en": "Ukuru Kai · Autumn 2024"
+        "zh": "鹈来改 2024初秋季节限定立绘",
+        "ja": "鵜来改 · 2024年 初秋限定立ち絵",
+        "en": "Ukuru Kai · Early Autumn 2024"
       },
       "kind": "seasonal",
       "damage": "normal",
@@ -58051,9 +58051,9 @@
         "926"
       ],
       "names": {
-        "zh": "鹈来改 初秋季节限定中破立绘",
-        "ja": "鵜来改 · 2024年 秋季",
-        "en": "Ukuru Kai · Autumn 2024"
+        "zh": "鹈来改 2024初秋季节限定（中破）立绘",
+        "ja": "鵜来改 · 2024年 初秋限定立ち絵（中破）",
+        "en": "Ukuru Kai · Early Autumn 2024 (Damaged)"
       },
       "kind": "seasonal",
       "damage": "damaged",
@@ -58099,6 +58099,86 @@
       "source": "https://zh.kcwiki.cn/wiki/%E9%B9%88%E6%9D%A5",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/49/KanMusu526HDDmgIllustShinnen2026.png",
       "sourceCaption": "鹈来改 新年限定中破立绘"
+    },
+    {
+      "id": "art-921-08d9afd3df4a",
+      "shipId": "921",
+      "variantId": "921",
+      "variantIds": [
+        "921"
+      ],
+      "names": {
+        "zh": "鹈来 2026初秋季节限定立绘",
+        "ja": "鵜来 · 2026年 初秋限定立ち絵",
+        "en": "Ukuru · Early Autumn 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/08d9afd3df4a.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu521HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a2/KanMusu521HDIllustShoshuu2026.png",
+      "sourceCaption": "鹈来 2026初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-921-fe44c3e8be53",
+      "shipId": "921",
+      "variantId": "921",
+      "variantIds": [
+        "921"
+      ],
+      "names": {
+        "zh": "鹈来 2026初秋季节限定（中破）立绘",
+        "ja": "鵜来 · 2026年 初秋限定立ち絵（中破）",
+        "en": "Ukuru · Early Autumn 2026 (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/fe44c3e8be53.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu521HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b9/KanMusu521HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "鹈来 2026初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-921-4b8da594aa25",
+      "shipId": "921",
+      "variantId": "926",
+      "variantIds": [
+        "926"
+      ],
+      "names": {
+        "zh": "鹈来改 2026初秋季节限定立绘",
+        "ja": "鵜来改 · 2026年 初秋限定立ち絵",
+        "en": "Ukuru Kai · Early Autumn 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/4b8da594aa25.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu526HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/5b/KanMusu526HDIllustShoshuu2026.png",
+      "sourceCaption": "鹈来改 2026初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-921-35b672d3f356",
+      "shipId": "921",
+      "variantId": "926",
+      "variantIds": [
+        "926"
+      ],
+      "names": {
+        "zh": "鹈来改 2026初秋季节限定（中破）立绘",
+        "ja": "鵜来改 · 2026年 初秋限定立ち絵（中破）",
+        "en": "Ukuru Kai · Early Autumn 2026 (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/35b672d3f356.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu526HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/c/ce/KanMusu526HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "鹈来改 2026初秋季节限定（中破）立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-922-9302f8084221",
@@ -58335,6 +58415,126 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%A8%BB%E6%9C%A8",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/e5/KanMusu579HDDmgIllustHalloween2024.png",
       "sourceCaption": "稻木改二 万圣节限定中破立绘"
+    },
+    {
+      "id": "art-922-e97bc6defdbd",
+      "shipId": "922",
+      "variantId": "730",
+      "variantIds": [
+        "730"
+      ],
+      "names": {
+        "zh": "稻木改 初秋季节限定立绘",
+        "ja": "稲木改 · 初秋限定立ち絵",
+        "en": "Inagi Kai · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/e97bc6defdbd.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu522aHDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/91/KanMusu522aHDIllustShoshuu2026.png",
+      "sourceCaption": "稻木改 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-922-c8bbcff63a49",
+      "shipId": "922",
+      "variantId": "730",
+      "variantIds": [
+        "730"
+      ],
+      "names": {
+        "zh": "稻木改 初秋季节限定（中破）立绘",
+        "ja": "稲木改 · 初秋限定立ち絵（中破）",
+        "en": "Inagi Kai · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/c8bbcff63a49.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu522aHDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/f2/KanMusu522aHDDmgIllustShoshuu2026.png",
+      "sourceCaption": "稻木改 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-922-890088b4ed1b",
+      "shipId": "922",
+      "variantId": "922",
+      "variantIds": [
+        "922"
+      ],
+      "names": {
+        "zh": "稻木 初秋季节限定立绘",
+        "ja": "稲木 · 初秋限定立ち絵",
+        "en": "Inagi · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/890088b4ed1b.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu522HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/9d/KanMusu522HDIllustShoshuu2026.png",
+      "sourceCaption": "稻木 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-922-345f70518fb8",
+      "shipId": "922",
+      "variantId": "922",
+      "variantIds": [
+        "922"
+      ],
+      "names": {
+        "zh": "稻木 初秋季节限定（中破）立绘",
+        "ja": "稲木 · 初秋限定立ち絵（中破）",
+        "en": "Inagi · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/345f70518fb8.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu522HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/4/43/KanMusu522HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "稻木 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-922-c21b460eb362",
+      "shipId": "922",
+      "variantId": "979",
+      "variantIds": [
+        "979"
+      ],
+      "names": {
+        "zh": "稻木改二 初秋季节限定立绘",
+        "ja": "稲木改二 · 初秋限定立ち絵",
+        "en": "Inagi Kai Ni · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/c21b460eb362.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu579HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/2/2f/KanMusu579HDIllustShoshuu2026.png",
+      "sourceCaption": "稻木改二 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-922-3fd818d7f635",
+      "shipId": "922",
+      "variantId": "979",
+      "variantIds": [
+        "979"
+      ],
+      "names": {
+        "zh": "稻木改二 初秋季节限定（中破）立绘",
+        "ja": "稲木改二 · 初秋限定立ち絵（中破）",
+        "en": "Inagi Kai Ni · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/3fd818d7f635.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu579HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a0/KanMusu579HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "稻木改二 初秋季节限定（中破）立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-923-c11b63c7582a",
@@ -67357,6 +67557,86 @@
       "sourceCaption": "阿尔及利亚改"
     },
     {
+      "id": "art-1051-56095057d45d",
+      "shipId": "1051",
+      "variantId": "1051",
+      "variantIds": [
+        "1051"
+      ],
+      "names": {
+        "zh": "阿尔及利亚 初秋季节限定立绘",
+        "ja": "Algérie · 初秋限定立ち絵",
+        "en": "Algérie · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/56095057d45d.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu641HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/0/07/KanMusu641HDIllustShoshuu2026.png",
+      "sourceCaption": "阿尔及利亚 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1051-d241898bbedd",
+      "shipId": "1051",
+      "variantId": "1051",
+      "variantIds": [
+        "1051"
+      ],
+      "names": {
+        "zh": "阿尔及利亚 初秋季节限定（中破）立绘",
+        "ja": "Algérie · 初秋限定立ち絵（中破）",
+        "en": "Algérie · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/d241898bbedd.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu641HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/59/KanMusu641HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "阿尔及利亚 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1051-fc8411ff4243",
+      "shipId": "1051",
+      "variantId": "1056",
+      "variantIds": [
+        "1056"
+      ],
+      "names": {
+        "zh": "阿尔及利亚改 初秋季节限定立绘",
+        "ja": "Algérie改 · 初秋限定立ち絵",
+        "en": "Algérie Kai · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/fc8411ff4243.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu646HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/d/d7/KanMusu646HDIllustShoshuu2026.png",
+      "sourceCaption": "阿尔及利亚改 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1051-d081ee797b8a",
+      "shipId": "1051",
+      "variantId": "1056",
+      "variantIds": [
+        "1056"
+      ],
+      "names": {
+        "zh": "阿尔及利亚改 初秋季节限定（中破）立绘",
+        "ja": "Algérie改 · 初秋限定立ち絵（中破）",
+        "en": "Algérie Kai · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/d081ee797b8a.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu646HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/fc/KanMusu646HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "阿尔及利亚改 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-1053-2cc00b5e4704",
       "shipId": "1053",
       "variantId": "1053",
@@ -67431,6 +67711,86 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%A7%83%E9%B9%AB",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/4b/KanMusu648HDIllust.png",
       "sourceCaption": "秃鹫改"
+    },
+    {
+      "id": "art-1053-4f7efa62b718",
+      "shipId": "1053",
+      "variantId": "1053",
+      "variantIds": [
+        "1053"
+      ],
+      "names": {
+        "zh": "秃鹫 初秋季节限定立绘",
+        "ja": "Vautour · 初秋限定立ち絵",
+        "en": "Vautour · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/4f7efa62b718.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu643HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/e/e4/KanMusu643HDIllustShoshuu2026.png",
+      "sourceCaption": "秃鹫 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1053-db9b2fe28d2a",
+      "shipId": "1053",
+      "variantId": "1053",
+      "variantIds": [
+        "1053"
+      ],
+      "names": {
+        "zh": "秃鹫 初秋季节限定（中破）立绘",
+        "ja": "Vautour · 初秋限定立ち絵（中破）",
+        "en": "Vautour · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/db9b2fe28d2a.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu643HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a4/KanMusu643HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "秃鹫 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1053-a9ae76954e72",
+      "shipId": "1053",
+      "variantId": "1058",
+      "variantIds": [
+        "1058"
+      ],
+      "names": {
+        "zh": "秃鹫改 初秋季节限定立绘",
+        "ja": "Vautour改 · 初秋限定立ち絵",
+        "en": "Vautour Kai · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/a9ae76954e72.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu648HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/f8/KanMusu648HDIllustShoshuu2026.png",
+      "sourceCaption": "秃鹫改 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1053-b8b44c231320",
+      "shipId": "1053",
+      "variantId": "1058",
+      "variantIds": [
+        "1058"
+      ],
+      "names": {
+        "zh": "秃鹫改 初秋季节限定（中破）立绘",
+        "ja": "Vautour改 · 初秋限定立ち絵（中破）",
+        "en": "Vautour Kai · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/b8b44c231320.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu648HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/31/KanMusu648HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "秃鹫改 初秋季节限定（中破）立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-1055-84179e485c38",
@@ -67547,6 +67907,126 @@
       "source": "https://zh.kcwiki.cn/wiki/%E8%B4%9D%E9%98%BF%E6%81%A9",
       "sourceImage": "https://uploads.kcwiki.cn/commons/f/f7/KanMusu651HDIllust.png",
       "sourceCaption": "贝阿恩 amélioration"
+    },
+    {
+      "id": "art-1055-f88d93592eb9",
+      "shipId": "1055",
+      "variantId": "1055",
+      "variantIds": [
+        "1055"
+      ],
+      "names": {
+        "zh": "贝阿恩 初秋季节限定立绘",
+        "ja": "Béarn · 初秋限定立ち絵",
+        "en": "Béarn · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/f88d93592eb9.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu645HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/fa/KanMusu645HDIllustShoshuu2026.png",
+      "sourceCaption": "贝阿恩 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-d2d3df7e2dde",
+      "shipId": "1055",
+      "variantId": "1055",
+      "variantIds": [
+        "1055"
+      ],
+      "names": {
+        "zh": "贝阿恩 初秋季节限定（中破）立绘",
+        "ja": "Béarn · 初秋限定立ち絵（中破）",
+        "en": "Béarn · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/d2d3df7e2dde.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu645HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/4/4d/KanMusu645HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "贝阿恩 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-2f5395fd4938",
+      "shipId": "1055",
+      "variantId": "1060",
+      "variantIds": [
+        "1060"
+      ],
+      "names": {
+        "zh": "贝阿恩改 初秋季节限定立绘",
+        "ja": "Béarn改 · 初秋限定立ち絵",
+        "en": "Béarn Kai · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/2f5395fd4938.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu650HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/7/78/KanMusu650HDIllustShoshuu2026.png",
+      "sourceCaption": "贝阿恩改 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-d3ff3e16e2dc",
+      "shipId": "1055",
+      "variantId": "1060",
+      "variantIds": [
+        "1060"
+      ],
+      "names": {
+        "zh": "贝阿恩改 初秋季节限定（中破）立绘",
+        "ja": "Béarn改 · 初秋限定立ち絵（中破）",
+        "en": "Béarn Kai · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/d3ff3e16e2dc.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu650HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/6/61/KanMusu650HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "贝阿恩改 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-2c647ce55afc",
+      "shipId": "1055",
+      "variantId": "1061",
+      "variantIds": [
+        "1061"
+      ],
+      "names": {
+        "zh": "贝阿恩 amélioration 初秋季节限定立绘",
+        "ja": "Béarn amélioration · 初秋限定立ち絵",
+        "en": "Béarn Amélioration · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/2c647ce55afc.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu651HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/2/26/KanMusu651HDIllustShoshuu2026.png",
+      "sourceCaption": "贝阿恩 amélioration 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-7e8206064978",
+      "shipId": "1055",
+      "variantId": "1061",
+      "variantIds": [
+        "1061"
+      ],
+      "names": {
+        "zh": "贝阿恩 amélioration 初秋季节限定（中破）立绘",
+        "ja": "Béarn amélioration · 初秋限定立ち絵（中破）",
+        "en": "Béarn Amélioration · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/7e8206064978.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu651HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b4/KanMusu651HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "贝阿恩 amélioration 初秋季节限定（中破）立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-1062-25f4579df99e",
@@ -67719,6 +68199,86 @@
       "source": "https://zh.kcwiki.cn/wiki/%E6%97%A5%E6%9E%9D%E4%B8%B8",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/4c/KanMusu660HDIllust.png",
       "sourceCaption": "日枝丸改"
+    },
+    {
+      "id": "art-1065-d3f0cd630ab0",
+      "shipId": "1065",
+      "variantId": "1065",
+      "variantIds": [
+        "1065"
+      ],
+      "names": {
+        "zh": "日枝丸 初秋季节限定立绘",
+        "ja": "日枝丸 · 初秋限定立ち絵",
+        "en": "Hie Maru · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/d3f0cd630ab0.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu655HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/4/46/KanMusu655HDIllustShoshuu2026.png",
+      "sourceCaption": "日枝丸 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-e5e8e4d488ae",
+      "shipId": "1065",
+      "variantId": "1065",
+      "variantIds": [
+        "1065"
+      ],
+      "names": {
+        "zh": "日枝丸 初秋季节限定（中破）立绘",
+        "ja": "日枝丸 · 初秋限定立ち絵（中破）",
+        "en": "Hie Maru · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/e5e8e4d488ae.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu655HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/d/de/KanMusu655HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "日枝丸 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-2467833e2c6c",
+      "shipId": "1065",
+      "variantId": "1070",
+      "variantIds": [
+        "1070"
+      ],
+      "names": {
+        "zh": "日枝丸改 初秋季节限定立绘",
+        "ja": "日枝丸改 · 初秋限定立ち絵",
+        "en": "Hie Maru Kai · Early Autumn"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/2467833e2c6c.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu660HDIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/36/KanMusu660HDIllustShoshuu2026.png",
+      "sourceCaption": "日枝丸改 初秋季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-b235e9c1bf93",
+      "shipId": "1065",
+      "variantId": "1070",
+      "variantIds": [
+        "1070"
+      ],
+      "names": {
+        "zh": "日枝丸改 初秋季节限定（中破）立绘",
+        "ja": "日枝丸改 · 初秋限定立ち絵（中破）",
+        "en": "Hie Maru Kai · Early Autumn (Damaged)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/b235e9c1bf93.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu660HDDmgIllustShoshuu2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/91/KanMusu660HDDmgIllustShoshuu2026.png",
+      "sourceCaption": "日枝丸改 初秋季节限定（中破）立绘",
+      "sourceLocked": true
     }
   ]
 }

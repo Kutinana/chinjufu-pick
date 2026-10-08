@@ -8,7 +8,7 @@
   },
   "coverage": {
     "manual": 3,
-    "yolo": 3480
+    "yolo": 3508
   },
   "images": {
     "/artworks/92d697a0aeb6.webp": {"size":[400,880],"rect":[129,116,199,199],"method":"yolo","score":0.851,"sha256":"c43c63a71ae20675e13450000e6fdb4afb0ce15fc809d00c2d73fc292e96a055"},
@@ -3493,6 +3493,34 @@
     "/artworks/9007cfb6b7d3.webp": {"size":[644,1000],"rect":[42,14,208,208],"method":"yolo","score":0.864,"sha256":"19fc01cf8b51aee2bd232222526c855b479be095f60231eb0400b00825ea3dd7"},
     "/artworks/56abe717d5d1.webp": {"size":[926,1000],"rect":[297,47,234,234],"method":"yolo","score":0.867,"sha256":"4f3a7e35887958c36702bf90cbd6064901be0c23bfb5602333aac43a0b2ecd61"},
     "/artworks/72e5cf5698f1.webp": {"size":[788,634],"rect":[291,5,229,229],"method":"yolo","score":0.879,"sha256":"f8e115f9101f00d5ef832dc5e3d25d20302778b0941a6a5204eb62c482b28c7a"},
-    "/artworks/940151f8f502.webp": {"size":[644,1000],"rect":[42,14,208,208],"method":"yolo","score":0.863,"sha256":"2b0a2e17106774bd1b227712c95812b185e441bc4fb25acf8dfb98639cd0fd3a"}
+    "/artworks/940151f8f502.webp": {"size":[644,1000],"rect":[42,14,208,208],"method":"yolo","score":0.863,"sha256":"2b0a2e17106774bd1b227712c95812b185e441bc4fb25acf8dfb98639cd0fd3a"},
+    "/artworks/fe44c3e8be53.webp": {"size":[543,590],"rect":[124,22,210,210],"method":"yolo","score":0.88,"sha256":"a6243896e11a4703ad1a69a95c2d088aa6df344e4ea6ab933f4918da90f12fac"},
+    "/artworks/08d9afd3df4a.webp": {"size":[363,842],"rect":[86,0,237,237],"method":"yolo","score":0.873,"sha256":"845829f8440df749512dffe789dcf9e006e61d221772243cf3819c22e2f2c6c3"},
+    "/artworks/345f70518fb8.webp": {"size":[388,773],"rect":[101,0,251,251],"method":"yolo","score":0.876,"sha256":"bf9da03e0047da25bf5d754f29008172cb585af3d6b4c1f155088de6d54d21fc"},
+    "/artworks/890088b4ed1b.webp": {"size":[301,796],"rect":[29,0,244,244],"method":"yolo","score":0.877,"sha256":"c5b4461ff40d6abee90412924413c263c825b73d1049ebc10291a1490c7a7a6e"},
+    "/artworks/c8bbcff63a49.webp": {"size":[388,773],"rect":[99,0,254,254],"method":"yolo","score":0.871,"sha256":"6e068c9a3c8eb6e6e4fe303b60414669d59726355549ecdfb6122ffcd515b242"},
+    "/artworks/e97bc6defdbd.webp": {"size":[365,796],"rect":[29,0,247,247],"method":"yolo","score":0.874,"sha256":"e0131892a6d7d5775e4b4039b4739f265dbb92a3aad8f06ad3b59bc30ed94e89"},
+    "/artworks/35b672d3f356.webp": {"size":[495,615],"rect":[125,24,207,207],"method":"yolo","score":0.861,"sha256":"d3784b95fc7beb6d54487bb10d2f230b68a5b94dfb5fc39199a8a1aeca283039"},
+    "/artworks/4b8da594aa25.webp": {"size":[363,842],"rect":[85,0,240,240],"method":"yolo","score":0.874,"sha256":"ba60744d89a4ed61894447c65a9e23e75ea82079f8969d2d652bbdb44b8f1efa"},
+    "/artworks/3fd818d7f635.webp": {"size":[388,785],"rect":[99,0,252,252],"method":"yolo","score":0.873,"sha256":"54935bfe78ae3216be46366032d68bb39055d2f116c2711f399d16b7b69b7dff"},
+    "/artworks/c21b460eb362.webp": {"size":[295,822],"rect":[31,13,243,243],"method":"yolo","score":0.872,"sha256":"6542a683ad71b7bfd0cf9b3895c738f41d6fbfcd788e0062193b96915641df46"},
+    "/artworks/d241898bbedd.webp": {"size":[547,617],"rect":[138,0,200,200],"method":"yolo","score":0.812,"sha256":"607bdc047d347a4dcdeffbf0d63da6cc352b9179b2ebcce876be6b8d5256e3d4"},
+    "/artworks/56095057d45d.webp": {"size":[290,1000],"rect":[0,0,211,211],"method":"yolo","score":0.858,"sha256":"3cd111de1e76586395611074e2e0a04301036929ca64469b9139354fbee1c5df"},
+    "/artworks/db9b2fe28d2a.webp": {"size":[411,923],"rect":[69,22,206,206],"method":"yolo","score":0.862,"sha256":"21e8465e17c5c6a3047339dc7f36abd404b393638dd58f2672d060d93a3f244d"},
+    "/artworks/4f7efa62b718.webp": {"size":[244,968],"rect":[10,7,214,214],"method":"yolo","score":0.86,"sha256":"f4ba87a9e9c3819c94090a2532ca5c29fd875f3facaa0c549e91818ca6206432"},
+    "/artworks/d2d3df7e2dde.webp": {"size":[484,882],"rect":[122,8,215,215],"method":"yolo","score":0.845,"sha256":"870495aacc52fc838f46c4d8d7369b4b528031cd5de0fb40e3215da5df75ddac"},
+    "/artworks/f88d93592eb9.webp": {"size":[280,930],"rect":[31,0,217,217],"method":"yolo","score":0.859,"sha256":"11422f6d4753d454c7ebc6e6c6e519e943893fdeff2f63d2fa90bd3bdcbc72e0"},
+    "/artworks/d081ee797b8a.webp": {"size":[547,616],"rect":[142,0,195,195],"method":"yolo","score":0.817,"sha256":"f41fcc7bc4a066b155be7302fb620ed1ed284c26ff08c56fe6f4de130e8daedc"},
+    "/artworks/fc8411ff4243.webp": {"size":[485,1000],"rect":[82,0,211,211],"method":"yolo","score":0.86,"sha256":"cc4bdec731287bef835300174949ab3baed925ccbb65f0e6383027d95b42d759"},
+    "/artworks/b8b44c231320.webp": {"size":[411,897],"rect":[72,2,198,198],"method":"yolo","score":0.86,"sha256":"5de70718de3f48078f7efb88d616db87d90c36ac7b917e0b0cfb1f5abd4d41fd"},
+    "/artworks/a9ae76954e72.webp": {"size":[244,957],"rect":[14,2,206,206],"method":"yolo","score":0.868,"sha256":"c19568a2f5c86ca0171252d7082b733dbe1850317c027374ebc35054930f97c9"},
+    "/artworks/d3ff3e16e2dc.webp": {"size":[484,882],"rect":[122,7,216,216],"method":"yolo","score":0.845,"sha256":"fbf8cd77afb47740bf35c150938d86fa7f9aacbe2721932602bd75b705199516"},
+    "/artworks/2f5395fd4938.webp": {"size":[280,930],"rect":[32,1,214,214],"method":"yolo","score":0.86,"sha256":"08813d55f82d3e9dcbfea56e650075f4243bc8955d7e0a1f38c7f5e1c1b51d61"},
+    "/artworks/7e8206064978.webp": {"size":[464,883],"rect":[102,8,214,214],"method":"yolo","score":0.848,"sha256":"06751bbe66bd0826714c67e8181c752572304b928e136ee3439d993d19754d3c"},
+    "/artworks/2c647ce55afc.webp": {"size":[291,934],"rect":[35,3,210,210],"method":"yolo","score":0.858,"sha256":"400516aa964877ebf2ff6943cc4386b97ba317cff956b50524f61ff44cc90078"},
+    "/artworks/e5e8e4d488ae.webp": {"size":[493,679],"rect":[161,5,224,224],"method":"yolo","score":0.879,"sha256":"5828bca0ecdcd1e8cca16f56ba322b812cce0b31e6adc8e188b13c69e0424020"},
+    "/artworks/d3f0cd630ab0.webp": {"size":[334,1000],"rect":[53,0,231,231],"method":"yolo","score":0.864,"sha256":"f0376e88c2608d22a12d097cc3d37901b48e46a73ec694efb36f63a849bcd530"},
+    "/artworks/b235e9c1bf93.webp": {"size":[503,679],"rect":[160,4,226,226],"method":"yolo","score":0.878,"sha256":"e9c4e10aa5401787b35294b280ee591d340152ef811e2121f6815e1079ff861b"},
+    "/artworks/2467833e2c6c.webp": {"size":[381,1000],"rect":[68,0,231,231],"method":"yolo","score":0.862,"sha256":"acad080548264ac8338e2ce8d2496584190d514c81c38fb17f44c578f2a80bc2"}
   }
 }

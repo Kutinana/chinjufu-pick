@@ -4,6 +4,9 @@ import { describe, expect, it } from 'vitest';
 import {
   GROUPS,
   SHIP_TYPES,
+  DEFAULT_LAYOUT_COLUMNS,
+  MAX_LAYOUT_COLUMNS,
+  arrangedBoardSlots,
   boardForMode,
   boardSlots,
   slotFor,
@@ -13,6 +16,7 @@ import {
   candidatesByClass,
   cleanArtworkBoard,
   cleanBoard,
+  cleanBoardLayout,
   decodeBoard,
   encodeBoard,
   matchesSearch,
@@ -142,8 +146,9 @@ describe('Japanese destroyer class boards', () => {
     expect(boardSlots(data.ships, 'dd-classes', false)).toHaveLength(12);
     expect(boardSlots(data.ships, 'dd-classes', false).some((slot) => matchesSlot(shimakaze, slot.id))).toBe(false);
     const restored = decodeBoard(encodeBoard(board), data.ships)!;
-    expect(restored).toEqual(board);
+    expect(restored).toEqual({ ...board, layout: cleanBoardLayout({ hidden: ['DD:22'] }, boardSlots(data.ships, 'dd-classes')) });
     expect(boardSlots(data.ships, 'dd-classes', true).some((slot) => slot.id in restored.picks)).toBe(true);
+    expect(arrangedBoardSlots(boardSlots(data.ships, 'dd-classes'), restored.layout).some((slot) => slot.id === 'DD:22')).toBe(false);
   });
 
   it('round-trips both mode selections, the mode, and the switch with Unicode names', () => {
@@ -158,9 +163,11 @@ describe('Japanese destroyer class boards', () => {
     const classBoard = boardForMode(board, 'dd-classes');
     expect(Object.keys(classBoard.picks)).toEqual(['DD:22', 'DD:30']);
     expect(classBoard.showShimakaze).toBe(false);
+    expect(classBoard.layout?.hidden).toEqual(['DD:22']);
     expect(Object.keys(boardForMode(board, 'types').picks)).toEqual(['DD']);
     expect(board.picks).toHaveProperty('DD');
-    expect(decodeBoard(encodeBoard(classBoard), data.ships)).toEqual(classBoard);
+    expect(decodeBoard(encodeBoard(classBoard), data.ships)).toEqual({ ...classBoard,
+      layout: cleanBoardLayout(classBoard.layout, boardSlots(data.ships, 'dd-classes')) });
   });
 
   it('rejects corrupted class selections, remodel mismatches, and unknown class keys', () => {
@@ -187,6 +194,75 @@ describe('Japanese destroyer class boards', () => {
 function rawPayload(value: unknown): string {
   return Buffer.from(JSON.stringify(value), 'utf8').toString('base64url');
 }
+
+describe('export board layouts', () => {
+  const typeSlots = boardSlots(data.ships, 'types');
+  const classSlots = boardSlots(data.ships, 'dd-classes');
+
+  it('keeps valid custom order, adds omitted slots, and rejects duplicate or foreign IDs', () => {
+    const incoming = { order: ['AUX', 'DD:22', 'CL', 'AUX', 'missing', 4], hidden: ['CL', 'CL', 'DD:22', null, 'CA'], columns: 3 };
+    const original = structuredClone(incoming);
+    const layout = cleanBoardLayout(incoming, typeSlots);
+    expect(layout).toEqual({ order: ['AUX', 'CL', ...typeSlots.map((slot) => slot.id).filter((id) => id !== 'AUX' && id !== 'CL')], hidden: ['CL', 'CA'], columns: 3 });
+    expect(incoming).toEqual(original);
+    const arranged = arrangedBoardSlots(typeSlots, layout);
+    expect(arranged.map((slot) => slot.id)).toEqual(layout.order.filter((id) => !layout.hidden.includes(id)));
+    expect(arranged[0]).toBe(typeSlots.find((slot) => slot.id === 'AUX'));
+  });
+
+  it.each([undefined, null, false, 5, 'invalid', [], { order: 'DD', hidden: {}, columns: '3' }])('recovers from malformed layout %j', (value) => {
+    expect(cleanBoardLayout(value, typeSlots)).toEqual({ order: typeSlots.map((slot) => slot.id), hidden: [], columns: DEFAULT_LAYOUT_COLUMNS });
+  });
+
+  it.each([0, -1, MAX_LAYOUT_COLUMNS + 1, 2.5, NaN, Infinity, '4', null])('rejects invalid column count %s', (columns) => {
+    expect(cleanBoardLayout({ columns }, typeSlots).columns).toBe(DEFAULT_LAYOUT_COLUMNS);
+  });
+
+  it('accepts both column limits and handles an empty or fully hidden board', () => {
+    expect(cleanBoardLayout({ columns: 1 }, typeSlots).columns).toBe(1);
+    expect(cleanBoardLayout({ columns: MAX_LAYOUT_COLUMNS }, typeSlots).columns).toBe(MAX_LAYOUT_COLUMNS);
+    expect(arrangedBoardSlots(typeSlots)).toEqual(typeSlots);
+    expect(arrangedBoardSlots(typeSlots, cleanBoardLayout({ hidden: typeSlots.map((slot) => slot.id) }, typeSlots))).toEqual([]);
+    expect(cleanBoardLayout({ order: ['DD'], hidden: ['DD'], columns: 2 }, [])).toEqual({ order: [], hidden: [], columns: 2 });
+  });
+
+  it('normalizes saved layouts against the active mode and defaults older payloads to types', () => {
+    const layout = { order: ['DD:22', 'CA', 'DD:30'], hidden: ['DD:22', 'CA'], columns: 4 };
+    expect(cleanBoard({ layout }, data.ships).layout).toEqual(cleanBoardLayout(layout, typeSlots));
+    expect(cleanBoard({ mode: 'dd-classes', layout }, data.ships).layout).toEqual(cleanBoardLayout(layout, classSlots));
+    expect(cleanBoard({ mode: 'invalid', layout }, data.ships).layout?.hidden).toEqual(['CA']);
+  });
+
+  it('lets explicit layouts override the legacy Shimakaze switch without deleting hidden picks', () => {
+    const shimakaze = data.ships.find((ship) => ship.names.en === 'Shimakaze')!;
+    const pick = { shipId: shimakaze.id, variantId: shimakaze.id };
+    const layout = cleanBoardLayout({ order: ['DD:22'], hidden: ['DD:22'], columns: 2 }, classSlots);
+    const board = cleanBoard({ mode: 'dd-classes', showShimakaze: false, layout, picks: { 'DD:22': pick } }, data.ships);
+    expect(board.layout).toEqual(layout);
+    expect(board.picks['DD:22']).toEqual(pick);
+    expect(boardSlots(data.ships, 'dd-classes', true).some((slot) => slot.id === 'DD:22')).toBe(true);
+    expect(arrangedBoardSlots(classSlots, board.layout).some((slot) => slot.id === 'DD:22')).toBe(false);
+    expect(cleanBoard({ mode: 'dd-classes', showShimakaze: false, layout: { hidden: [] } }, data.ships).layout?.hidden).toEqual([]);
+    expect(cleanBoard({ mode: 'dd-classes', showShimakaze: false, layout: null }, data.ships).layout?.hidden).toEqual([]);
+  });
+
+  it('isolates each mode’s order and visibility while preserving columns and selections', () => {
+    const incoming: SavedBoard = { version: 1, nickname: '', picks: { CL: { shipId: '19', variantId: '95' } },
+      layout: { order: ['DD:22', 'CA', 'DD:30', 'CL'], hidden: ['CL', 'DD:22'], columns: 6 } };
+    const original = structuredClone(incoming);
+    expect(boardForMode(incoming, 'types').layout).toEqual({ order: ['CA', 'CL'], hidden: ['CL'], columns: 6 });
+    expect(boardForMode(incoming, 'dd-classes').layout).toEqual({ order: ['DD:22', 'DD:30'], hidden: ['DD:22'], columns: 6 });
+    expect(boardForMode(incoming, 'types').picks.CL).toEqual(incoming.picks.CL);
+    expect(incoming).toEqual(original);
+  });
+
+  it.each(['types', 'dd-classes'] as const)('round-trips order, visibility, and grid columns in a %s share', (mode) => {
+    const slots = mode === 'types' ? typeSlots : classSlots;
+    const layout = cleanBoardLayout({ order: [...slots].reverse().map((slot) => slot.id), hidden: [slots[1].id], columns: 4 }, slots);
+    const board: SavedBoard = { version: 1, nickname: '提督⚓', mode, picks: {}, layout };
+    expect(decodeBoard(encodeBoard(board), data.ships)).toEqual(board);
+  });
+});
 
 describe('ship candidates', () => {
   it('offers one character per ship type while retaining her type-changing remodels', () => {

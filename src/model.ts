@@ -42,6 +42,38 @@ export type BoardMode = 'types' | 'dd-classes';
 export type DDClassId = typeof JAPANESE_DD_CLASSES[number];
 export type SlotId = GroupId | `DD:${DDClassId}`;
 export interface BoardSlot { id: SlotId; names: LocalizedName; icon: string; code: string }
+export interface BoardLayout { order: SlotId[]; hidden: SlotId[]; columns: number }
+export const DEFAULT_LAYOUT_COLUMNS = 5;
+export const MAX_LAYOUT_COLUMNS = 6;
+
+/** Layout only controls presentation; every available slot remains in the order. */
+export function cleanBoardLayout(value: unknown, slots: readonly BoardSlot[]): BoardLayout {
+  const incoming = value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {};
+  const allowed = new Set(slots.map((slot) => slot.id));
+  const cleanIds = (value: unknown): SlotId[] => {
+    const ids = new Set<SlotId>();
+    if (Array.isArray(value)) for (const id of value) {
+      if (typeof id === 'string' && allowed.has(id as SlotId)) ids.add(id as SlotId);
+    }
+    return [...ids];
+  };
+  const order = cleanIds(incoming.order);
+  const present = new Set(order);
+  for (const slot of slots) if (!present.has(slot.id)) { order.push(slot.id); present.add(slot.id); }
+  return {
+    order,
+    hidden: cleanIds(incoming.hidden),
+    columns: typeof incoming.columns === 'number' && Number.isInteger(incoming.columns)
+      && incoming.columns >= 1 && incoming.columns <= MAX_LAYOUT_COLUMNS ? incoming.columns : DEFAULT_LAYOUT_COLUMNS,
+  };
+}
+
+export function arrangedBoardSlots(slots: readonly BoardSlot[], layout?: BoardLayout): BoardSlot[] {
+  const cleaned = cleanBoardLayout(layout, slots);
+  const hidden = new Set(cleaned.hidden);
+  const byId = new Map(slots.map((slot) => [slot.id, slot]));
+  return cleaned.order.filter((id) => !hidden.has(id)).map((id) => byId.get(id)!);
+}
 /** Ordinal within the game's ship class, independent of the selected remodel. */
 export function shipClassOrdinal(number: number | undefined, language: Language): string {
   if (!number || !Number.isInteger(number) || number < 1) return '—';
@@ -110,12 +142,20 @@ export interface ArtworkData {
 export interface AvatarAdjustment { image: string; size: [number, number]; rect: [number, number, number, number] }
 export interface Pick { shipId: string; variantId: string; artworkId?: string; avatar?: AvatarAdjustment; useOriginalName?: boolean }
 export type Picks = Partial<Record<SlotId, Pick>>;
-export interface SavedBoard { version: 1; nickname: string; picks: Picks; mode?: BoardMode; showShimakaze?: boolean }
+export interface SavedBoard { version: 1; nickname: string; picks: Picks; mode?: BoardMode; showShimakaze?: boolean; layout?: BoardLayout }
 
-/** Each page saves and shares only its own selections, including hidden Shimakaze. */
+/** Each page saves and shares only its own selections and layout. Hidden picks are kept. */
 export function boardForMode(board: SavedBoard, mode: BoardMode): SavedBoard {
+  const belongsToMode = (key: string) => key.startsWith('DD:') === (mode === 'dd-classes');
+  const layout = board.layout ? {
+    ...board.layout,
+    order: board.layout.order.filter(belongsToMode),
+    hidden: board.layout.hidden.filter(belongsToMode),
+  } : mode === 'dd-classes' && board.showShimakaze === false ? {
+    order: [], hidden: [`DD:${SHIMAKAZE_CLASS}` as SlotId], columns: DEFAULT_LAYOUT_COLUMNS,
+  } : undefined;
   return { ...board, mode, picks: Object.fromEntries(Object.entries(board.picks)
-    .filter(([key]) => key.startsWith('DD:') === (mode === 'dd-classes'))) as Picks };
+    .filter(([key]) => belongsToMode(key))) as Picks, ...(layout ? { layout } : {}) };
 }
 
 export function slotFor(candidate: Candidate, mode: BoardMode): SlotId | undefined {
@@ -201,6 +241,11 @@ export function cleanBoard(value: unknown, ships: Ship[]): SavedBoard {
   if (typeof incoming.nickname === 'string') board.nickname = incoming.nickname.slice(0, 24);
   if (incoming.mode === 'types' || incoming.mode === 'dd-classes') board.mode = incoming.mode;
   if (typeof incoming.showShimakaze === 'boolean') board.showShimakaze = incoming.showShimakaze;
+  const slots = boardSlots(ships, board.mode ?? 'types', true);
+  if (incoming.layout !== undefined) board.layout = cleanBoardLayout(incoming.layout, slots);
+  else if (board.mode === 'dd-classes' && board.showShimakaze === false) {
+    board.layout = cleanBoardLayout({ hidden: [`DD:${SHIMAKAZE_CLASS}`] }, slots);
+  }
   if (incoming.picks && typeof incoming.picks === 'object') {
     for (const group of GROUPS) {
       // Prefer the parent group's pick, then migrate the former subtype slots.

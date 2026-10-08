@@ -1,4 +1,4 @@
-import type { AvatarCrop } from './model';
+import { DEFAULT_LAYOUT_COLUMNS, MAX_LAYOUT_COLUMNS, type AvatarCrop } from './model';
 
 export interface ExportCard {
   groupId: string;
@@ -18,6 +18,27 @@ export interface ExportBoardOptions {
   footer: string;
   emptyLabel: string;
   cards: ExportCard[];
+  /** Slots per row; accepts integers from 1 to MAX_LAYOUT_COLUMNS. */
+  columns?: number;
+}
+
+/** Card and artwork coordinates in logical pixels before the 2x PNG scale. */
+export interface ExportCardBounds {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  imageX: number;
+  imageY: number;
+  imageSize: number;
+}
+
+export interface RenderedExportBoard {
+  blob: Blob;
+  width: number;
+  height: number;
+  /** Same ordering as the cards supplied to the renderer. */
+  cards: ExportCardBounds[];
 }
 
 interface TextLayout {
@@ -27,13 +48,12 @@ interface TextLayout {
   weight: number;
 }
 
-const WIDTH = 1000;
+const DEFAULT_WIDTH = 1000;
 const SCALE = 2;
 const PADDING = 58;
-const COLUMNS = 5;
 const COLUMN_GAP = 16;
 const ROW_GAP = 28;
-const CARD_WIDTH = (WIDTH - PADDING * 2 - COLUMN_GAP * (COLUMNS - 1)) / COLUMNS;
+const CARD_WIDTH = (DEFAULT_WIDTH - PADDING * 2 - COLUMN_GAP * (DEFAULT_LAYOUT_COLUMNS - 1)) / DEFAULT_LAYOUT_COLUMNS;
 const IMAGE_TOP = 68;
 const IMAGE_SIZE = CARD_WIDTH;
 const CARD_HEIGHT = IMAGE_TOP + IMAGE_SIZE + 12 + 28 + 4 + 36;
@@ -48,6 +68,23 @@ const COLORS = {
   image: '#eef7fb',
   border: '#bfd2dc',
 };
+
+/** Logical PNG dimensions before the 2x rendering scale. Card sizes stay constant. */
+export function exportGridGeometry(cardCount: number, requestedColumns = DEFAULT_LAYOUT_COLUMNS) {
+  if (!Number.isInteger(cardCount) || cardCount < 0) throw new Error('Card count must be a nonnegative integer');
+  const columns = Number.isInteger(requestedColumns) && requestedColumns >= 1 && requestedColumns <= MAX_LAYOUT_COLUMNS
+    ? requestedColumns : DEFAULT_LAYOUT_COLUMNS;
+  const width = Math.max(600, PADDING * 2 + columns * CARD_WIDTH + (columns - 1) * COLUMN_GAP);
+  const rows = Math.ceil(cardCount / columns);
+  return {
+    columns,
+    width,
+    cardWidth: CARD_WIDTH,
+    cardHeight: CARD_HEIGHT,
+    rows,
+    gridHeight: rows ? rows * CARD_HEIGHT + (rows - 1) * ROW_GAP : 0,
+  };
+}
 
 function font(ctx: CanvasRenderingContext2D, size: number, weight: number): void {
   ctx.font = `${weight} ${size}px ${FONT_FAMILY}`;
@@ -160,17 +197,19 @@ async function loadArtwork(card: ExportCard): Promise<HTMLImageElement | undefin
   return image;
 }
 
-/** Render a 2000px-wide PNG without initiating a download or changing the page. */
-export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
+/** Render a PNG at 2x scale with exact logical bounds for interactive overlays. */
+export async function renderExportBoard(options: ExportBoardOptions): Promise<RenderedExportBoard> {
+  if (!options.cards.length) throw new Error('At least one visible slot is required for PNG export');
+  const { columns, width, gridHeight } = exportGridGeometry(options.cards.length, options.columns);
   await document.fonts.ready;
   const images = await Promise.all(options.cards.map(loadArtwork));
   const icons = await Promise.all(options.cards.map((card) => loadArtwork({ ...card, image: card.icon })));
   const canvas = document.createElement('canvas');
-  canvas.width = WIDTH * SCALE;
+  canvas.width = width * SCALE;
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('PNG export is unavailable in this browser');
 
-  const contentWidth = WIDTH - PADDING * 2;
+  const contentWidth = width - PADDING * 2;
   const brand = fitText(ctx, options.brand, contentWidth, 14, 10, 1, 900);
   const nickname = options.nickname.trim()
     ? fitText(ctx, options.nickname.trim(), contentWidth, 42, 24, 1, 700, 1.15)
@@ -182,29 +221,32 @@ export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
   const mainTitleY = titleY + (nickname ? nickname.lineHeight + 2 : 0);
   const subtitleY = mainTitleY + title.lines.length * title.lineHeight + 10;
   const gridY = subtitleY + subtitle.lines.length * subtitle.lineHeight + 40;
-  const rows = Math.max(1, Math.ceil(options.cards.length / COLUMNS));
-  const gridHeight = rows * CARD_HEIGHT + (rows - 1) * ROW_GAP;
   const footerY = gridY + gridHeight + 34;
-  const footer = fitText(ctx, options.footer, contentWidth - 190, 13, 10, 2, 400);
-  const height = Math.ceil(footerY + Math.max(brand.lineHeight, footer.lines.length * footer.lineHeight) + 42);
+  const footerBrandWidth = Math.min(190, contentWidth * 0.4);
+  const footerBrand = fitText(ctx, options.brand, footerBrandWidth, 14, 10, 2, 900);
+  const footer = fitText(ctx, options.footer, contentWidth - footerBrandWidth - 24, 13, 10, 2, 400);
+  const height = Math.ceil(footerY + Math.max(footerBrand.lines.length * footerBrand.lineHeight, footer.lines.length * footer.lineHeight) + 42);
   canvas.height = height * SCALE;
   ctx.scale(SCALE, SCALE);
 
   ctx.fillStyle = COLORS.background;
-  ctx.fillRect(0, 0, WIDTH, height);
-  const wash = ctx.createLinearGradient(0, 0, WIDTH * 0.5, height * 0.3);
+  ctx.fillRect(0, 0, width, height);
+  const wash = ctx.createLinearGradient(0, 0, width * 0.5, height * 0.3);
   wash.addColorStop(0, 'rgba(65, 191, 236, 0.09)');
   wash.addColorStop(1, 'rgba(65, 191, 236, 0)');
   ctx.fillStyle = wash;
-  ctx.fillRect(0, 0, WIDTH, height);
-  drawText(ctx, brand, WIDTH / 2, brandY, COLORS.cyan);
-  if (nickname) drawText(ctx, nickname, WIDTH / 2, titleY, COLORS.navy);
-  drawText(ctx, title, WIDTH / 2, mainTitleY, COLORS.navy);
-  drawText(ctx, subtitle, WIDTH / 2, subtitleY, COLORS.muted);
+  ctx.fillRect(0, 0, width, height);
+  drawText(ctx, brand, width / 2, brandY, COLORS.cyan);
+  if (nickname) drawText(ctx, nickname, width / 2, titleY, COLORS.navy);
+  drawText(ctx, title, width / 2, mainTitleY, COLORS.navy);
+  drawText(ctx, subtitle, width / 2, subtitleY, COLORS.muted);
 
+  const gridWidth = columns * CARD_WIDTH + (columns - 1) * COLUMN_GAP;
+  const gridX = (width - gridWidth) / 2;
+  const cards: ExportCardBounds[] = [];
   options.cards.forEach((card, index) => {
-    const x = PADDING + (index % COLUMNS) * (CARD_WIDTH + COLUMN_GAP);
-    const y = gridY + Math.floor(index / COLUMNS) * (CARD_HEIGHT + ROW_GAP);
+    const x = gridX + (index % columns) * (CARD_WIDTH + COLUMN_GAP);
+    const y = gridY + Math.floor(index / columns) * (CARD_HEIGHT + ROW_GAP);
     const centerX = x + CARD_WIDTH / 2;
     const icon = icons[index];
     if (icon) {
@@ -217,6 +259,7 @@ export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
     drawText(ctx, marker, centerX, icon ? y + 43 : y + (60 - marker.lineHeight) / 2, COLORS.group);
 
     const imageY = y + IMAGE_TOP;
+    cards.push({ x, y, width: CARD_WIDTH, height: CARD_HEIGHT, imageX: x, imageY, imageSize: IMAGE_SIZE });
     roundedRect(ctx, x, imageY, CARD_WIDTH, IMAGE_SIZE);
     ctx.fillStyle = COLORS.image;
     ctx.fill();
@@ -252,14 +295,14 @@ export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
 
   ctx.beginPath();
   ctx.moveTo(PADDING, footerY - 18);
-  ctx.lineTo(WIDTH - PADDING, footerY - 18);
+  ctx.lineTo(width - PADDING, footerY - 18);
   ctx.strokeStyle = '#d4e2e9';
   ctx.lineWidth = 1;
   ctx.stroke();
-  drawText(ctx, brand, PADDING, footerY, COLORS.cyan, 'left');
-  drawText(ctx, footer, WIDTH - PADDING, footerY, COLORS.muted, 'right');
+  drawText(ctx, footerBrand, PADDING, footerY, COLORS.cyan, 'left');
+  drawText(ctx, footer, width - PADDING, footerY, COLORS.muted, 'right');
 
-  return new Promise<Blob>((resolve, reject) => {
+  const blob = await new Promise<Blob>((resolve, reject) => {
     try {
       canvas.toBlob((blob) => {
         if (blob) resolve(blob);
@@ -269,4 +312,10 @@ export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
       reject(new Error('Unable to encode the PNG image', { cause }));
     }
   });
+  return { blob, width, height, cards };
+}
+
+/** Render a PNG at 2x scale without initiating a download or changing the page. */
+export async function exportBoard(options: ExportBoardOptions): Promise<Blob> {
+  return (await renderExportBoard(options)).blob;
 }

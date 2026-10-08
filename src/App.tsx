@@ -1,13 +1,15 @@
 import { createContext, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, MouseEventHandler, ReactNode } from 'react';
-import { Anchor, Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Download, ExternalLink, Globe2, GripVertical, ImageIcon, Info, LoaderCircle, Minus, Move, Plus, RotateCcw, Search, Share2, X } from 'lucide-react';
+import { Anchor, Check, CheckCircle2, ChevronLeft, ChevronRight, Download, ExternalLink, Globe2, GripVertical, ImageIcon, Info, LayoutGrid, List, LoaderCircle, Minus, Move, Plus, RotateCcw, Search, Share2, X } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
-import { GROUPS, SHIP_TYPES, boardForMode, boardSlots, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks, shipDisplayName, shipClassOrdinal } from './model';
+import { GROUPS, SHIP_TYPES, arrangedBoardSlots, boardForMode, boardSlots, cleanBoardLayout, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks, shipDisplayName, shipClassOrdinal } from './model';
 import type { Artwork, ArtworkData, Candidate, Language, Picks, SavedBoard, ShipData, SlotId, TypeId, AvatarCrop, AvatarCropData, AvatarAdjustment } from './model';
 import { initialLanguage, localizedCount, localizedSourceName, messages } from './i18n';
 import { pageForPath, PICKUP_PATHS } from './routes';
 import type { Page } from './routes';
 import { exportBoard } from './export';
+import ExportLayout from './ExportLayout';
+import StyledSelect from './StyledSelect';
 import { clampSquare, defaultSquare, resolveAvatarCrop, zoomSquare } from './avatar';
 import type { Square } from './avatar';
 import homeHeroSmall from './assets/home-hero-itsuumi-480.webp';
@@ -110,39 +112,6 @@ function applicableArt(art: Artwork, candidate: Candidate, variantId?: string): 
   if (art.shipId !== candidate.ship.id) return false;
   const compatible = art.variantIds ?? (art.variantId ? [art.variantId] : candidate.variants.map((variant) => variant.id));
   return variantId ? compatible.includes(variantId) : candidate.variants.some((variant) => compatible.includes(variant.id));
-}
-
-function StyledSelect({ label, value, options, onChange, icon, hideLabel = false, className = '' }: {
-  label: string; value: string; options: { value: string; label: string }[]; onChange: (value: string) => void;
-  icon?: ReactNode; hideLabel?: boolean; className?: string;
-}) {
-  const [open, setOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
-  const trigger = useRef<HTMLButtonElement>(null);
-  const listId = useId();
-  useEffect(() => {
-    if (!open) return;
-    // Safari may blur an option without focusing the tapped button. Wait for an
-    // actual outside pointer/focus target so the option's click can finish.
-    const dismiss = (event: Event) => { if (!root.current?.contains(event.target as Node)) setOpen(false); };
-    document.addEventListener('pointerdown', dismiss);
-    document.addEventListener('focusin', dismiss);
-    root.current?.querySelector<HTMLButtonElement>('[aria-selected="true"]')?.focus();
-    return () => { document.removeEventListener('pointerdown', dismiss); document.removeEventListener('focusin', dismiss); };
-  }, [open]);
-  return <div className={`remodel-select ${hideLabel ? '' : 'form-label'} ${className}`} ref={root} onKeyDown={(event) => {
-    if (event.key === 'Escape' && open) { event.preventDefault(); event.stopPropagation(); setOpen(false); trigger.current?.focus(); }
-    if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
-      event.preventDefault();
-      if (!open) { setOpen(true); return; }
-      const items = Array.from(root.current?.querySelectorAll<HTMLButtonElement>('[role="option"]') ?? []);
-      const index = items.indexOf(document.activeElement as HTMLButtonElement);
-      const next = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (index + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
-      items[next]?.focus();
-    }
-  }}>{!hideLabel && <span>{label}</span>}<div className="remodel-control"><button ref={trigger} type="button" className={`remodel-trigger ${open ? 'open' : ''}`} aria-label={label} aria-haspopup="listbox" aria-expanded={open} aria-controls={open ? listId : undefined} onClick={() => setOpen((current) => !current)}>{icon}<span className="select-value">{options.find((option) => option.value === value)?.label}</span><ChevronDown className="select-chevron" size={16}/></button>
-    {open && <div id={listId} className="remodel-options" role="listbox" aria-label={label}>{options.map((option) => <button type="button" role="option" aria-selected={value === option.value} key={option.value} onClick={() => { onChange(option.value); setOpen(false); trigger.current?.focus(); }}><span>{option.label}</span>{value === option.value && <Check size={15}/>}</button>)}</div>}
-  </div></div>;
 }
 
 function AvatarEditor({ image, name, language, base, adjustment, onClose, onApply }: {
@@ -281,6 +250,7 @@ export default function App() {
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
   const [board, setBoard] = useState<SavedBoard>(EMPTY);
+  const [workspaceMode, setWorkspaceMode] = useState<'selection' | 'layout'>('selection');
   const [ready, setReady] = useState(false);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<TypeId | SlotId | 'all'>('all');
@@ -305,7 +275,8 @@ export default function App() {
   const artworkMap = useMemo(() => new Map((artData?.artworks ?? []).map((art) => [art.id, art])), [artData]);
   const mode = page === 'dd-classes' ? 'dd-classes' : 'types';
   const classMode = mode === 'dd-classes';
-  const slots = useMemo(() => boardSlots(data?.ships ?? [], mode, board.showShimakaze !== false), [data, mode, board.showShimakaze]);
+  const slots = useMemo(() => boardSlots(data?.ships ?? [], mode), [data, mode]);
+  const layout = useMemo(() => cleanBoardLayout(board.layout, slots), [board.layout, slots]);
   const selectable = useMemo(() => candidates.filter((candidate) => slots.some((slot) => matchesSlot(candidate, slot.id))), [candidates, slots]);
   const count = slots.filter((slot) => board.picks[slot.id]).length;
   const introTitle = page === 'home' ? t.homeTitle : page === 'not-found' ? t.notFound : classMode ? t.ddClassTitle : t.introTitle;
@@ -319,6 +290,23 @@ export default function App() {
     const shipIds = new Set(selectable.map((candidate) => candidate.ship.id));
     return artData?.artworks.filter((art) => shipIds.has(art.shipId)).length ?? 0;
   }, [classMode, artData, selectable]);
+  const allExportCards = useMemo(() => slots.map((group) => {
+    const { ship, variant, name, image, crop } = boardImage(group.id);
+    const typeName = SHIP_TYPES.find((type) => type.id === variant?.typeId)?.names[language];
+    return { slotId: group.id, groupId: classMode ? group.names[language] : group.code, icon: group.icon,
+      groupName: classMode ? shipClassOrdinal(ship?.classNumber, language)
+        : typeName ?? group.names[language], name, image, crop };
+  }), [slots, board.picks, data, artworkMap, avatarCrops, language, classMode]);
+  const exportCards = useMemo(() => {
+    const cards = new Map(allExportCards.map((card) => [card.slotId, card]));
+    return arrangedBoardSlots(slots, layout).map((slot) => cards.get(slot.id)!);
+  }, [slots, layout, allExportCards]);
+  const exportOptions = useMemo(() => {
+    const nickname = board.nickname.trim();
+    return { nickname: nickname ? t.exportOwner.replace('{name}', () => nickname) : t.exportAnonymousOwner,
+      title: introTitle, subtitle: classMode ? t.ddClassExport : t.exportSubtitle, brand: t.brand,
+      footer: location.host, emptyLabel: t.empty, cards: exportCards, columns: layout.columns };
+  }, [board.nickname, t, introTitle, classMode, exportCards, layout.columns]);
 
   useEffect(() => {
     const controller = new AbortController(); setError(false);
@@ -366,7 +354,7 @@ export default function App() {
         const sharedMode = shared.mode ?? 'types';
         const target = new URL(location.href); target.pathname = PICKUP_PATHS[sharedMode];
         history.replaceState(null, '', target); setPage(sharedMode);
-        setFilter('all'); setSearch(''); setDragOver(null);
+        setFilter('all'); setSearch(''); setDragOver(null); setWorkspaceMode('selection');
         setBoard(cleanArtworkBoard(shared, artData.artworks));
         setShareUrl(''); setChooser(null); setArtTarget(null); setCropTarget(null); setActive(null);
         setToast(t.restored);
@@ -380,7 +368,7 @@ export default function App() {
   useEffect(() => {
     setLimit(PAGE_SIZE);
     libraryScroll.current?.scrollTo({ top: 0 });
-  }, [search, filter, mode, board.showShimakaze, language]);
+  }, [search, filter, mode, language]);
   useEffect(() => { if (toast) { const timeout = setTimeout(() => setToast(''), 3500); return () => clearTimeout(timeout); } }, [toast]);
   useEffect(() => { if (preview) return () => URL.revokeObjectURL(preview); }, [preview]);
 
@@ -406,9 +394,12 @@ export default function App() {
     if (!selectable.some((item) => item.key === candidate.key)) { setToast(classMode ? t.wrongClass : t.wrongType); return; }
     setArtTarget(candidate); setActive(candidate);
   }
-  function toggleShimakaze() {
-    setBoard((current) => ({ ...current, showShimakaze: current.showShimakaze === false }));
-    setFilter('all'); setActive(null); setDragOver(null);
+  function switchWorkspace(next: 'selection' | 'layout') {
+    setWorkspaceMode(next); setActive(null); setDragOver(null);
+  }
+  function exportAction() {
+    if (workspaceMode === 'selection') switchWorkspace('layout');
+    else void saveImage();
   }
   function chooseArtwork(art: Artwork, variantId: string, avatar?: AvatarAdjustment) {
     if (!artTarget || !artSlot) return;
@@ -438,19 +429,12 @@ export default function App() {
     openArt(candidate);
   }
   async function saveImage(allowUnnamed = false) {
-    if (saving) return;
+    if (saving || !exportCards.length) return;
     const nickname = board.nickname.trim();
     if (!nickname && !allowUnnamed) { setMissingNicknameOpen(true); return; }
     setSaving(true);
     try {
-      const blob = await exportBoard({ nickname: nickname ? t.exportOwner.replace('{name}', () => nickname) : t.exportAnonymousOwner, title: introTitle, subtitle: classMode ? t.ddClassExport : t.exportSubtitle, brand: t.brand,
-        footer: location.host, emptyLabel: t.empty,
-        cards: slots.map((group) => {
-          const { ship, name, image, crop } = boardImage(group.id);
-          return { groupId: classMode ? group.names[language] : group.code, icon: group.icon,
-            groupName: classMode ? shipClassOrdinal(ship?.classNumber, language) : group.names[language], name, image, crop };
-        }),
-      });
+      const blob = await exportBoard(exportOptions);
       const url = URL.createObjectURL(blob); setPreview(url); setToast(t.saved);
     } catch { setToast(t.exportFailed); }
     finally { setSaving(false); }
@@ -476,7 +460,7 @@ export default function App() {
   const cropDetails = cropTarget ? boardImage(cropTarget) : undefined;
   const dataUpdateDate = [data?.updatedAt, artData?.updatedAt].filter((value): value is string => Boolean(value)).sort().at(-1)?.slice(0, 10).replaceAll('-', '.');
   function renderFooter() {
-    return <footer className="site-footer"><div><strong>{t.brand}</strong><p>{t.fan}</p><p className="copyright">{t.rights}</p></div><div className="footer-links"><div className="footer-meta"><div className="footer-version"><button onClick={() => setAboutOpen(true)}><Info size={13}/>{t.source}</button><span><b>v1.1</b>{dataUpdateDate && <> · {t.dataLastUpdated.replace('{date}', dataUpdateDate)}</>}</span></div><div className="footer-credit"><a href="https://github.com/Kutinana/chinjufu-pick" target="_blank" rel="noreferrer">GitHub</a><span aria-hidden="true">·</span><span>{t.creatorCredit.replace('{name}', 'Kuchinashi Hoshikawa')}</span></div></div></div></footer>;
+    return <footer className="site-footer"><div><strong>{t.brand}</strong><p>{t.fan}</p><p className="copyright">{t.rights}</p></div><div className="footer-links"><div className="footer-meta"><div className="footer-version"><button onClick={() => setAboutOpen(true)}><Info size={13}/>{t.source}</button><span><b>v1.2</b>{dataUpdateDate && <> · {t.dataLastUpdated.replace('{date}', dataUpdateDate)}</>}</span></div><div className="footer-credit"><a href="https://github.com/Kutinana/chinjufu-pick" target="_blank" rel="noreferrer">GitHub</a><span aria-hidden="true">·</span><span>{t.creatorCredit.replace('{name}', 'Kuchinashi Hoshikawa')}</span></div></div></div></footer>;
   }
   function homePortraits(names: string[]) {
     return names.map((name) => data?.ships.find((ship) => ship.names.en === name)).filter((ship) => Boolean(ship));
@@ -487,7 +471,7 @@ export default function App() {
       <a href={`/?lang=${language}`} className="brand" aria-label={t.brand}><Anchor size={22}/><span>{t.brand}</span></a>
       <span className="header-title">{t.title}</span>
       <div className="header-actions"><StyledSelect className="language-select" label={t.language} hideLabel icon={<Globe2 size={17}/>} value={language} options={[{ value: 'zh', label: '中文' }, { value: 'ja', label: '日本語' }, { value: 'en', label: 'English' }]} onChange={(value) => setLanguage(value as Language)}/>
-        {isPickup && <button className="primary-button header-save" onClick={() => void saveImage()} disabled={!ready || saving}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>}<span>{saving ? t.saving : t.save}</span></button>}
+        {isPickup && <button className="primary-button header-save" onClick={exportAction} disabled={!ready || saving || (workspaceMode === 'layout' && !exportCards.length)}>{saving ? <LoaderCircle className="spin" size={17}/> : workspaceMode === 'selection' ? <LayoutGrid size={17}/> : <Download size={17}/>}<span>{saving ? t.saving : workspaceMode === 'selection' ? t.goToLayout : t.save}</span></button>}
       </div>
     </div></header>
     {!ready && page !== 'home' ? <main className="loading-state"><Anchor size={42}/><h1>{t.brand}</h1>{error ? <><p>{t.loadFailed}</p><button className="primary-button" onClick={() => setRetry((value) => value + 1)}><RotateCcw size={16}/>{t.retry}</button></> : <><LoaderCircle className="spin" size={22}/><p>{t.loading}</p></>}</main> : page === 'home' ? <main className="page home-page">
@@ -505,10 +489,19 @@ export default function App() {
     </main> : page === 'not-found' ? <main className="page"><div className="loading-state"><h1>{t.notFound}</h1><a className="text-button" href={`/?lang=${language}`}>{t.home}</a></div>{renderFooter()}</main> : <>
       <main className="page">
         <a className="text-button pickup-back" href={`/?lang=${language}`}><ChevronLeft size={15}/>{t.home}</a>
-        <section className="intro"><div className="intro-heading"><h1>{introTitle}</h1></div><p className="intro-instruction">{instruction}</p><div className="intro-profile"><label className="sr-only" htmlFor="nickname">{t.nickname}</label><input id="nickname" maxLength={24} value={board.nickname} placeholder={t.nicknamePlaceholder} onChange={(event) => setBoard((current) => ({ ...current, nickname: event.target.value }))}/><div className="progress-count"><strong>{count}</strong><span>/{slots.length}</span><small>{t.selected}</small></div><div className="progress-track"><span style={{ width: `${count / Math.max(1, slots.length) * 100}%` }}/></div></div></section>
-        {classMode && <div className="board-mode-controls"><label className="shimakaze-switch"><input type="checkbox" role="switch" checked={board.showShimakaze !== false} onChange={toggleShimakaze}/><span>{t.showShimakaze}</span><small>{t.shimakazeHint}</small></label></div>}
-        <div className="workspace">
-          <section className="board-panel panel" aria-labelledby="board-title"><div className="section-header"><h2 id="board-title"><span className="section-number">01</span>{t.board}</h2><button className="text-button muted" onClick={() => count ? setResetOpen(true) : setActive(null)}><RotateCcw size={15}/>{t.reset}</button></div>
+        <section className="intro"><div className="intro-heading"><h1>{introTitle}</h1></div><p className="intro-instruction">{workspaceMode === 'layout' ? t.layoutIntro : instruction}</p><div className="intro-profile"><label className="sr-only" htmlFor="nickname">{t.nickname}</label><input id="nickname" maxLength={24} value={board.nickname} placeholder={t.nicknamePlaceholder} onChange={(event) => setBoard((current) => ({ ...current, nickname: event.target.value }))}/><div className="progress-count"><strong>{count}</strong><span>/{slots.length}</span><small>{t.selected}</small></div><div className="progress-track"><span style={{ width: `${count / Math.max(1, slots.length) * 100}%` }}/></div></div>
+          <div className="workspace-tabs" role="tablist" aria-label={t.workspaceTabs} onKeyDown={(event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          const next = event.key === 'Home' ? 'selection' : event.key === 'End' ? 'layout' : workspaceMode === 'selection' ? 'layout' : 'selection';
+          switchWorkspace(next); document.getElementById(`${next}-tab`)?.focus();
+        }}>
+          <button id="selection-tab" role="tab" aria-selected={workspaceMode === 'selection'} aria-controls="selection-panel" tabIndex={workspaceMode === 'selection' ? 0 : -1} onClick={() => switchWorkspace('selection')}><Anchor size={16}/>{t.selectionTab}</button>
+          <button id="layout-tab" role="tab" aria-selected={workspaceMode === 'layout'} aria-controls="layout-panel" tabIndex={workspaceMode === 'layout' ? 0 : -1} onClick={() => switchWorkspace('layout')}><LayoutGrid size={16}/>{t.layoutTab}</button>
+        </div>
+        </section>
+        <div id="selection-panel" role="tabpanel" aria-labelledby="selection-tab" hidden={workspaceMode !== 'selection'} tabIndex={0}><div className="workspace">
+          <section className="board-panel panel" aria-labelledby="board-title"><div className="section-header"><h2 id="board-title"><LayoutGrid className="section-icon" size={18} aria-hidden="true"/>{t.board}</h2><button className="text-button muted" onClick={() => count ? setResetOpen(true) : setActive(null)}><RotateCcw size={15}/>{t.reset}</button></div>
             <div className="board-grid">{slots.map((group) => {
               const { ship, variant, name, image, crop } = boardImage(group.id);
               const renamed = ship && variant && shipDisplayName(ship, variant, 'en') !== ship.names.en;
@@ -533,7 +526,7 @@ export default function App() {
             })}</div>
             <div className="board-footnote"><CheckCircle2 size={13}/><span>{t.autosaved}</span><button className="text-button" onClick={share}><Share2 size={13}/>{t.share}</button></div>
           </section>
-          <aside className="library-panel panel" aria-labelledby="library-title"><div className="section-header"><h2 id="library-title"><span className="section-number">02</span>{t.library}</h2><span className="result-count">{localizedCount(classMode ? selectable.length : data?.ships.length ?? 0, 'ships', language)}</span></div>
+          <aside className="library-panel panel" aria-labelledby="library-title"><div className="section-header"><h2 id="library-title"><List className="section-icon" size={18} aria-hidden="true"/>{t.library}</h2><span className="result-count">{localizedCount(classMode ? selectable.length : data?.ships.length ?? 0, 'ships', language)}</span></div>
             <div className="library-controls"><div className="search-field"><Search size={18}/><input aria-label={t.search} placeholder={t.search} value={search} onChange={(event) => setSearch(event.target.value)}/>{search && <button className="icon-button" aria-label={t.clearSearch} onClick={() => setSearch('')}><X size={15}/></button>}</div>
               <div className="filter-strip"><button className="filter-arrow" aria-label={t.previousFilters} onClick={() => filterScroll.current?.scrollBy({ left: -180, behavior: 'smooth' })}><ChevronLeft size={16}/></button><div ref={filterScroll} className="type-filters" role="group" aria-label={classMode ? t.classLabel : t.countLabel}><button className={`chip ${filter === 'all' ? 'active' : ''}`} aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>{t.all}</button>{libraryFilters.map((group) => <button key={group.id} className={`chip ${filter === group.id ? 'active' : ''}`} aria-pressed={filter === group.id} title={group.names[language]} onClick={() => setFilter(group.id)}>{group.names[language]}</button>)}</div><button className="filter-arrow" aria-label={t.nextFilters} onClick={() => filterScroll.current?.scrollBy({ left: 180, behavior: 'smooth' })}><ChevronRight size={16}/></button></div>
             </div>
@@ -543,10 +536,14 @@ export default function App() {
             </div>
             <div className="library-footer"><ImageIcon size={13}/><span>{t.chooseArt}</span><span>{localizedCount(availableArtworkCount, 'artworks', language)}</span></div>
           </aside>
+        </div></div>
+        <div id="layout-panel" role="tabpanel" aria-labelledby="layout-tab" hidden={workspaceMode !== 'layout'} tabIndex={0}>
+          {workspaceMode === 'layout' && <ExportLayout slots={slots} layout={layout} cards={allExportCards} exportOptions={exportOptions} language={language} saving={saving}
+            onChange={(next) => setBoard((current) => ({ ...current, layout: cleanBoardLayout(next, slots) }))} onExport={() => void saveImage()} onShare={() => void share()}/>}
         </div>
         {renderFooter()}
       </main>
-      <div className="mobile-save"><span><strong>{count}</strong> /{slots.length} {t.selected}</span><button className="primary-button" disabled={saving} onClick={() => void saveImage()}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>} {saving ? t.saving : t.save}</button></div>
+      <div className="mobile-save"><span><strong>{workspaceMode === 'layout' ? exportCards.length : count}</strong>{workspaceMode === 'layout' ? ` ${t.visibleSlots}` : ` /${slots.length} ${t.selected}`}</span><button className="primary-button" disabled={saving || (workspaceMode === 'layout' && !exportCards.length)} onClick={exportAction}>{saving ? <LoaderCircle className="spin" size={17}/> : workspaceMode === 'selection' ? <LayoutGrid size={17}/> : <Download size={17}/>} {saving ? t.saving : workspaceMode === 'selection' ? t.goToLayout : t.save}</button></div>
     </>}
     <ModalPresence>{chooserSlot && <Modal language={language} title={`${t.chooseFor}${chooserSlot.names[language]}`} onClose={() => setChooser(null)}><div className="modal-search search-field"><Search size={18}/><input autoFocus aria-label={t.search} value={modalSearch} placeholder={t.search} onChange={(event) => setModalSearch(event.target.value)}/></div><div className="chooser-list modal-scroll">{candidatesByClass(modalCandidates, language).map((group) => <section className="class-section" key={group.key} aria-label={group.names[language]}><h3 className="class-heading"><span>{group.names[language]}</span><small>{group.candidates.length}</small></h3><div className="ship-list">{group.candidates.map((candidate) => renderShip(candidate, true))}</div></section>)}{!modalCandidates.length && <div className="empty-results"><Search size={25}/><strong>{t.noResults}</strong><p>{t.trySearch}</p></div>}</div></Modal>}</ModalPresence>
     <ModalPresence>{artTarget && <ArtworkPicker key={artTarget.key} candidate={artTarget} artworks={artData?.artworks ?? []} language={language} crops={avatarCrops?.images ?? {}} currentAvatar={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick.avatar : undefined} currentId={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick?.artworkId : undefined} currentVariantId={currentArtPick?.shipId === artTarget.ship.id ? currentArtPick?.variantId : undefined} onClose={() => { setArtTarget(null); setActive(null); }} onBack={() => { if (!chooser && artSlot) openChooser(artSlot); setArtTarget(null); setActive(null); }} onChoose={chooseArtwork}/>}</ModalPresence>

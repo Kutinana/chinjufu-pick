@@ -12,8 +12,8 @@ For Cloudflare Pages, use `npm run build` as the build command and `dist` as the
 output directory. Vite copies `public/_headers` into `dist/_headers`, where Pages
 reads the browser cache rules:
 
-- Content-hashed JS, CSS, and fonts in `/assets/` are cached for one year with
-  `immutable`.
+- Content-hashed JS, CSS, fonts, and responsive homepage hero images in `/assets/`
+  are cached for one year with `immutable`.
 - Artwork, ship portraits, homepage images, icons, and the favicon are cached
   for one day, then revalidated. Their filenames are not necessarily content
   hashes, so replacing a file at the same URL can take up to a day to appear.

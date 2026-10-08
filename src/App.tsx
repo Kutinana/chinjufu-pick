@@ -10,6 +10,9 @@ import type { Page } from './routes';
 import { exportBoard } from './export';
 import { clampSquare, defaultSquare, resolveAvatarCrop, zoomSquare } from './avatar';
 import type { Square } from './avatar';
+import homeHeroSmall from './assets/home-hero-itsuumi-480.webp';
+import homeHeroMedium from './assets/home-hero-itsuumi-800.webp';
+import homeHeroLarge from './assets/home-hero-itsuumi-1200.webp';
 
 const STORAGE_KEY = 'chinjufu-board-v1';
 const CLASS_STORAGE_KEY = 'chinjufu-dd-class-board-v1';
@@ -478,6 +481,7 @@ export default function App() {
   function homePortraits(names: string[]) {
     return names.map((name) => data?.ships.find((ship) => ship.names.en === name)).filter((ship) => Boolean(ship));
   }
+  // Render the homepage hero immediately; template portraits fill in when catalogs arrive.
   return <>
     <header className="site-header"><div className="header-inner">
       <a href={`/?lang=${language}`} className="brand" aria-label={t.brand}><Anchor size={22}/><span>{t.brand}</span></a>
@@ -486,9 +490,11 @@ export default function App() {
         {isPickup && <button className="primary-button header-save" onClick={() => void saveImage()} disabled={!ready || saving}>{saving ? <LoaderCircle className="spin" size={17}/> : <Download size={17}/>}<span>{saving ? t.saving : t.save}</span></button>}
       </div>
     </div></header>
-    {!ready ? <main className="loading-state"><Anchor size={42}/><h1>{t.brand}</h1>{error ? <><p>{t.loadFailed}</p><button className="primary-button" onClick={() => setRetry((value) => value + 1)}><RotateCcw size={16}/>{t.retry}</button></> : <><LoaderCircle className="spin" size={22}/><p>{t.loading}</p></>}</main> : page === 'home' ? <main className="page home-page">
+    {!ready && page !== 'home' ? <main className="loading-state"><Anchor size={42}/><h1>{t.brand}</h1>{error ? <><p>{t.loadFailed}</p><button className="primary-button" onClick={() => setRetry((value) => value + 1)}><RotateCcw size={16}/>{t.retry}</button></> : <><LoaderCircle className="spin" size={22}/><p>{t.loading}</p></>}</main> : page === 'home' ? <main className="page home-page">
       <section className="home-hero"><div className="home-hero-copy"><h1>{t.homeTitle}</h1><p>{t.homeIntro}</p></div><div className="home-hero-art" aria-hidden="true">
-        <img src="/images/home-hero-itsuumi.webp" alt="" width={1920} height={1353} fetchPriority="high"/>
+        <img src={homeHeroMedium} srcSet={`${homeHeroSmall} 480w, ${homeHeroMedium} 800w, ${homeHeroLarge} 1200w`}
+          sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 950px) calc(57.5vw - 51.75px), (max-width: 1240px) calc(57.5vw - 60.95px), 652px"
+          alt="" width={1920} height={1353} fetchPriority="high" decoding="async"/>
       </div></section>
       <section className="pickup-templates" aria-label={t.pickupTemplates}>
         {(['types', 'dd-classes'] as const).map((template, index) => <a key={template} className="pickup-template" href={`${PICKUP_PATHS[template]}?lang=${language}`}>

@@ -131,6 +131,26 @@ describe('Japanese destroyer class boards', () => {
     expect(eligible.every((candidate) => candidate.ship.classNumber && candidate.ship.classNumber > 0)).toBe(true);
   });
 
+  it('gives every export icon explicit intrinsic dimensions for Firefox', () => {
+    const icons = new Set((['types', 'dd-classes'] as const).flatMap((mode) =>
+      boardSlots(data.ships, mode).map((slot) => slot.icon)));
+    for (const icon of icons) {
+      const svg = readFileSync(new URL(`../public${icon}`, import.meta.url), 'utf8');
+      const root = svg.match(/<(?:[\w.-]+:)?svg\b[^>]*>/u)?.[0];
+      expect(root, icon).toBeDefined();
+      const attribute = (name: string) => root!.match(new RegExp(`\\s${name}=["']([^"']+)["']`, 'u'))?.[1];
+      const width = Number(attribute('width'));
+      const height = Number(attribute('height'));
+      // A viewBox alone can decode successfully but expose 0 natural dimensions in Firefox.
+      expect(Number.isFinite(width) && width > 0, icon).toBe(true);
+      expect(Number.isFinite(height) && height > 0, icon).toBe(true);
+      const viewBox = attribute('viewBox')?.trim().split(/[\s,]+/u).map(Number);
+      expect(viewBox, icon).toHaveLength(4);
+      expect(viewBox!.every(Number.isFinite) && viewBox![2] > 0 && viewBox![3] > 0, icon).toBe(true);
+      expect(width / height, icon).toBeCloseTo(viewBox![2] / viewBox![3], 8);
+    }
+  });
+
   it('excludes overseas destroyers and rejects the wrong class or ship type', () => {
     expect(slotFor(fletcher, 'dd-classes')).toBeUndefined();
     expect(slotFor(candidatesFor([kitakami])[0], 'dd-classes')).toBeUndefined();

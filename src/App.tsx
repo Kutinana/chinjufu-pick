@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, MouseEventHandler, ReactNode } from 'react';
 import { Anchor, Check, CheckCircle2, ChevronLeft, ChevronRight, Download, ExternalLink, Globe2, GripVertical, ImageIcon, Info, LayoutGrid, List, LoaderCircle, Minus, Move, Plus, RotateCcw, Search, Share2, X } from 'lucide-react';
-import { Analytics } from '@vercel/analytics/react';
 import { GROUPS, SHIP_TYPES, arrangedBoardSlots, boardForMode, boardSlots, cleanBoardLayout, slotFor, matchesSlot, candidatesFor, candidatesByClass, cleanArtworkBoard, cleanBoard, decodeBoard, encodeBoard, findVariant, matchesSearch, sortArtworks, shipDisplayName, shipClassOrdinal } from './model';
 import type { Artwork, ArtworkData, Candidate, Language, Picks, SavedBoard, ShipData, SlotId, TypeId, AvatarCrop, AvatarCropData, AvatarAdjustment } from './model';
 import { initialLanguage, localizedCount, localizedSourceName, messages } from './i18n';
@@ -560,6 +559,5 @@ export default function App() {
     <ModalPresence>{shareUrl && <Modal language={language} className="small-modal" title={t.shareTitle} onClose={() => setShareUrl('')}><p className="modal-copy">{t.shareHint}</p><input className="share-url" aria-label={t.shareTitle} readOnly value={shareUrl} onFocus={(event) => event.target.select()}/><div className="dialog-actions"><button className="primary-button" onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setToast(t.copied); } catch { setToast(t.copyFailed); } }}><Share2 size={16}/>{t.copy}</button></div></Modal>}</ModalPresence>
     <ModalPresence>{aboutOpen && <Modal language={language} className="small-modal" title={t.about} onClose={() => setAboutOpen(false)}><div className="about-content"><Anchor size={32}/><p>{t.sourceNote}</p><p>{t.artNote}</p><h3>{t.source}</h3>{[...(data?.sources ?? []), ...(artData?.sources ?? []), { name: t.sourceSilhouettes, url: 'https://blog.pastime.ne.jp/game/kankore/1473' }, { name: t.sourceHeroVisual, url: 'https://kancolle-itsuumi.com/' }].map((source, index) => <a href={source.url} key={index} target="_blank" rel="noreferrer">{localizedSourceName(source.name, language)}<ExternalLink size={13}/></a>)}<h3>{t.reference}</h3><a href="https://blue-archive-pick.vercel.app/favorite-students" target="_blank" rel="noreferrer">Kivotos Pick <ExternalLink size={13}/></a></div></Modal>}</ModalPresence>
     {toast && <div className="toast" role="status"><CheckCircle2 size={17}/>{toast}</div>}
-    <Analytics />
   </>;
 }

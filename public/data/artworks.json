@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T10:23:52.399Z",
+  "updatedAt": "2026-10-10T08:23:12.316Z",
   "sources": [
     {
       "name": "舰娘百科 · 公开舰娘条目立绘画廊",
@@ -14,11 +14,11 @@
     "syncing": false,
     "ships": 332,
     "shipsWithArt": 332,
-    "artworks": 3519,
+    "artworks": 3523,
     "standard": 1422,
-    "seasonal": 2097,
-    "normal": 1765,
-    "damaged": 1754,
+    "seasonal": 2101,
+    "normal": 1767,
+    "damaged": 1756,
     "pageFailures": [],
     "imageFailures": [],
     "forms": 865,
@@ -47901,6 +47901,46 @@
       "sourceLocked": true
     },
     {
+      "id": "art-597-541dda54d71f",
+      "shipId": "597",
+      "variantId": "597",
+      "variantIds": [
+        "597"
+      ],
+      "names": {
+        "zh": "亚特兰大 盛夏季节限定立绘",
+        "ja": "Atlanta · 2025年 夏季",
+        "en": "Atlanta · Summer 2025"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/541dda54d71f.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu397HDIllustSeika2025.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/35/KanMusu397HDIllustSeika2025.png",
+      "sourceCaption": "亚特兰大 2025盛夏季节立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-597-d14a1b97e360",
+      "shipId": "597",
+      "variantId": "597",
+      "variantIds": [
+        "597"
+      ],
+      "names": {
+        "zh": "亚特兰大 盛夏季节限定中破立绘",
+        "ja": "Atlanta · 2025年 夏季",
+        "en": "Atlanta · Summer 2025"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/d14a1b97e360.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu397HDDmgIllustSeika2025.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a5/KanMusu397HDDmgIllustSeika2025.png",
+      "sourceCaption": "亚特兰大 2025盛夏季节中破立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-598-ec5a79951463",
       "shipId": "598",
       "variantId": "598",
@@ -61435,11 +61475,10 @@
       "shipId": "942",
       "variantId": "942",
       "variantIds": [
-        "942",
-        "737"
+        "942"
       ],
       "names": {
-        "zh": "理查德·P·利里 / 理查德·P·利里改 盛夏季节立绘",
+        "zh": "理查德·P·利里 盛夏季节立绘",
         "ja": "Richard P.Leary · 2025年 夏季",
         "en": "Richard P. Leary · Summer 2025"
       },
@@ -61448,18 +61487,18 @@
       "image": "/artworks/5346bedc2197.webp",
       "source": "https://zh.kcwiki.cn/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7P%C2%B7%E5%88%A9%E9%87%8C",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/53/KanMusu542HDIllustSeika2025.png",
-      "sourceCaption": "理查德·P·利里 / 理查德·P·利里改 盛夏季节立绘"
+      "sourceCaption": "理查德·P·利里 / 理查德·P·利里改 盛夏季节立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-942-d7445eea5697",
       "shipId": "942",
       "variantId": "942",
       "variantIds": [
-        "942",
-        "737"
+        "942"
       ],
       "names": {
-        "zh": "理查德·P·利里 / 理查德·P·利里改 盛夏季节中破立绘",
+        "zh": "理查德·P·利里 盛夏季节中破立绘",
         "ja": "Richard P.Leary · 2025年 夏季",
         "en": "Richard P. Leary · Summer 2025"
       },
@@ -61468,7 +61507,8 @@
       "image": "/artworks/d7445eea5697.webp",
       "source": "https://zh.kcwiki.cn/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7P%C2%B7%E5%88%A9%E9%87%8C",
       "sourceImage": "https://uploads.kcwiki.cn/commons/1/13/KanMusu542HDDmgIllustSeika2025.png",
-      "sourceCaption": "理查德·P·利里 / 理查德·P·利里改 盛夏季节中破立绘"
+      "sourceCaption": "理查德·P·利里 / 理查德·P·利里改 盛夏季节中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-942-7c0adc626e2f",
@@ -61547,6 +61587,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7P%C2%B7%E5%88%A9%E9%87%8C",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/a7/KanMusu542HDDmgIllustTsuyu2025.png",
       "sourceCaption": "理查德·P·利里 梅雨季节限定中破立绘"
+    },
+    {
+      "id": "art-942-5f796a24197d",
+      "shipId": "942",
+      "variantId": "737",
+      "variantIds": [
+        "737"
+      ],
+      "names": {
+        "zh": "理查德·P·利里改 盛夏季节限定立绘",
+        "ja": "Richard P.Leary改 · 2025年 夏季",
+        "en": "Richard P. Leary Kai · Summer 2025"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/5f796a24197d.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu542aHDIllustSeika2025.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a3/KanMusu542aHDIllustSeika2025.png",
+      "sourceCaption": "理查德·P·利里改 2025盛夏季节立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-942-6de388701369",
+      "shipId": "942",
+      "variantId": "737",
+      "variantIds": [
+        "737"
+      ],
+      "names": {
+        "zh": "理查德·P·利里改 盛夏季节限定中破立绘",
+        "ja": "Richard P.Leary改 · 2025年 夏季",
+        "en": "Richard P. Leary Kai · Summer 2025"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/6de388701369.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu542aHDDmgIllustSeika2025.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/8/82/KanMusu542aHDDmgIllustSeika2025.png",
+      "sourceCaption": "理查德·P·利里改 2025盛夏季节中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-943-b957f4ed9958",

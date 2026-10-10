@@ -472,8 +472,8 @@ describe('class and illustration ordering', () => {
     }
   });
 
-  it('places standard illustrations first, then sorts forms before damage and keeps shared artwork at its earliest eligible form', () => {
-    const candidate = candidatesFor([kitakami])[0];
+  it('keeps all standard sets first, then sorts forms and keeps shared artwork at its earliest eligible form', () => {
+    const candidate = candidatesFor([{ ...kitakami, variants: kitakami.variants!.map((variant) => ({ ...variant, typeId: 'CL' as const })) }])[0];
     const art = (id: string, variantIds: string[], kind: 'standard' | 'seasonal', damage: 'normal' | 'damaged'): Artwork => ({
       id, shipId: kitakami.id, variantIds, kind, damage,
       names: kitakami.names, image: '/test.webp', source: '',
@@ -481,6 +481,92 @@ describe('class and illustration ordering', () => {
     const input = [art('seasonal-base', ['19'], 'seasonal', 'normal'), art('kai-ni', ['95'], 'standard', 'normal'), art('kai', ['51'], 'standard', 'normal'), art('base-damaged', ['19'], 'standard', 'damaged'), art('base', ['19'], 'standard', 'normal'), art('shared', ['51', '95'], 'standard', 'damaged')];
     expect(sortArtworks(input, candidate).map((art) => art.id)).toEqual(['base', 'base-damaged', 'kai', 'shared', 'kai-ni', 'seasonal-base']);
     expect(input[0].id).toBe('seasonal-base');
+  });
+
+  const seasonal = (id: string, filename: string, damage: Artwork['damage'], extra: Partial<Artwork> = {}): Artwork => ({
+    id, shipId: kitakami.id, variantId: kitakami.id, names: kitakami.names,
+    kind: 'seasonal', damage, image: '/test.webp', source: '',
+    sourceImage: `https://uploads.kcwiki.cn/commons/a/ab/${filename}`, ...extra,
+  });
+
+  it('orders seasonal sets by year and keeps each normal/damaged pair together even when the input is interleaved', () => {
+    const candidate = candidatesFor([kitakami])[0];
+    const input = [
+      seasonal('new-normal', 'KanMusu019HDIllustChristmas2026.png', 'normal'),
+      seasonal('unknown-damaged', 'KanMusu019HDDmgIllustTsuyu.png', 'damaged'),
+      seasonal('old-damaged', 'KanMusu019DmgIllustChristmas2019.png', 'damaged'),
+      seasonal('old-normal', 'KanMusu019HDIllustChristmas2019.png', 'normal'),
+      seasonal('new-damaged', 'KanMusu019HDDmgIllustChristmas2026.png', 'damaged'),
+      seasonal('unknown-normal', 'KanMusu019HDIllustTsuyu.png', 'normal'),
+    ];
+    expect(sortArtworks(input, candidate).map((art) => art.id)).toEqual([
+      'old-normal', 'old-damaged', 'new-normal', 'new-damaged', 'unknown-normal', 'unknown-damaged',
+    ]);
+    expect(sortArtworks(input.filter((art) => art.damage === 'normal'), candidate).map((art) => art.id))
+      .toEqual(['old-normal', 'new-normal', 'unknown-normal']);
+  });
+
+  it('preserves separate costumes with the same translated event title and year', () => {
+    const candidate = candidatesFor([kitakami])[0];
+    const input = [
+      seasonal('second-damaged', 'KanMusu019HDDmgIllustSeika2025-2.png', 'damaged'),
+      seasonal('first-normal', 'KanMusu019HDIllustSeika2025.png', 'normal'),
+      seasonal('second-normal', 'KanMusu019HDIllustSeika2025-2.png', 'normal'),
+      seasonal('first-damaged', 'KanMusu019HDDmgIllustSeika2025.png', 'damaged'),
+    ];
+    expect(sortArtworks(input, candidate).map((art) => art.id))
+      .toEqual(['second-normal', 'second-damaged', 'first-normal', 'first-damaged']);
+  });
+
+  it('finishes all forms within each season before advancing to another season', () => {
+    const candidate = candidatesFor([{ ...kitakami, variants: kitakami.variants!.map((variant) => ({ ...variant, typeId: 'CL' as const })) }])[0];
+    const input = [
+      seasonal('new-base-normal', 'KanMusu019HDIllustChristmas2025.png', 'normal'),
+      seasonal('old-kai-damaged', 'KanMusu020HDDmgIllustSeika2019.png', 'damaged', { variantId: '51' }),
+      seasonal('winter-base-normal', 'KanMusu019HDIllustChristmas2019.png', 'normal'),
+      seasonal('old-base-damaged', 'KanMusu019HDDmgIllustSeika2019.png', 'damaged'),
+      seasonal('old-kai-normal', 'KanMusu020HDIllustSeika2019.png', 'normal', { variantId: '51' }),
+      seasonal('standard-kai', 'KanMusu020HDIllust.png', 'normal', { variantId: '51', kind: 'standard' }),
+      seasonal('winter-kai-normal', 'KanMusu020HDIllustChristmas2019.png', 'normal', { variantId: '51' }),
+      seasonal('old-base-normal', 'KanMusu019HDIllustSeika2019.png', 'normal'),
+      seasonal('standard-base', 'KanMusu019HDIllust.png', 'normal', { kind: 'standard' }),
+      seasonal('new-base-damaged', 'KanMusu019HDDmgIllustChristmas2025.png', 'damaged'),
+      seasonal('old-kai-ni-normal', 'KanMusu021HDIllustSeika2019-2.png', 'normal', { variantId: '95' }),
+    ];
+    expect(sortArtworks(input, candidate).map((art) => art.id)).toEqual([
+      'standard-base', 'standard-kai',
+      'old-base-normal', 'old-base-damaged', 'old-kai-normal', 'old-kai-damaged', 'old-kai-ni-normal',
+      'winter-base-normal', 'winter-kai-normal',
+      'new-base-normal', 'new-base-damaged',
+    ]);
+  });
+
+  it('finds years omitted from display titles and pairs legacy social-media images by their Chinese title', () => {
+    const candidate = candidatesFor([kitakami])[0];
+    const input = [
+      seasonal('new-damaged', 'social-b.png', 'damaged', { names: { ...kitakami.names, zh: '北上 盛夏季节中破立绘' }, sourceCaption: '北上 2025盛夏季节中破立绘' }),
+      seasonal('older-damaged', 'KanMusu019HDDmgIllustShoshuu2022.png', 'damaged', { sourceCaption: '北上 2022初秋限定中破立绘' }),
+      seasonal('new-normal', 'social-a.png', 'normal', { names: { ...kitakami.names, zh: '北上 盛夏季节立绘' }, sourceCaption: '北上 2025盛夏季节立绘' }),
+      seasonal('older-normal', 'KanMusu019HDIllustShoshuu2022.png', 'normal', { sourceCaption: '北上 2022初秋限定立绘' }),
+    ];
+    expect(sortArtworks(input, candidate).map((art) => art.id))
+      .toEqual(['older-normal', 'older-damaged', 'new-normal', 'new-damaged']);
+    expect(sortArtworks(input.map((art) => ({ ...art, sourceImage: undefined })), candidate).map((art) => art.id))
+      .toEqual(['older-normal', 'older-damaged', 'new-normal', 'new-damaged']);
+  });
+
+  it('orders the real Miyuki catalog by standard sets, forms and seasonal years', () => {
+    const artworks = JSON.parse(readFileSync(new URL('../public/data/artworks.json', import.meta.url), 'utf8')).artworks as Artwork[];
+    const miyuki = data.ships.find((ship) => ship.id === '11')!;
+    const candidate = candidatesFor([miyuki])[0];
+    const input = artworks.filter((art) => art.shipId === miyuki.id);
+    expect(sortArtworks(input, candidate).map((art) => art.id)).toEqual([
+      'art-11-3be898937ad9', 'art-11-13c9a79c982b',
+      'art-11-2b17ff3ce6ca', 'art-11-77d7081d6d5d',
+      'art-11-0c8be414a5c0', 'art-11-e35f62e01f32',
+      'art-11-e0f90ae13972', 'art-11-1fc2b63a2d4e',
+      'art-11-0cc0f2b69b1b', 'art-11-08cff4adbe1b',
+    ]);
   });
 });
 

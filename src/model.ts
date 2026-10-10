@@ -126,6 +126,8 @@ export interface Artwork {
   image: string;
   thumbnail?: string;
   source: string;
+  sourceImage?: string;
+  sourceCaption?: string;
 }
 export interface AvatarCrop {
   size: [number, number];
@@ -215,9 +217,57 @@ export function sortArtworks(artworks: Artwork[], candidate: Candidate): Artwork
   const formOrder = new Map(candidate.variants.map((variant, index) => [variant.id, index]));
   const rank = (art: Artwork) => Math.min(...(art.variantIds ?? (art.variantId ? [art.variantId] : []))
     .map((id) => formOrder.get(id) ?? Number.MAX_SAFE_INTEGER), Number.MAX_SAFE_INTEGER);
-  return [...artworks].sort((a, b) => Number(a.kind === 'seasonal') - Number(b.kind === 'seasonal')
-    || rank(a) - rank(b)
-    || Number(a.damage === 'damaged') - Number(b.damage === 'damaged'));
+  const year = (art: Artwork) => {
+    // Display names may omit the year; retain the verified source information.
+    const text = [art.sourceCaption, art.names.zh, art.names.ja, art.names.en, art.sourceImage].join(' ');
+    return Number(text.match(/(?:^|\D)(20\d{2})(?!\d)/)?.[1] ?? Number.MAX_SAFE_INTEGER);
+  };
+  const setKey = (art: Artwork) => {
+    const filename = art.sourceImage?.split(/[?#]/)[0].split('/').at(-1) ?? '';
+    // These filenames distinguish multiple costumes from the same event/year.
+    if (/^KanMusu\d/i.test(filename)) return filename.toLowerCase()
+      .replace(/^(kanmusu\d+[a-z]?)hd/, '$1').replace(/dmg/g, '').replace(/\.[^.]+$/, '');
+    // Social-media filenames have no normal/damaged relationship. Use the
+    // Chinese title to pair them, independently of the current UI language.
+    return art.names.zh.normalize('NFKC')
+      .replace(/中破|大破|正常|普通|全身|立绘|立繪|图|圖/g, '')
+      .replace(/[\s·・/／()（）]/g, '');
+  };
+  const seasonKey = (art: Artwork) => {
+    const event = setKey(art).match(/^kanmusu\d+[a-z]?(?:illust|portrait)(.+)$/)?.[1];
+    // Remodel IDs and alternate costumes do not create another season group.
+    if (event) return event.replace(/20\d{2}/g, '').replace(/[-_]\d+$/, '');
+    const translatedEvent = art.names.en.split(' · ').slice(1).join(' · ');
+    if (translatedEvent) return translatedEvent.toLowerCase().replace(/20\d{2}|\(damaged\)|\s/g, '');
+    let label = setKey(art);
+    for (const form of [candidate.ship, ...(candidate.ship.variants ?? [])]
+      .sort((a, b) => b.names.zh.length - a.names.zh.length)) {
+      label = label.replaceAll(form.names.zh.normalize('NFKC').replace(/[\s·・/／()（）]/g, ''), '');
+    }
+    return label.replace(/20\d{2}|季节|季節|限定/g, '');
+  };
+  type ArtworkSet = { form: number; kind: number; year: number; season: string; index: number; artworks: Artwork[] };
+  const sets = new Map<string, ArtworkSet>();
+  artworks.forEach((art, index) => {
+    const form = rank(art), kind = Number(art.kind === 'seasonal');
+    const key = JSON.stringify([art.shipId, form, kind, setKey(art)]);
+    const set = sets.get(key);
+    if (set) {
+      set.artworks.push(art);
+      set.year = Math.min(set.year, year(art));
+    } else sets.set(key, { form, kind, year: year(art), season: seasonKey(art), index, artworks: [art] });
+  });
+  const seasons = new Map<string, { kind: number; year: number; index: number; sets: ArtworkSet[] }>();
+  for (const set of sets.values()) {
+    // Standard artwork is the fixed first season, with the same form/pair rules.
+    const key = set.kind === 0 ? 'standard' : JSON.stringify([set.year, set.season]);
+    const season = seasons.get(key);
+    if (season) season.sets.push(set);
+    else seasons.set(key, { kind: set.kind, year: set.year, index: set.index, sets: [set] });
+  }
+  return [...seasons.values()].sort((a, b) => a.kind - b.kind || a.year - b.year || a.index - b.index)
+    .flatMap((season) => season.sets.sort((a, b) => a.form - b.form || a.index - b.index)
+      .flatMap((set) => set.artworks.sort((a, b) => Number(a.damage === 'damaged') - Number(b.damage === 'damaged'))));
 }
 
 export function findVariant(ships: Ship[], pick?: Pick): ShipVariant | undefined {

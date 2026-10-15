@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-10T08:23:12.316Z",
+  "updatedAt": "2026-10-15T11:44:28.586Z",
   "sources": [
     {
       "name": "舰娘百科 · 公开舰娘条目立绘画廊",
@@ -14,16 +14,16 @@
     "syncing": false,
     "ships": 332,
     "shipsWithArt": 332,
-    "artworks": 3523,
-    "standard": 1422,
-    "seasonal": 2101,
-    "normal": 1767,
-    "damaged": 1756,
+    "artworks": 3537,
+    "standard": 1424,
+    "seasonal": 2113,
+    "normal": 1774,
+    "damaged": 1763,
     "pageFailures": [],
     "imageFailures": [],
-    "forms": 865,
-    "formsWithStandardNormal": 865,
-    "formsWithStandardDamaged": 865
+    "forms": 866,
+    "formsWithStandardNormal": 866,
+    "formsWithStandardDamaged": 866
   },
   "artworks": [
     {
@@ -20005,6 +20005,86 @@
       "sourceCaption": "铃谷航改二 2018冬活决战mode中破立绘"
     },
     {
+      "id": "art-124-b9c04c313fca",
+      "shipId": "124",
+      "variantId": "124",
+      "variantIds": [
+        "124"
+      ],
+      "names": {
+        "zh": "铃谷 万圣节季节限定立绘",
+        "ja": "鈴谷 · 2026年 ハロウィン",
+        "en": "Suzuya · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/b9c04c313fca.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu124HDIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/7/72/KanMusu124HDIllustHalloween2026.png",
+      "sourceCaption": "铃谷 万圣节季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-124-b63b758242bd",
+      "shipId": "124",
+      "variantId": "124",
+      "variantIds": [
+        "124"
+      ],
+      "names": {
+        "zh": "铃谷 万圣节季节限定中破立绘",
+        "ja": "鈴谷 · 2026年 ハロウィン",
+        "en": "Suzuya · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/b63b758242bd.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu124HDDmgIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/c/c0/KanMusu124HDDmgIllustHalloween2026.png",
+      "sourceCaption": "铃谷 万圣节季节限定中破立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-124-cbf35acca3ac",
+      "shipId": "124",
+      "variantId": "508",
+      "variantIds": [
+        "508"
+      ],
+      "names": {
+        "zh": "铃谷航改二 万圣节季节限定立绘",
+        "ja": "鈴谷航改二 · 2026年 ハロウィン",
+        "en": "Suzuya Kou Kai Ni · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/cbf35acca3ac.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu308HDIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/38/KanMusu308HDIllustHalloween2026.png",
+      "sourceCaption": "铃谷航改二 万圣节季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-124-60ee422332f3",
+      "shipId": "124",
+      "variantId": "508",
+      "variantIds": [
+        "508"
+      ],
+      "names": {
+        "zh": "铃谷航改二 万圣节季节限定中破立绘",
+        "ja": "鈴谷航改二 · 2026年 ハロウィン",
+        "en": "Suzuya Kou Kai Ni · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/60ee422332f3.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu308HDDmgIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/f0/KanMusu308HDDmgIllustHalloween2026.png",
+      "sourceCaption": "铃谷航改二 万圣节季节限定中破立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-125-0331b8c5d2e3",
       "shipId": "125",
       "variantId": "125",
@@ -37280,6 +37360,46 @@
       "sourceCaption": "狭雾/狭雾改 晚秋季节中破立绘"
     },
     {
+      "id": "art-480-7000f68927d8",
+      "shipId": "480",
+      "variantId": "902",
+      "variantIds": [
+        "902"
+      ],
+      "names": {
+        "zh": "狭雾改二 · 原版立绘",
+        "ja": "狭霧改二 · 通常立ち絵",
+        "en": "Sagiri Kai Ni · Standard artwork"
+      },
+      "kind": "standard",
+      "damage": "normal",
+      "image": "/artworks/7000f68927d8.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu502HDIllust.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/8/8c/KanMusu502HDIllust.png",
+      "sourceCaption": "狭雾改二 全身图",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-480-6f0f200d38cf",
+      "shipId": "480",
+      "variantId": "902",
+      "variantIds": [
+        "902"
+      ],
+      "names": {
+        "zh": "狭雾改二 · 原版立绘",
+        "ja": "狭霧改二 · 通常立ち絵",
+        "en": "Sagiri Kai Ni · Standard artwork"
+      },
+      "kind": "standard",
+      "damage": "damaged",
+      "image": "/artworks/6f0f200d38cf.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu502HDDmgIllust.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/55/KanMusu502HDDmgIllust.png",
+      "sourceCaption": "狭雾改二 中破全身图",
+      "sourceLocked": true
+    },
+    {
       "id": "art-481-f824bff0ab32",
       "shipId": "481",
       "variantId": "481",
@@ -43117,6 +43237,88 @@
       "source": "https://zh.kcwiki.cn/wiki/%E5%AF%B9%E9%A9%AC",
       "sourceImage": "https://uploads.kcwiki.cn/commons/7/76/KanMusu386DmgIllustShinnen2017.png",
       "sourceCaption": "对马/对马改 新年限定中破立绘"
+    },
+    {
+      "id": "art-540-8cebb9df9d54",
+      "shipId": "540",
+      "variantId": "540",
+      "variantIds": [
+        "540"
+      ],
+      "names": {
+        "zh": "对马 万圣节季节限定立绘",
+        "ja": "対馬 · 2026年 ハロウィン",
+        "en": "Tsushima · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/8cebb9df9d54.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu340HDIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/4/44/KanMusu340HDIllustHalloween2026.png",
+      "sourceCaption": "对马 万圣节季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-540-b46914c484af",
+      "shipId": "540",
+      "variantId": "540",
+      "variantIds": [
+        "540"
+      ],
+      "names": {
+        "zh": "对马 万圣节季节限定中破立绘",
+        "ja": "対馬 · 2026年 ハロウィン",
+        "en": "Tsushima · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/b46914c484af.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu340HDDmgIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/d/dc/KanMusu340HDDmgIllustHalloween2026.png",
+      "sourceCaption": "对马 万圣节季节限定中破立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-540-881256acacfc",
+      "shipId": "540",
+      "variantId": "540",
+      "variantIds": [
+        "540",
+        "386"
+      ],
+      "names": {
+        "zh": "对马 / 对马改 秋季季节限定立绘",
+        "ja": "対馬 / 対馬改 · 2018年 秋季",
+        "en": "Tsushima / Tsushima Kai · Autumn 2018"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/881256acacfc.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu340HDIllustAutumn2018.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/ab/KanMusu340HDIllustAutumn2018.png",
+      "sourceCaption": "对马 / 对马改 秋季季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-540-5fb66bff5d9f",
+      "shipId": "540",
+      "variantId": "540",
+      "variantIds": [
+        "540",
+        "386"
+      ],
+      "names": {
+        "zh": "对马 / 对马改 秋季季节限定中破立绘",
+        "ja": "対馬 / 対馬改 · 2018年 秋季",
+        "en": "Tsushima / Tsushima Kai · Autumn 2018"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/5fb66bff5d9f.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu340HDDmgIllustAutumn2018.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/8/8d/KanMusu340HDDmgIllustAutumn2018.png",
+      "sourceCaption": "对马 / 对马改 秋季季节限定中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-544-5e568ee3c23f",
@@ -60199,6 +60401,46 @@
       "sourceCaption": "印第安纳改"
     },
     {
+      "id": "art-932-d9b66f2bbb2b",
+      "shipId": "932",
+      "variantId": "932",
+      "variantIds": [
+        "932"
+      ],
+      "names": {
+        "zh": "印第安纳 万圣节季节限定立绘",
+        "ja": "Indiana · 2026年 ハロウィン",
+        "en": "Indiana · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/d9b66f2bbb2b.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu532HDIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/10/KanMusu532HDIllustHalloween2026.png",
+      "sourceCaption": "印第安纳 万圣节季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-932-366d2132d19a",
+      "shipId": "932",
+      "variantId": "932",
+      "variantIds": [
+        "932"
+      ],
+      "names": {
+        "zh": "印第安纳 万圣节季节限定中破立绘",
+        "ja": "Indiana · 2026年 ハロウィン",
+        "en": "Indiana · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/366d2132d19a.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu532HDDmgIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/9c/KanMusu532HDDmgIllustHalloween2026.png",
+      "sourceCaption": "印第安纳 万圣节季节限定中破立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-933-4382b5499d1c",
       "shipId": "933",
       "variantId": "933",
@@ -65811,6 +66053,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E3%AD%B4",
       "sourceImage": "https://uploads.kcwiki.cn/commons/c/ce/KanMusu593HDIllust.png",
       "sourceCaption": "㭴"
+    },
+    {
+      "id": "art-993-13d9fe05d7e3",
+      "shipId": "993",
+      "variantId": "993",
+      "variantIds": [
+        "993"
+      ],
+      "names": {
+        "zh": "㭴 万圣节季节限定立绘",
+        "ja": "樫 · 2026年 ハロウィン",
+        "en": "Kashi · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/13d9fe05d7e3.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu593HDIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/c/c8/KanMusu593HDIllustHalloween2026.png",
+      "sourceCaption": "㭴 万圣节季节限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-993-79498afde354",
+      "shipId": "993",
+      "variantId": "993",
+      "variantIds": [
+        "993"
+      ],
+      "names": {
+        "zh": "㭴 万圣节季节限定中破立绘",
+        "ja": "樫 · 2026年 ハロウィン",
+        "en": "Kashi · Halloween 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/79498afde354.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu593HDDmgIllustHalloween2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/4/4f/KanMusu593HDDmgIllustHalloween2026.png",
+      "sourceCaption": "㭴 万圣节季节限定中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-994-afab17a26825",

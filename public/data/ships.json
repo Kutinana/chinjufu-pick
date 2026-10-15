@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T11:36:27.355Z",
+  "updatedAt": "2026-10-15T11:44:28.586Z",
   "sources": [
     {
       "name": "舰娘百科 · kcdata ship catalog",
@@ -34,7 +34,7 @@
   ],
   "stats": {
     "ships": 332,
-    "forms": 865,
+    "forms": 866,
     "shipTypes": 19
   },
   "grouping": "Playable ships only. Remodel-connected forms belong to one ship. Type-changing remodels are available under each form’s ship type. Fast and slow battleships share BB.",
@@ -7949,6 +7949,17 @@
           "typeId": "DD",
           "image": "/ships/391.png",
           "wikiId": "280a"
+        },
+        {
+          "id": "902",
+          "names": {
+            "zh": "狭雾改二",
+            "ja": "狭霧改二",
+            "en": "Sagiri Kai Ni"
+          },
+          "typeId": "DD",
+          "image": "/ships/902.png",
+          "wikiId": "502"
         }
       ],
       "classId": "1",

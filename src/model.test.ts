@@ -398,9 +398,9 @@ describe('bundled ship catalog', () => {
     expect(typesFor('Chitose')).toEqual(['AV', 'CVL']);
   });
 
-  it('has all three names and a valid local PNG portrait for every one of its 865 forms', () => {
+  it('has all three names and a valid local PNG portrait for every one of its 866 forms', () => {
     const forms = data.ships.flatMap((ship) => [ship, ...(ship.variants ?? [])]);
-    expect(forms).toHaveLength(865);
+    expect(forms).toHaveLength(866);
     expect(new Set(forms.map((form) => form.id)).size).toBe(forms.length);
     for (const form of forms) {
       for (const language of ['zh', 'ja', 'en'] as const) {

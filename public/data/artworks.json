@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T11:44:28.586Z",
+  "updatedAt": "2026-11-24T13:06:18.616Z",
   "sources": [
     {
       "name": "舰娘百科 · 公开舰娘条目立绘画廊",
@@ -14,16 +14,16 @@
     "syncing": false,
     "ships": 332,
     "shipsWithArt": 332,
-    "artworks": 3537,
-    "standard": 1424,
-    "seasonal": 2113,
-    "normal": 1774,
-    "damaged": 1763,
+    "artworks": 3553,
+    "standard": 1428,
+    "seasonal": 2125,
+    "normal": 1782,
+    "damaged": 1771,
     "pageFailures": [],
     "imageFailures": [],
-    "forms": 866,
-    "formsWithStandardNormal": 866,
-    "formsWithStandardDamaged": 866
+    "forms": 870,
+    "formsWithStandardNormal": 870,
+    "formsWithStandardDamaged": 870
   },
   "artworks": [
     {
@@ -4609,7 +4609,8 @@
       "shipId": "23",
       "variantId": "488",
       "variantIds": [
-        "488"
+        "488",
+        "750"
       ],
       "names": {
         "zh": "由良改二 · 原版立绘",
@@ -4621,14 +4622,17 @@
       "image": "/artworks/beee3d414513.webp",
       "source": "https://zh.kcwiki.cn/wiki/%E7%94%B1%E8%89%AF",
       "sourceImage": "https://uploads.kcwiki.cn/commons/6/6b/KanMusu288DmgIllust.png",
-      "sourceCaption": "由良改二 中破全身图"
+      "sourceCaption": "由良改二 中破全身图",
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E7%94%B1%E8%89%AF",
+      "sourceLocked": true
     },
     {
       "id": "art-23-ba047625f6d4",
       "shipId": "23",
       "variantId": "488",
       "variantIds": [
-        "488"
+        "488",
+        "750"
       ],
       "names": {
         "zh": "由良改二 · 原版立绘",
@@ -4640,7 +4644,9 @@
       "image": "/artworks/ba047625f6d4.webp",
       "source": "https://zh.kcwiki.cn/wiki/%E7%94%B1%E8%89%AF",
       "sourceImage": "https://uploads.kcwiki.cn/commons/a/ae/KanMusu288Illust.png",
-      "sourceCaption": "由良改二 全身图"
+      "sourceCaption": "由良改二 全身图",
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E7%94%B1%E8%89%AF",
+      "sourceLocked": true
     },
     {
       "id": "art-23-23dd1b020284",
@@ -4679,6 +4685,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%94%B1%E8%89%AF",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/bf/KanMusu288DmgIllustShoshuu2017.png",
       "sourceCaption": "由良改二 浴衣限定中破立绘"
+    },
+    {
+      "id": "art-23-a5b00ac6456d",
+      "shipId": "23",
+      "variantId": "488",
+      "variantIds": [
+        "488"
+      ],
+      "names": {
+        "zh": "由良改二 初夏限定立绘",
+        "ja": "由良改二 · 2021年 初夏",
+        "en": "Yura Kai Ni · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/a5b00ac6456d.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu288HDIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/c/ca/KanMusu288HDIllustShoka2021.png",
+      "sourceCaption": "由良改二 初夏限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-23-9e4b4c43e9a0",
+      "shipId": "23",
+      "variantId": "488",
+      "variantIds": [
+        "488"
+      ],
+      "names": {
+        "zh": "由良改二 初夏限定中破立绘",
+        "ja": "由良改二 · 2021年 初夏",
+        "en": "Yura Kai Ni · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/9e4b4c43e9a0.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu288HDDmgIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b2/KanMusu288HDDmgIllustShoka2021.png",
+      "sourceCaption": "由良改二 初夏限定中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-24-d34f674baaac",
@@ -9249,7 +9295,8 @@
       "shipId": "54",
       "variantId": "158",
       "variantIds": [
-        "158"
+        "158",
+        "751"
       ],
       "names": {
         "zh": "川内改二 · 原版立绘",
@@ -9261,14 +9308,17 @@
       "image": "/artworks/74c9d675ad64.webp",
       "source": "https://zh.kcwiki.cn/wiki/%E5%B7%9D%E5%86%85",
       "sourceImage": "https://uploads.kcwiki.cn/commons/8/8c/KanMusu158DmgIllust.png",
-      "sourceCaption": "川内改二 中破全身图"
+      "sourceCaption": "川内改二 中破全身图",
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E5%B7%9D%E5%86%85",
+      "sourceLocked": true
     },
     {
       "id": "art-54-3b610e0d2794",
       "shipId": "54",
       "variantId": "158",
       "variantIds": [
-        "158"
+        "158",
+        "751"
       ],
       "names": {
         "zh": "川内改二 · 原版立绘",
@@ -9280,7 +9330,9 @@
       "image": "/artworks/3b610e0d2794.webp",
       "source": "https://zh.kcwiki.cn/wiki/%E5%B7%9D%E5%86%85",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/95/KanMusu158Illust.png",
-      "sourceCaption": "川内改二 全身图"
+      "sourceCaption": "川内改二 全身图",
+      "sharedVariantSource": "https://zh.kcwiki.cn/wiki/%E5%B7%9D%E5%86%85",
+      "sourceLocked": true
     },
     {
       "id": "art-54-2221ee643674",
@@ -10065,6 +10117,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E9%9D%92%E5%8F%B6",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/51/KanMusu054Illust.png",
       "sourceCaption": "青叶/青叶改 全身图"
+    },
+    {
+      "id": "art-61-3a3aa2ac77f2",
+      "shipId": "61",
+      "variantId": "753",
+      "variantIds": [
+        "753"
+      ],
+      "names": {
+        "zh": "青叶改侦 · 原版立绘",
+        "ja": "青葉改偵 · 通常立ち絵",
+        "en": "Aoba Kai Tei · Standard artwork"
+      },
+      "kind": "standard",
+      "damage": "normal",
+      "image": "/artworks/3a3aa2ac77f2.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu054bHDIllust.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/9b/KanMusu054bHDIllust.png",
+      "sourceCaption": "青叶改侦 全身图",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-61-b564996c2bc4",
+      "shipId": "61",
+      "variantId": "753",
+      "variantIds": [
+        "753"
+      ],
+      "names": {
+        "zh": "青叶改侦 · 原版立绘",
+        "ja": "青葉改偵 · 通常立ち絵",
+        "en": "Aoba Kai Tei · Standard artwork"
+      },
+      "kind": "standard",
+      "damage": "damaged",
+      "image": "/artworks/b564996c2bc4.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu054bHDDmgIllust.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a0/KanMusu054bHDDmgIllust.png",
+      "sourceCaption": "青叶改侦 中破全身图",
+      "sourceLocked": true
     },
     {
       "id": "art-62-756876fe1d09",
@@ -31060,6 +31152,86 @@
       "sourceCaption": "高波改二 梅雨季节限定中破立绘"
     },
     {
+      "id": "art-424-193f75393118",
+      "shipId": "424",
+      "variantId": "649",
+      "variantIds": [
+        "649"
+      ],
+      "names": {
+        "zh": "高波改二 初夏限定立绘",
+        "ja": "高波改二 · 2021年 初夏",
+        "en": "Takanami Kai Ni · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/193f75393118.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu449HDIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/d/da/KanMusu449HDIllustShoka2021.png",
+      "sourceCaption": "高波改二 初夏限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-424-171a7225c635",
+      "shipId": "424",
+      "variantId": "649",
+      "variantIds": [
+        "649"
+      ],
+      "names": {
+        "zh": "高波改二 初夏限定中破立绘",
+        "ja": "高波改二 · 2021年 初夏",
+        "en": "Takanami Kai Ni · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/171a7225c635.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu449HDDmgIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/7/73/KanMusu449HDDmgIllustShoka2021.png",
+      "sourceCaption": "高波改二 初夏限定中破立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-424-315b1130c0b5",
+      "shipId": "424",
+      "variantId": "752",
+      "variantIds": [
+        "752"
+      ],
+      "names": {
+        "zh": "高波改二侦 · 原版立绘",
+        "ja": "高波改二偵 · 通常立ち絵",
+        "en": "Takanami Kai Ni Tei · Standard artwork"
+      },
+      "kind": "standard",
+      "damage": "normal",
+      "image": "/artworks/315b1130c0b5.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu449aHDIllust.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b3/KanMusu449aHDIllust.png",
+      "sourceCaption": "高波改二侦 全身图",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-424-cb22755d9eba",
+      "shipId": "424",
+      "variantId": "752",
+      "variantIds": [
+        "752"
+      ],
+      "names": {
+        "zh": "高波改二侦 · 原版立绘",
+        "ja": "高波改二偵 · 通常立ち絵",
+        "en": "Takanami Kai Ni Tei · Standard artwork"
+      },
+      "kind": "standard",
+      "damage": "damaged",
+      "image": "/artworks/cb22755d9eba.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu449aHDDmgIllust.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/f2/KanMusu449aHDDmgIllust.png",
+      "sourceCaption": "高波改二侦 中破全身图",
+      "sourceLocked": true
+    },
+    {
       "id": "art-425-cb3d502aa6db",
       "shipId": "425",
       "variantId": "344",
@@ -51054,6 +51226,86 @@
       "sourceCaption": "迅鲸改 万圣节限定中破立绘"
     },
     {
+      "id": "art-634-8aae7c1ac6df",
+      "shipId": "634",
+      "variantId": "634",
+      "variantIds": [
+        "634"
+      ],
+      "names": {
+        "zh": "迅鲸 初夏限定立绘",
+        "ja": "迅鯨 · 2021年 初夏",
+        "en": "Jingei · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/8aae7c1ac6df.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu434HDIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/e/e6/KanMusu434HDIllustShoka2021.png",
+      "sourceCaption": "迅鲸 初夏限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-634-6e6d0ab93b81",
+      "shipId": "634",
+      "variantId": "634",
+      "variantIds": [
+        "634"
+      ],
+      "names": {
+        "zh": "迅鲸 初夏限定中破立绘",
+        "ja": "迅鯨 · 2021年 初夏",
+        "en": "Jingei · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/6e6d0ab93b81.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu434HDDmgIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/e/e2/KanMusu434HDDmgIllustShoka2021.png",
+      "sourceCaption": "迅鲸 初夏限定中破立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-634-a89a0e8907cd",
+      "shipId": "634",
+      "variantId": "634",
+      "variantIds": [
+        "634"
+      ],
+      "names": {
+        "zh": "迅鲸 初夏限定差分立绘",
+        "ja": "迅鯨 · 2021年 初夏差分",
+        "en": "Jingei · Early Summer 2021 (Alternate)"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/a89a0e8907cd.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu434HDIllustShoka2021-1.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/7/7c/KanMusu434HDIllustShoka2021-1.png",
+      "sourceCaption": "迅鲸 初夏限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-634-0206c08e8d0c",
+      "shipId": "634",
+      "variantId": "634",
+      "variantIds": [
+        "634"
+      ],
+      "names": {
+        "zh": "迅鲸 初夏限定差分中破立绘",
+        "ja": "迅鯨 · 2021年 初夏差分",
+        "en": "Jingei · Early Summer 2021 (Alternate)"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/0206c08e8d0c.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu434HDDmgIllustShoka2021-1.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/50/KanMusu434HDDmgIllustShoka2021-1.png",
+      "sourceCaption": "迅鲸 初夏限定中破立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-635-ae396f27852d",
       "shipId": "635",
       "variantId": "635",
@@ -52296,6 +52548,46 @@
       "sourceLocked": true
     },
     {
+      "id": "art-637-ac4141787464",
+      "shipId": "637",
+      "variantId": "637",
+      "variantIds": [
+        "637"
+      ],
+      "names": {
+        "zh": "第四号海防舰 初夏限定立绘",
+        "ja": "第四号海防艦 · 2021年 初夏",
+        "en": "Kaiboukan No.4 · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/ac4141787464.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu437HDIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/5b/KanMusu437HDIllustShoka2021.png",
+      "sourceCaption": "第四号海防舰 初夏限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-637-f6f75255bff5",
+      "shipId": "637",
+      "variantId": "637",
+      "variantIds": [
+        "637"
+      ],
+      "names": {
+        "zh": "第四号海防舰 初夏限定中破立绘",
+        "ja": "第四号海防艦 · 2021年 初夏",
+        "en": "Kaiboukan No.4 · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/f6f75255bff5.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu437HDDmgIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/6/63/KanMusu437HDDmgIllustShoka2021.png",
+      "sourceCaption": "第四号海防舰 初夏限定中破立绘",
+      "sourceLocked": true
+    },
+    {
       "id": "art-638-32ac306ad266",
       "shipId": "638",
       "variantId": "638",
@@ -53022,6 +53314,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E7%AB%B9",
       "sourceImage": "https://uploads.kcwiki.cn/commons/d/da/KanMusu442aHDIllust.png",
       "sourceCaption": "竹改"
+    },
+    {
+      "id": "art-642-c2feaac41363",
+      "shipId": "642",
+      "variantId": "642",
+      "variantIds": [
+        "642"
+      ],
+      "names": {
+        "zh": "竹 初夏限定立绘",
+        "ja": "竹 · 2021年 初夏",
+        "en": "Take · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/c2feaac41363.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu442HDIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/17/KanMusu442HDIllustShoka2021.png",
+      "sourceCaption": "竹 初夏限定立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-642-80c29736ad18",
+      "shipId": "642",
+      "variantId": "642",
+      "variantIds": [
+        "642"
+      ],
+      "names": {
+        "zh": "竹 初夏限定中破立绘",
+        "ja": "竹 · 2021年 初夏",
+        "en": "Take · Early Summer 2021"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/80c29736ad18.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu442HDDmgIllustShoka2021.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/10/KanMusu442HDDmgIllustShoka2021.png",
+      "sourceCaption": "竹 初夏限定中破立绘",
+      "sourceLocked": true
     },
     {
       "id": "art-643-eb5ec57a8218",

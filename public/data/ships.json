@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T11:44:28.586Z",
+  "updatedAt": "2026-11-24T13:06:18.616Z",
   "sources": [
     {
       "name": "舰娘百科 · kcdata ship catalog",
@@ -34,7 +34,7 @@
   ],
   "stats": {
     "ships": 332,
-    "forms": 866,
+    "forms": 870,
     "shipTypes": 19
   },
   "grouping": "Playable ships only. Remodel-connected forms belong to one ship. Type-changing remodels are available under each form’s ship type. Fast and slow battleships share BB.",
@@ -2119,6 +2119,17 @@
           "typeId": "CL",
           "image": "/ships/488.png",
           "wikiId": "288"
+        },
+        {
+          "id": "750",
+          "names": {
+            "zh": "由良改二侦",
+            "ja": "由良改二偵",
+            "en": "Yura Kai Ni Tei"
+          },
+          "typeId": "CL",
+          "image": "/ships/488.png",
+          "wikiId": "288a"
         }
       ],
       "classId": "20",
@@ -2163,6 +2174,17 @@
           "typeId": "CL",
           "image": "/ships/158.png",
           "wikiId": "158"
+        },
+        {
+          "id": "751",
+          "names": {
+            "zh": "川内改二侦",
+            "ja": "川内改二偵",
+            "en": "Sendai Kai Ni Tei"
+          },
+          "typeId": "CL",
+          "image": "/ships/158.png",
+          "wikiId": "158a"
         }
       ],
       "classId": "16",
@@ -2581,6 +2603,17 @@
           "typeId": "CA",
           "image": "/ships/264.png",
           "wikiId": "054a"
+        },
+        {
+          "id": "753",
+          "names": {
+            "zh": "青叶改侦",
+            "ja": "青葉改偵",
+            "en": "Aoba Kai Tei"
+          },
+          "typeId": "CA",
+          "image": "/ships/753.png",
+          "wikiId": "054b"
         }
       ],
       "classId": "13",
@@ -6761,6 +6794,17 @@
           "typeId": "DD",
           "image": "/ships/649.png",
           "wikiId": "449"
+        },
+        {
+          "id": "752",
+          "names": {
+            "zh": "高波改二侦",
+            "ja": "高波改二偵",
+            "en": "Takanami Kai Ni Tei"
+          },
+          "typeId": "DD",
+          "image": "/ships/752.png",
+          "wikiId": "449a"
         }
       ],
       "classId": "38",

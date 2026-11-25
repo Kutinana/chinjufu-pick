@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T13:06:18.616Z",
+  "updatedAt": "2026-11-25T09:47:09.695Z",
   "sources": [
     {
       "name": "舰娘百科 · 公开舰娘条目立绘画廊",
@@ -14,11 +14,11 @@
     "syncing": false,
     "ships": 332,
     "shipsWithArt": 332,
-    "artworks": 3553,
+    "artworks": 3587,
     "standard": 1428,
-    "seasonal": 2125,
-    "normal": 1782,
-    "damaged": 1771,
+    "seasonal": 2159,
+    "normal": 1799,
+    "damaged": 1788,
     "pageFailures": [],
     "imageFailures": [],
     "forms": 870,
@@ -1549,6 +1549,86 @@
       "source": "https://zh.kcwiki.cn/wiki/%E6%95%B7%E6%B3%A2",
       "sourceImage": "https://uploads.kcwiki.cn/commons/4/47/KanMusu427HDIllust.png",
       "sourceCaption": "敷波改二 全身图"
+    },
+    {
+      "id": "art-14-6d75b78fc211",
+      "shipId": "14",
+      "variantId": "14",
+      "variantIds": [
+        "14"
+      ],
+      "names": {
+        "zh": "敷波 秋刀鱼祭典限定立绘",
+        "ja": "敷波 · 2026年 秋刀魚祭り",
+        "en": "Shikinami · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/6d75b78fc211.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu018HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/5/50/KanMusu018HDIllustSanma2026.png",
+      "sourceCaption": "敷波",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-14-a1b19dbb7077",
+      "shipId": "14",
+      "variantId": "14",
+      "variantIds": [
+        "14"
+      ],
+      "names": {
+        "zh": "敷波 秋刀鱼祭典限定中破立绘",
+        "ja": "敷波 · 2026年 秋刀魚祭り",
+        "en": "Shikinami · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/a1b19dbb7077.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu018HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/d/dd/KanMusu018HDDmgIllustSanma2026.png",
+      "sourceCaption": "敷波 中破",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-14-98a95046e494",
+      "shipId": "14",
+      "variantId": "627",
+      "variantIds": [
+        "627"
+      ],
+      "names": {
+        "zh": "敷波改二 秋刀鱼祭典限定立绘",
+        "ja": "敷波改二 · 2026年 秋刀魚祭り",
+        "en": "Shikinami Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/98a95046e494.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu427HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/fc/KanMusu427HDIllustSanma2026.png",
+      "sourceCaption": "敷波改二",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-14-ba26ad8fbf5f",
+      "shipId": "14",
+      "variantId": "627",
+      "variantIds": [
+        "627"
+      ],
+      "names": {
+        "zh": "敷波改二 秋刀鱼祭典限定中破立绘",
+        "ja": "敷波改二 · 2026年 秋刀魚祭り",
+        "en": "Shikinami Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/ba26ad8fbf5f.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu427HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/3c/KanMusu427HDDmgIllustSanma2026.png",
+      "sourceCaption": "敷波改二 中破",
+      "sourceLocked": true
     },
     {
       "id": "art-15-5cec87aea2a4",
@@ -8461,6 +8541,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E5%A4%95%E7%AB%8B",
       "sourceImage": "https://uploads.kcwiki.cn/commons/e/ee/KanMusu144DmgIllustSanma2016.png",
       "sourceCaption": "夕立改二 なか卯联动中破立绘"
+    },
+    {
+      "id": "art-45-396790250825",
+      "shipId": "45",
+      "variantId": "144",
+      "variantIds": [
+        "144"
+      ],
+      "names": {
+        "zh": "夕立改二 秋刀鱼祭典限定立绘",
+        "ja": "夕立改二 · 2026年 秋刀魚祭り",
+        "en": "Yuudachi Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/396790250825.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu144HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/31/KanMusu144HDIllustSanma2026.png",
+      "sourceCaption": "夕立改二",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-45-d08b2d72e296",
+      "shipId": "45",
+      "variantId": "144",
+      "variantIds": [
+        "144"
+      ],
+      "names": {
+        "zh": "夕立改二 秋刀鱼祭典限定中破立绘",
+        "ja": "夕立改二 · 2026年 秋刀魚祭り",
+        "en": "Yuudachi Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/d08b2d72e296.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu144HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/6/60/KanMusu144HDDmgIllustSanma2026.png",
+      "sourceCaption": "夕立改二 中破",
+      "sourceLocked": true
     },
     {
       "id": "art-46-d133816b9754",
@@ -37572,6 +37692,46 @@
       "sourceLocked": true
     },
     {
+      "id": "art-480-8c56beb2c7ce",
+      "shipId": "480",
+      "variantId": "902",
+      "variantIds": [
+        "902"
+      ],
+      "names": {
+        "zh": "狭雾改二 秋刀鱼祭典限定立绘",
+        "ja": "狭霧改二 · 2026年 秋刀魚祭り",
+        "en": "Sagiri Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/8c56beb2c7ce.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu502HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/7/71/KanMusu502HDIllustSanma2026.png",
+      "sourceCaption": "狭雾改二",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-480-4fafd3522c33",
+      "shipId": "480",
+      "variantId": "902",
+      "variantIds": [
+        "902"
+      ],
+      "names": {
+        "zh": "狭雾改二 秋刀鱼祭典限定中破立绘",
+        "ja": "狭霧改二 · 2026年 秋刀魚祭り",
+        "en": "Sagiri Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/4fafd3522c33.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu502HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/6/62/KanMusu502HDDmgIllustSanma2026.png",
+      "sourceCaption": "狭雾改二 中破",
+      "sourceLocked": true
+    },
+    {
       "id": "art-481-f824bff0ab32",
       "shipId": "481",
       "variantId": "481",
@@ -54474,6 +54634,46 @@
       "sourceCaption": "玉波改二 全身图"
     },
     {
+      "id": "art-674-cd8d633fa920",
+      "shipId": "674",
+      "variantId": "1033",
+      "variantIds": [
+        "1033"
+      ],
+      "names": {
+        "zh": "玉波改二 秋刀鱼祭典限定立绘",
+        "ja": "玉波改二 · 2026年 秋刀魚祭り",
+        "en": "Tamanami Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/cd8d633fa920.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu623HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/18/KanMusu623HDIllustSanma2026.png",
+      "sourceCaption": "玉波改二",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-674-492b633ab4c5",
+      "shipId": "674",
+      "variantId": "1033",
+      "variantIds": [
+        "1033"
+      ],
+      "names": {
+        "zh": "玉波改二 秋刀鱼祭典限定中破立绘",
+        "ja": "玉波改二 · 2026年 秋刀魚祭り",
+        "en": "Tamanami Kai Ni · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/492b633ab4c5.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu623HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/fa/KanMusu623HDDmgIllustSanma2026.png",
+      "sourceCaption": "玉波改二 中破",
+      "sourceLocked": true
+    },
+    {
       "id": "art-675-ffb06e31924e",
       "shipId": "675",
       "variantId": "675",
@@ -65549,6 +65749,46 @@
       "sourceCaption": "吞武里改 十三周年限定中破立绘"
     },
     {
+      "id": "art-973-e7c100a58334",
+      "shipId": "973",
+      "variantId": "973",
+      "variantIds": [
+        "973"
+      ],
+      "names": {
+        "zh": "吞武里 秋刀鱼祭典限定立绘",
+        "ja": "Thonburi · 2026年 秋刀魚祭り",
+        "en": "Thonburi · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/e7c100a58334.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu573HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/7/79/KanMusu573HDIllustSanma2026.png",
+      "sourceCaption": "吞武里",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-973-83f241ae1f4d",
+      "shipId": "973",
+      "variantId": "973",
+      "variantIds": [
+        "973"
+      ],
+      "names": {
+        "zh": "吞武里 秋刀鱼祭典限定中破立绘",
+        "ja": "Thonburi · 2026年 秋刀魚祭り",
+        "en": "Thonburi · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/83f241ae1f4d.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu573HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/37/KanMusu573HDDmgIllustSanma2026.png",
+      "sourceCaption": "吞武里 中破",
+      "sourceLocked": true
+    },
+    {
       "id": "art-984-b6fe99882b72",
       "shipId": "984",
       "variantId": "984",
@@ -66845,6 +67085,46 @@
       "sourceCaption": "大泊改 十三周年限定中破立绘"
     },
     {
+      "id": "art-995-b58e69cd6b19",
+      "shipId": "995",
+      "variantId": "1000",
+      "variantIds": [
+        "1000"
+      ],
+      "names": {
+        "zh": "大泊改 秋刀鱼祭典限定立绘",
+        "ja": "大泊改 · 2026年 秋刀魚祭り",
+        "en": "Ootomari Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/b58e69cd6b19.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu600HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/9a/KanMusu600HDIllustSanma2026.png",
+      "sourceCaption": "大泊改",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-995-61cc5cacda04",
+      "shipId": "995",
+      "variantId": "1000",
+      "variantIds": [
+        "1000"
+      ],
+      "names": {
+        "zh": "大泊改 秋刀鱼祭典限定中破立绘",
+        "ja": "大泊改 · 2026年 秋刀魚祭り",
+        "en": "Ootomari Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/61cc5cacda04.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu600HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/0/05/KanMusu600HDDmgIllustSanma2026.png",
+      "sourceCaption": "大泊改 中破",
+      "sourceLocked": true
+    },
+    {
       "id": "art-998-dfcf4328907a",
       "shipId": "998",
       "variantId": "738",
@@ -67299,6 +67579,46 @@
       "source": "https://zh.kcwiki.cn/wiki/%E5%B2%9B%E6%A0%B9%E4%B8%B8",
       "sourceImage": "https://uploads.kcwiki.cn/commons/5/52/KanMusu608HDDmgIllustTsuyu2025.png",
       "sourceCaption": "岛根丸改 梅雨季节限定中破立绘"
+    },
+    {
+      "id": "art-1003-fa253dec8c31",
+      "shipId": "1003",
+      "variantId": "1003",
+      "variantIds": [
+        "1003"
+      ],
+      "names": {
+        "zh": "岛根丸 秋刀鱼祭典限定立绘",
+        "ja": "しまね丸 · 2026年 秋刀魚祭り",
+        "en": "Shimane Maru · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/fa253dec8c31.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu603HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/1/19/KanMusu603HDIllustSanma2026.png",
+      "sourceCaption": "岛根丸",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1003-3ea2c485e72c",
+      "shipId": "1003",
+      "variantId": "1003",
+      "variantIds": [
+        "1003"
+      ],
+      "names": {
+        "zh": "岛根丸 秋刀鱼祭典限定中破立绘",
+        "ja": "しまね丸 · 2026年 秋刀魚祭り",
+        "en": "Shimane Maru · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/3ea2c485e72c.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu603HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/e/eb/KanMusu603HDDmgIllustSanma2026.png",
+      "sourceCaption": "岛根丸 中破",
+      "sourceLocked": true
     },
     {
       "id": "art-1005-2d33fd928ce6",
@@ -68109,6 +68429,126 @@
       "sourceCaption": "独立 Flight II"
     },
     {
+      "id": "art-1023-4a6703ad6a8e",
+      "shipId": "1023",
+      "variantId": "1023",
+      "variantIds": [
+        "1023"
+      ],
+      "names": {
+        "zh": "独立 秋刀鱼祭典限定立绘",
+        "ja": "Independence · 2026年 秋刀魚祭り",
+        "en": "Independence · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/4a6703ad6a8e.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu613HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/6/6e/KanMusu613HDIllustSanma2026.png",
+      "sourceCaption": "独立",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1023-c3904afb33fc",
+      "shipId": "1023",
+      "variantId": "1023",
+      "variantIds": [
+        "1023"
+      ],
+      "names": {
+        "zh": "独立 秋刀鱼祭典限定中破立绘",
+        "ja": "Independence · 2026年 秋刀魚祭り",
+        "en": "Independence · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/c3904afb33fc.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu613HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/f9/KanMusu613HDDmgIllustSanma2026.png",
+      "sourceCaption": "独立 中破",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1023-abff4d5e5ed5",
+      "shipId": "1023",
+      "variantId": "1028",
+      "variantIds": [
+        "1028"
+      ],
+      "names": {
+        "zh": "独立改 秋刀鱼祭典限定立绘",
+        "ja": "Independence改 · 2026年 秋刀魚祭り",
+        "en": "Independence Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/abff4d5e5ed5.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu618HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/0/08/KanMusu618HDIllustSanma2026.png",
+      "sourceCaption": "独立改",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1023-160fb6a62c4e",
+      "shipId": "1023",
+      "variantId": "1028",
+      "variantIds": [
+        "1028"
+      ],
+      "names": {
+        "zh": "独立改 秋刀鱼祭典限定中破立绘",
+        "ja": "Independence改 · 2026年 秋刀魚祭り",
+        "en": "Independence Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/160fb6a62c4e.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu618HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/a/a5/KanMusu618HDDmgIllustSanma2026.png",
+      "sourceCaption": "独立改 中破",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1023-17664ce21ab1",
+      "shipId": "1023",
+      "variantId": "1036",
+      "variantIds": [
+        "1036"
+      ],
+      "names": {
+        "zh": "独立 Flight II 秋刀鱼祭典限定立绘",
+        "ja": "Independence Flight II · 2026年 秋刀魚祭り",
+        "en": "Independence Flight II · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/17664ce21ab1.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu626HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b4/KanMusu626HDIllustSanma2026.png",
+      "sourceCaption": "独立 Flight II",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1023-a0f5d7f43099",
+      "shipId": "1023",
+      "variantId": "1036",
+      "variantIds": [
+        "1036"
+      ],
+      "names": {
+        "zh": "独立 Flight II 秋刀鱼祭典限定中破立绘",
+        "ja": "Independence Flight II · 2026年 秋刀魚祭り",
+        "en": "Independence Flight II · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/a0f5d7f43099.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu626HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/6/6a/KanMusu626HDDmgIllustSanma2026.png",
+      "sourceCaption": "独立 Flight II 中破",
+      "sourceLocked": true
+    },
+    {
       "id": "art-1025-3482e80c0cd1",
       "shipId": "1025",
       "variantId": "1025",
@@ -68649,6 +69089,46 @@
       "sourceLocked": true
     },
     {
+      "id": "art-1053-5f8b2dc0d814",
+      "shipId": "1053",
+      "variantId": "1053",
+      "variantIds": [
+        "1053"
+      ],
+      "names": {
+        "zh": "秃鹫 秋刀鱼祭典限定立绘",
+        "ja": "Vautour · 2026年 秋刀魚祭り",
+        "en": "Vautour · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/5f8b2dc0d814.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu643HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/8/8e/KanMusu643HDIllustSanma2026.png",
+      "sourceCaption": "秃鹫",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1053-97df074841f4",
+      "shipId": "1053",
+      "variantId": "1053",
+      "variantIds": [
+        "1053"
+      ],
+      "names": {
+        "zh": "秃鹫 秋刀鱼祭典限定中破立绘",
+        "ja": "Vautour · 2026年 秋刀魚祭り",
+        "en": "Vautour · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/97df074841f4.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu643HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/99/KanMusu643HDDmgIllustSanma2026.png",
+      "sourceCaption": "秃鹫 中破",
+      "sourceLocked": true
+    },
+    {
       "id": "art-1055-84179e485c38",
       "shipId": "1055",
       "variantId": "1055",
@@ -68882,6 +69362,126 @@
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu651HDDmgIllustShoshuu2026.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/b/b4/KanMusu651HDDmgIllustShoshuu2026.png",
       "sourceCaption": "贝阿恩 amélioration 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-2a9b0923b1c8",
+      "shipId": "1055",
+      "variantId": "1055",
+      "variantIds": [
+        "1055"
+      ],
+      "names": {
+        "zh": "贝阿恩 秋刀鱼祭典限定立绘",
+        "ja": "Béarn · 2026年 秋刀魚祭り",
+        "en": "Béarn · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/2a9b0923b1c8.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu645HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/3/3f/KanMusu645HDIllustSanma2026.png",
+      "sourceCaption": "贝阿恩",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-2cd614ef8acf",
+      "shipId": "1055",
+      "variantId": "1055",
+      "variantIds": [
+        "1055"
+      ],
+      "names": {
+        "zh": "贝阿恩 秋刀鱼祭典限定中破立绘",
+        "ja": "Béarn · 2026年 秋刀魚祭り",
+        "en": "Béarn · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/2cd614ef8acf.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu645HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/2/24/KanMusu645HDDmgIllustSanma2026.png",
+      "sourceCaption": "贝阿恩 中破",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-90760659c490",
+      "shipId": "1055",
+      "variantId": "1060",
+      "variantIds": [
+        "1060"
+      ],
+      "names": {
+        "zh": "贝阿恩改 秋刀鱼祭典限定立绘",
+        "ja": "Béarn改 · 2026年 秋刀魚祭り",
+        "en": "Béarn Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/90760659c490.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu650HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/b2/KanMusu650HDIllustSanma2026.png",
+      "sourceCaption": "贝阿恩改",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-7d5538a86efb",
+      "shipId": "1055",
+      "variantId": "1060",
+      "variantIds": [
+        "1060"
+      ],
+      "names": {
+        "zh": "贝阿恩改 秋刀鱼祭典限定中破立绘",
+        "ja": "Béarn改 · 2026年 秋刀魚祭り",
+        "en": "Béarn Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/7d5538a86efb.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu650HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/f/f5/KanMusu650HDDmgIllustSanma2026.png",
+      "sourceCaption": "贝阿恩改 中破",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-99fe2394da60",
+      "shipId": "1055",
+      "variantId": "1061",
+      "variantIds": [
+        "1061"
+      ],
+      "names": {
+        "zh": "贝阿恩 amélioration 秋刀鱼祭典限定立绘",
+        "ja": "Béarn amélioration · 2026年 秋刀魚祭り",
+        "en": "Béarn Amélioration · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/99fe2394da60.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu651HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/0/03/KanMusu651HDIllustSanma2026.png",
+      "sourceCaption": "贝阿恩 amélioration",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1055-ca8e5a0ed945",
+      "shipId": "1055",
+      "variantId": "1061",
+      "variantIds": [
+        "1061"
+      ],
+      "names": {
+        "zh": "贝阿恩 amélioration 秋刀鱼祭典限定中破立绘",
+        "ja": "Béarn amélioration · 2026年 秋刀魚祭り",
+        "en": "Béarn Amélioration · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/ca8e5a0ed945.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu651HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/9/97/KanMusu651HDDmgIllustSanma2026.png",
+      "sourceCaption": "贝阿恩 amélioration 中破",
       "sourceLocked": true
     },
     {
@@ -69134,6 +69734,86 @@
       "source": "https://zh.kcwiki.cn/wiki/File:KanMusu660HDDmgIllustShoshuu2026.png",
       "sourceImage": "https://uploads.kcwiki.cn/commons/9/91/KanMusu660HDDmgIllustShoshuu2026.png",
       "sourceCaption": "日枝丸改 初秋季节限定（中破）立绘",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-1b8db3aba746",
+      "shipId": "1065",
+      "variantId": "1065",
+      "variantIds": [
+        "1065"
+      ],
+      "names": {
+        "zh": "日枝丸 秋刀鱼祭典限定立绘",
+        "ja": "日枝丸 · 2026年 秋刀魚祭り",
+        "en": "Hie Maru · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/1b8db3aba746.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu655HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/b/bf/KanMusu655HDIllustSanma2026.png",
+      "sourceCaption": "日枝丸",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-5a47cbfc6936",
+      "shipId": "1065",
+      "variantId": "1065",
+      "variantIds": [
+        "1065"
+      ],
+      "names": {
+        "zh": "日枝丸 秋刀鱼祭典限定中破立绘",
+        "ja": "日枝丸 · 2026年 秋刀魚祭り",
+        "en": "Hie Maru · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/5a47cbfc6936.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu655HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/4/41/KanMusu655HDDmgIllustSanma2026.png",
+      "sourceCaption": "日枝丸 中破",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-753ea18e2f20",
+      "shipId": "1065",
+      "variantId": "1070",
+      "variantIds": [
+        "1070"
+      ],
+      "names": {
+        "zh": "日枝丸改 秋刀鱼祭典限定立绘",
+        "ja": "日枝丸改 · 2026年 秋刀魚祭り",
+        "en": "Hie Maru Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "normal",
+      "image": "/artworks/753ea18e2f20.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu660HDIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/0/09/KanMusu660HDIllustSanma2026.png",
+      "sourceCaption": "日枝丸改",
+      "sourceLocked": true
+    },
+    {
+      "id": "art-1065-63b8c8ce2446",
+      "shipId": "1065",
+      "variantId": "1070",
+      "variantIds": [
+        "1070"
+      ],
+      "names": {
+        "zh": "日枝丸改 秋刀鱼祭典限定中破立绘",
+        "ja": "日枝丸改 · 2026年 秋刀魚祭り",
+        "en": "Hie Maru Kai · Saury Festival 2026"
+      },
+      "kind": "seasonal",
+      "damage": "damaged",
+      "image": "/artworks/63b8c8ce2446.webp",
+      "source": "https://zh.kcwiki.cn/wiki/File:KanMusu660HDDmgIllustSanma2026.png",
+      "sourceImage": "https://uploads.kcwiki.cn/commons/0/02/KanMusu660HDDmgIllustSanma2026.png",
+      "sourceCaption": "日枝丸改 中破",
       "sourceLocked": true
     }
   ]

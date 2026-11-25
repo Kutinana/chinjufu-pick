@@ -8,7 +8,7 @@
   },
   "coverage": {
     "manual": 3,
-    "yolo": 3548
+    "yolo": 3582
   },
   "images": {
     "/artworks/92d697a0aeb6.webp": {"size":[400,880],"rect":[129,116,199,199],"method":"yolo","score":0.851,"sha256":"c43c63a71ae20675e13450000e6fdb4afb0ce15fc809d00c2d73fc292e96a055"},
@@ -3561,6 +3561,40 @@
     "/artworks/315b1130c0b5.webp": {"size":[674,1000],"rect":[43,36,256,256],"method":"yolo","score":0.871,"sha256":"c3414829a759e8975ab88d8cc161437e8df603176c1d42c6b73f523a195cf129"},
     "/artworks/cb22755d9eba.webp": {"size":[467,813],"rect":[90,88,243,243],"method":"yolo","score":0.878,"sha256":"5d38447629a3c618f1815d2487395a73a53f8832475d0c0bd9776355ee08053b"},
     "/artworks/3a3aa2ac77f2.webp": {"size":[503,1000],"rect":[191,23,261,261],"method":"yolo","score":0.876,"sha256":"0317cd479ac0ebd8db1cb1d5384416071f51bf30e8df78c41c4041913c96c4aa"},
-    "/artworks/b564996c2bc4.webp": {"size":[523,1000],"rect":[195,27,254,254],"method":"yolo","score":0.868,"sha256":"a6b82d05e13ca4c45250f5e9ee3aaecca91524024a98afd17786a7c61d8aea11"}
+    "/artworks/b564996c2bc4.webp": {"size":[523,1000],"rect":[195,27,254,254],"method":"yolo","score":0.868,"sha256":"a6b82d05e13ca4c45250f5e9ee3aaecca91524024a98afd17786a7c61d8aea11"},
+    "/artworks/2a9b0923b1c8.webp": {"size":[370,1000],"rect":[77,0,209,209],"method":"yolo","score":0.874,"sha256":"a2126a4b5df2b765667a50e130ad5922fba261f79d6f6d0e6ae6cd67484d4972"},
+    "/artworks/2cd614ef8acf.webp": {"size":[610,695],"rect":[213,1,211,211],"method":"yolo","score":0.873,"sha256":"1415456ce9626b938cddf58ca1984a390a5000385ecd85fc127f64e4284f8e61"},
+    "/artworks/90760659c490.webp": {"size":[370,1000],"rect":[77,0,210,210],"method":"yolo","score":0.872,"sha256":"4b75b23e2c6a11431d98f2c8127f5eb1b04ed2f0267aaa1f3e6a4574ae72bd86"},
+    "/artworks/7d5538a86efb.webp": {"size":[610,695],"rect":[213,0,211,211],"method":"yolo","score":0.873,"sha256":"75a9505a4757f313d79cf7eaa7c11c74e3eb76184c623830e2f7dc4ea1ede6b8"},
+    "/artworks/99fe2394da60.webp": {"size":[370,1000],"rect":[76,0,211,211],"method":"yolo","score":0.875,"sha256":"2b94fe42620426ec4021856bd1c9b6fbcb85bccbe1891fe3b825f2578c8dfbc0"},
+    "/artworks/ca8e5a0ed945.webp": {"size":[610,695],"rect":[213,0,212,212],"method":"yolo","score":0.874,"sha256":"218433e673baa2ec8f70b2d00fbe412cc922e51c99041448dddeb90f5fd55744"},
+    "/artworks/4a6703ad6a8e.webp": {"size":[437,970],"rect":[73,0,216,216],"method":"yolo","score":0.873,"sha256":"115ca8019ad5051df9cdfb82a47f1c163d3c2bdd6c2581ee4970fec537873fbe"},
+    "/artworks/c3904afb33fc.webp": {"size":[406,660],"rect":[64,0,215,215],"method":"yolo","score":0.868,"sha256":"c10103f23b99fa67f2c5e501d2d5782477b924fb87b40f4a12b0a581bc453d87"},
+    "/artworks/abff4d5e5ed5.webp": {"size":[437,970],"rect":[72,0,217,217],"method":"yolo","score":0.87,"sha256":"26b98a32d2119165c85ba06838ab9a19dac0026cc063268e2d95f6760bc1d2fd"},
+    "/artworks/160fb6a62c4e.webp": {"size":[409,660],"rect":[63,0,217,217],"method":"yolo","score":0.864,"sha256":"b9e26fe2c8eac1eb4c7af3e53043d097f3461cad14765c97c6d660d6f39bf844"},
+    "/artworks/17664ce21ab1.webp": {"size":[437,970],"rect":[72,0,217,217],"method":"yolo","score":0.872,"sha256":"040cd6e3c5983f00acc4351b89053620945913b333f7860bb5cedc3628fc41f8"},
+    "/artworks/a0f5d7f43099.webp": {"size":[410,660],"rect":[64,0,215,215],"method":"yolo","score":0.874,"sha256":"d65276add9a8ecc226b2311ea757292769017092cbd2a3268070a247b7a401cf"},
+    "/artworks/6d75b78fc211.webp": {"size":[292,1000],"rect":[30,33,219,219],"method":"yolo","score":0.864,"sha256":"e842390974e9984e06254d4b2286a2b24b0e874e4db7915fa2dd1f376cb6a6a7"},
+    "/artworks/a1b19dbb7077.webp": {"size":[292,1000],"rect":[31,34,218,218],"method":"yolo","score":0.862,"sha256":"ad9914d8939c6f5c10de499cb6a7e1c723a8add8ccf7f1191db1e15a7599d16b"},
+    "/artworks/98a95046e494.webp": {"size":[292,1000],"rect":[30,32,221,221],"method":"yolo","score":0.864,"sha256":"8a6e9e176c2cf38d7b0827c80f6bc7bc9953dd28f1d8f9336aa8ad06e152fff3"},
+    "/artworks/ba26ad8fbf5f.webp": {"size":[292,1000],"rect":[31,34,218,218],"method":"yolo","score":0.862,"sha256":"ed0c1cc8734bcf11802bd6a0940ca0608391737130c8c7fdf772a0ea5e10959e"},
+    "/artworks/8c56beb2c7ce.webp": {"size":[609,1000],"rect":[201,0,216,216],"method":"yolo","score":0.867,"sha256":"091f8f2b1f677085ae723cf7ff9ef5f557808abee528fb11611bd572efc9dc25"},
+    "/artworks/4fafd3522c33.webp": {"size":[656,653],"rect":[239,0,212,212],"method":"yolo","score":0.877,"sha256":"731148ec300ab812881cb8e5b4eed4850e6470ad86451b40494f5706d533a111"},
+    "/artworks/396790250825.webp": {"size":[478,885],"rect":[146,2,225,225],"method":"yolo","score":0.88,"sha256":"ae3af9af9da8620c93faff54c8ae8b9ce4e0ebde5947e5068b4adf15e1d7c9c6"},
+    "/artworks/d08b2d72e296.webp": {"size":[351,562],"rect":[56,1,226,226],"method":"yolo","score":0.862,"sha256":"daca9be4529963cca1ef52f6c216e4bbc754f3a645dea3f6001517a308a27077"},
+    "/artworks/cd8d633fa920.webp": {"size":[503,897],"rect":[128,0,258,258],"method":"yolo","score":0.87,"sha256":"bda4306ff4eb03b1e9050e50bfa6166ecc8b0b8b5893529395a8e1a0c16a7988"},
+    "/artworks/492b633ab4c5.webp": {"size":[545,752],"rect":[114,59,243,243],"method":"yolo","score":0.858,"sha256":"cc72dca6234b97d82b28668bcfb34941df28440423f23a3adee3628825524bcd"},
+    "/artworks/5f8b2dc0d814.webp": {"size":[275,983],"rect":[39,17,202,202],"method":"yolo","score":0.854,"sha256":"9e405c286bdca59391b879b00d66d8e9fe12704225d718263a79111b44812f52"},
+    "/artworks/97df074841f4.webp": {"size":[565,510],"rect":[107,12,198,198],"method":"yolo","score":0.87,"sha256":"535931dfe6f228a70c54b57f928436a2b199ff835c69a3e2b8b0d661d6be88c7"},
+    "/artworks/e7c100a58334.webp": {"size":[369,843],"rect":[81,0,229,229],"method":"yolo","score":0.873,"sha256":"2608609ff26cef6ebb94c5393e511486c5f3dd2e2207ff79103fc06325d42ed0"},
+    "/artworks/83f241ae1f4d.webp": {"size":[570,592],"rect":[175,0,236,236],"method":"yolo","score":0.881,"sha256":"0c51b3c4f5feb3afc24671e835c2e6d657cb716a62da6a99e707e23989326df5"},
+    "/artworks/b58e69cd6b19.webp": {"size":[369,927],"rect":[74,0,204,204],"method":"yolo","score":0.874,"sha256":"8ca445761bd17c6331fef8708d9d07018a52cb88825fcc27af89761a085a1d26"},
+    "/artworks/61cc5cacda04.webp": {"size":[434,798],"rect":[39,2,202,202],"method":"yolo","score":0.852,"sha256":"b8294fe8e5698bb8c053d21b4d228dae5052628e4ec1e3c7489031dc8f11625b"},
+    "/artworks/fa253dec8c31.webp": {"size":[496,863],"rect":[187,0,232,232],"method":"yolo","score":0.872,"sha256":"2c74fc209bf0ebc404b464c851d4be97119c5ffdab62347b11d20355f8cc0827"},
+    "/artworks/3ea2c485e72c.webp": {"size":[488,584],"rect":[109,1,227,227],"method":"yolo","score":0.865,"sha256":"97ab905943315f9d85180feff5891909cbd0d57bd9df2429870bf80a0f387a6b"},
+    "/artworks/1b8db3aba746.webp": {"size":[462,681],"rect":[35,0,233,233],"method":"yolo","score":0.879,"sha256":"e2bce75599e7df688b4543e96deed3caede5c9451fb22bad7a8a684d16fd78b8"},
+    "/artworks/5a47cbfc6936.webp": {"size":[531,617],"rect":[123,0,229,229],"method":"yolo","score":0.875,"sha256":"71bacfb30faccbcbbcc91f6eeb4ef2882394bc73bda6a363cde7b85acb3e0891"},
+    "/artworks/753ea18e2f20.webp": {"size":[500,681],"rect":[36,0,232,232],"method":"yolo","score":0.878,"sha256":"f0e6e3b002ef62e5a4b39e8b0c8638997829acb1cbf4614ea7d69c363c6368dd"},
+    "/artworks/63b8c8ce2446.webp": {"size":[539,646],"rect":[134,0,224,224],"method":"yolo","score":0.876,"sha256":"6cca1c4a32896cd0e3d6174115b8455004c38ccd0f5ec66dbc074d83f042a6ea"}
   }
 }
